@@ -1,109 +1,88 @@
-import React from 'react';
+import React from 'react'
+import { assets } from '../assets/assets'
 
 const Footer = () => {
   return (
-    <div>
-      <div className=' flex grid grid-cols-5 justify-between items-center'>
-        <div>
-            <p>Resources</p>
-            <ul>
-                <li>Trading View</li>
-                <li>NSE Holidays</li>
-                <li>e-Voting CDSL</li>
-                <li>e-Voting NSDL</li>
-                <li>Market Timings</li>
-            </ul>
-        </div>
-         <div>
-            <p>Company</p>
-            <ul>
-                <li>Careers</li>
-                <li>Contact Us</li>
-                <li>About US</li>
-                <li>Community</li>
-                <li>Blogs</li>
-            </ul>
-        </div>
-        <div>
-            <p>Offerings</p>
-            <ul>
-                <li>Compare Broker </li>
-                <li>Fin Calculators</li>
-                <li>IPO</li>
-                <li>All Brokers</li>
-                <li>Products</li>
-            </ul>
-        </div>
-        <div>
-            <p>Links</p>
-            <ul>
-                <li>Shark Investor</li>
-                <li>Mutual Funds</li>
-                <li>Sitemap</li>
-                <li>Indian Indices</li>
-                <li>Bug Bounty Program</li>
-            </ul>
-        </div>
-        <div>
-            <p>Policy</p>
-            <ul>
-                <li>Terms & Conditions</li>
-                <li>Privacy Policy</li>
-                <li>Refund Policy</li>
-                <li>Disclaimer</li>
-                <li>Trust & Security</li>
-            </ul>
-        </div>
-      </div>
+    <div className='w-full text-gray-800 text-sm px-6 lg:px-20 py-10'>
+      <div className='flex flex-wrap justify-between items-center gap-y-10 gap-x-10'>
+        {
+          [
+            {
+              title:'Resources',
+              items:['Trading View','NSE Holidays','e-Voting CDSL','e-Voting NSDL','Market Timings'],
+            },
+            {
+              title:'Company',
+              items:['Careers','Contact Us','About US','Community','Blogs'],
+            },
+            {
+              title:'Offerings',
+              items:['Compare Broker','Fin Calculators','IPO','All Brokers','Products'],
+            },
+            {
+              title:'Links',
+              items:['Shark Investor','Mutual Funds','Sitemap','Indian Indices','Bug Bounty Program'],
+            },
+            {
+              title:'Policy',
+              items:['Terms & Conditions','Privacy Policy','Refund Policy','Disclaimer','Trust & Security'],
+            }
+          ].map((section,index)=>(
+            <ul key={index} className='min-w-[160px]'>
+              <li className='font-semibold mb-3'>{section.title}</li>
+              {section.items.map((item,idx)=>(
+                <li key={idx} className='mb-2 text-gray-600 cursor-pointer'>
+                  {item}
+                </li>
+              ))}
 
-      <div>
-        {/* left */ }
-        <div>
-            <div>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div>
-                <img src={} alt="" />
-                <p>BLUESTOCK</p>
-                <div>
-                    <div>
-                        <p>Bluestock Fintech </p>
-                        <p>Pune, Maharashtra</p>
-                    </div>
-                    <div>
-                        <p>MSME Registration No: </p>
-                        <p>UDYAM-MH-01-v0138001 </p>
-                    </div>
-                    <p>{}</p>
-                </div>
-            </div>
+            </ul>
+          ))
+        }
+      </div>
+      <div className='flex flex-col lg:flex-row justify-between mt-10 gap-10 pt-8'>
+        {/*left */}
+        <div className='flex flex-col space-y-4 w-full lg:w-1/3 pb-10 lg:pb-0'>
+          <div className='flex gap-3'>
+            <img className='w-5 h-5 cursor-pointer' src={assets.xe} alt="" />
+            <img className='w-5 h-5 cursor-pointer' src={assets.facebook} alt="" />
+            <img className='w-5 h-5 cursor-pointer' src={assets.youtube} alt="" />
+            <img className='w-5 h-5 cursor-pointer' src={assets.linkdin} alt="" />
+            <img className='w-5 h-5 cursor-pointer' src={assets.instagram} alt="" />
+            <img className='w-5 h-5 cursor-pointer' src={assets.telegram} alt="" />
+          </div>
+          <div className='flex items-center gap-2'>
+            <img src={assets.logo} alt="" className='h-8' />
+            <h2 className='text-base font-bold'>BLUESTOCK</h2>
+          </div>
+          <div className='text-gray-700 text-sm'>
+            <p>Bluestock Fintech </p>
+            <p>Pune, Maharashtra</p>
+            <p>MSME Registration No: </p>
+            <p>UDYAM-MH-01-v0138001 </p>
+          </div>
+          <img src={assets.startup} alt="" className='h-6 w-36 mt-2' />
         </div>
-        {/**right */}
-        <div className='flex flex-col'>
-                <div>
-                    Investment in securities markets are subject to market risks, read all the related documents carefully before investing as prescribed by SEBI. Issued in the interest of the investors.
-                </div>
-                <div>
-                    The users can write to hello@bluestock.in for any app, website related queries. Also you can send IT / Tech related feedback to cto@bluestock.in
-                </div>
-                <div>
-                    Disclaimer: We are not a SEBI registered research analyst company. We do not provide any kind of stock recommendations, buy/sell stock tips, or investment and trading advice. All the stock scripts shown in the Bluestock app, website, all social media handles are for educational purposes only.
-Before making any investment in the financial market, it is advisable to consult with your financial advisor. Remember that stock markets are subject to market risks.
-                </div>
+        {/*right */}
+  
+        <div className='flex-[2] leading-relaxed space-y-4 text-sm'>
+            <p>Investment in securities markets are subject to market risks, read all the related documents carefully before investing as 
+              <br/>prescribed by SEBI. Issued in the interest of the investors.</p>
+            <p>The users can write to <span className='text-blue-600'>hello@bluestock.in</span> for any app, website related queries. Also you can send IT / Tech related feedback to
+            <br/><span className='text-blue-600'>cto@bluestock.in</span> </p>
+            <p><strong>Disclaimer:</strong> We are not a SEBI registered research analyst company. We do not provide any kind of stock recommendations, buy/ 
+            <br/>sell stock tips, or investment and trading advice. All the stock scripts shown in the Bluestock app, website, all social media handles
+            <br/> are for educational purposes only.</p>
+            <p>Before making any investment in the financial market, it is advisable to consult with your financial advisor. Remember that stock 
+              <br/>markets are subject to market risks.</p>
         </div>
       </div>
-      <hr />
-      <div className='flex justify-between items-center'>
+      <div className='flex mt-8 pt-4 border-t md:flex-row text-xs justify-between items-center text-gray-500'>
         <p>Bluestock Fintech All Rights Reserved.</p>
         <p>Made with ❤️ in Pune, Maharashtra</p>
       </div>
     </div>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

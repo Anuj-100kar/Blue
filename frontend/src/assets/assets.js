@@ -25,6 +25,18 @@ import setting from './Setting.png';
 import wallet from './wallet.png';
 import profile from './Profile.png';
 import infosquare from './Info Square.png';
+import gripvertical from './grip-vertical.png';
+import facebook from './facebook.png';
+import youtube from './youtube.png';
+import telegram from './telegram.png';
+import xe from './xe.png';
+import linkdin from './linkdin.png';
+import instagram from './instagram.png';
+import start from './startup (2).png';
+import medi from './medi.png';
+import jyoti from './jyoti.png';
+import innova from './innova.png';
+import azad from './azad.png';
 
 
 export const assets={
@@ -45,7 +57,8 @@ export const assets={
     nse,
     bse,
     sebi,
-    moneycontrol,bf,chart,buy,chat,document,setting,wallet,profile,infosquare,
+    moneycontrol,bf,chart,buy,chat,document,setting,wallet,profile,infosquare,gripvertical,xe,linkdin,youtube,instagram,telegram,facebook,
+    start,medi,jyoti,innova,azad,
 }
 
 export const stocks=[
