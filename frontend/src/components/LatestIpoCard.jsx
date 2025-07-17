@@ -1,14 +1,14 @@
 import React from 'react'
 
-const IpoCard = ({
+const LatestIpoCard = ({
     logo,
     name,
-    priceBand,
-    openDate,
-    closeDate,
-    issueSize,
-    issueType,
+    ipoPrice,
+    listingPrice,
+    listingGain,
     listingDate,
+    cmp,
+    currentReturn,
 
 }) => {
     return (
@@ -21,31 +21,31 @@ const IpoCard = ({
 
                 <div className='grid grid-cols-3 gap-x-4 gap-y-2'>
                     <div className='flex flex-col'>
-                        <span className='text-xs font-semibold text-gray-500'>PRICE BAND</span>
-                        <span className='text-gray-700'>{priceBand}</span>
+                        <span className='text-xs font-semibold text-gray-500'>IPO PRICE</span>
+                        <span className='text-gray-700'>{ipoPrice}</span>
                     </div>
                     <div className='flex flex-col items-start'>
-                        <span className='text-xs font-semibold text-gray-500'>OPEN</span>
-                        <span className='text-gray-700'>{openDate}</span>
+                        <span className='text-xs font-semibold text-gray-500'>LISTING PRICE</span>
+                        <span className='text-gray-700'>{listingPrice}</span>
                     </div>
                     <div className='flex flex-col items-start'>
-                        <span className='text-xs font-semibold text-gray-500'>CLOSE</span>
-                        <span className='text-gray-700'>{closeDate}</span>
+                        <span className='text-xs font-semibold text-gray-500'>LISTING GAIN</span>
+                        <span className='text-gray-700'>{listingGain}</span>
                     </div>
                 </div>
 
                 <div className='grid grid-cols-3 gap-6'>
                     <div className='flex flex-col items-start'>
-                        <span className='text-xs font-semibold text-gray-500'>ISSUE SIZE</span>
-                        <span className='text-gray-700'>{issueSize}</span>
-                    </div>
-                    <div className='flex flex-col items-start'>
-                        <span className='text-xs font-semibold text-gray-500'>ISSUE TYPE</span>
-                        <span className='text-gray-700'>{issueType}</span>
-                    </div>
-                    <div className='flex flex-col items-start'>
                         <span className='text-xs font-semibold text-gray-500'>LISTING DATE</span>
                         <span className='text-gray-700'>{listingDate}</span>
+                    </div>
+                    <div className='flex flex-col items-start'>
+                        <span className='text-xs font-semibold text-gray-500'>CMP</span>
+                        <span className='text-gray-700'>{cmp}</span>
+                    </div>
+                    <div className='flex flex-col items-start'>
+                        <span className='text-xs font-semibold text-gray-500'>CURRENT RETURN</span>
+                        <span className='text-gray-700'>{currentReturn}</span>
                     </div>
                 </div>
 
@@ -58,4 +58,5 @@ const IpoCard = ({
     )
 }
 
-export default IpoCard
+
+export default LatestIpoCard
