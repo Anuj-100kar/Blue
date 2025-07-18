@@ -223,3 +223,64 @@ export const blogData = [
   },
   // ... add more or fetch from API
 ];
+
+export const sectordata=[
+    {
+        icon:assets.abresives,
+        title:"Abrasives",
+        description:"The one that scraps away all inconsistencies.",
+        listedCount:3,
+        companies:{
+            micro:1,small:2,mid:0,large:0
+        },
+    },
+    {
+         icon:assets.media,
+        title:"Advertising & Media",
+        description:"The one that creates and distributes media content.",
+        listedCount:10,
+        companies:{
+            micro:8,small:2,mid:0,large:0
+        },
+    },
+    {
+         icon:assets.agri,
+        title:"Agriculture",
+        description:"The one that gives us vegetables and fruits to eat.",
+        listedCount:41,
+        companies:{
+            micro:36,small:4,mid:1,large:0
+        },
+    },
+    {
+         icon:assets.air,
+        title:"Air Conditioners",
+        description:"The one that's keeps it cool with no noise.",
+        listedCount:5,
+        companies:{
+            micro:1,small:1,mid:2,large:1
+        },
+    },
+    {
+         icon:assets.airlines,
+        title:"Airlines",
+        description:"The one that takes us around the world in the shortest time.",
+        listedCount:6,
+        companies:{
+            micro:2,small:3,mid:0,large:1
+        },
+    },
+]
+
+export const mutualfunddata=[
+    {
+        logo:assets.canara,
+        name:"Canara Rob Bluechip Equity Fund",
+        aum:"₹ 10,816.61 Cr.",
+        expenseratio:"0.5%",
+        cagr:"18.48%",
+        performance:"The fund's annualised performance has been 15.3% since inception.",
+        risk:"The fund has been categorised as Very High by SEBI and has a standard deviation of 9.09% vs its category average of 9.61%.",
+        composition:"Large Cap makes up for the majority of the fund at 89.57% along with the largest allocation towards Private Banks at 22.27%.",
+    }
+]

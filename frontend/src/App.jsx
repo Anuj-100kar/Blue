@@ -18,11 +18,14 @@ import Contact from './pages/Contact'
 import Community from './pages/Community'
 import AboutUs from './pages/AboutUs'
 import BlogPage from './pages/BlogPage'
+import SectorPage from './pages/SectorPage'
+import MutualFundCard from './components/MutualFundCard'
+import MutualFundPage from './pages/MutualFundPage'
 
 const App = () => {
   return (
     <div >
-      <BlogPage/>
+      <MutualFundPage/>
     </div>
   )
 }
