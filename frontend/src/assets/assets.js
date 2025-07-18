@@ -45,6 +45,28 @@ import Q from './Q.png';
 import community1 from './community1.png';
 import community2 from './community2.png';
 import community3 from './community3.png';
+import abresives from './abresives.png';
+import media from './media.png';
+import agri from './agri.png';
+import air from './air.png';
+import airlines from './airlines.png';
+import aluminium from './aluminium.png';
+import amusement from './amusement.png';
+import aqua from './aqua.png';
+import auto from './auto.png';
+import automobile from './automobile.png';
+import dealers from './dealers.png';
+import passenger from './passenger.png';
+import canara from './canara.png';
+import baroda from './baroda.png';
+import nippon from './nippon.png';
+import icici from './icici.png';
+import edel from './edel.png';
+import kotak from './kotak.png';
+import invesco from './invesco.png';
+import jm from './jm.png';
+import hdfc from './hdfc.png';
+import sbi from './sbi.png';
 
 
 export const assets={
@@ -66,7 +88,9 @@ export const assets={
     bse,
     sebi,
     moneycontrol,bf,chart,buy,chat,document,setting,wallet,profile,infosquare,gripvertical,xe,linkdin,youtube,instagram,telegram,facebook,
-    start,medi,jyoti,innova,azad,s20,verify,googleplay,appstore,Q,community1,community2,community3,
+    start,medi,jyoti,innova,azad,s20,verify,googleplay,appstore,Q,community1,community2,community3,media,passenger,dealers,aqua,
+    auto,automobile,amusement,airlines,aluminium,agri,air,abresives,canara,baroda,nippon,icici,edel,kotak,invesco,jm,hdfc,sbi,
+    
 }
 
 export const stocks=[
