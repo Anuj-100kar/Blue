@@ -167,3 +167,59 @@ export const faq=[
         answer:"",
     },
 ]
+
+export const productdata=[
+    {
+        section:"Diversify Your Portfolio Today!",
+        description:"Start your investment journey with our user-friendly and secure investment platforms.",
+        cards:[
+            {title:"Bluestock IPO",description:"Be the first to apply for IPOs and FPOs listed on the NSE and BSE."},
+             {title:"Bluestock IPO",description:"Be the first to apply for IPOs and FPOs listed on the NSE and BSE."},
+              {title:"Bluestock IPO",description:"Be the first to apply for IPOs and FPOs listed on the NSE and BSE."},
+        ]
+    },
+    {
+        section:"Grow Your Network and Learn the Stock Market",
+        description:"Our community-based approach encourages you to learn from experts and peers while expanding your connections.",
+        cards:[
+             {title:"Bluestock IPO",description:"Be the first to apply for IPOs and FPOs listed on the NSE and BSE."},
+              {title:"Bluestock IPO",description:"Be the first to apply for IPOs and FPOs listed on the NSE and BSE."},
+        ]
+    },
+    {
+        section:"Make your platform more powerful",
+        description:"Integrate with our in-house trading platform and build your own customized trading applications.",
+        cards:[
+             {title:"Bluestock IPO",description:"Be the first to apply for IPOs and FPOs listed on the NSE and BSE."},
+        ]
+    }
+]
+
+export const aboutdata=[
+    {
+        value:"5 Thousand",
+        name:"Customers",
+    },
+    {
+        value:"20+",
+        name:"Team Members",
+    },
+    {
+        value:"4.9",
+        name:"Rating",
+    }
+]
+
+export const blogData = [
+  {
+    title: "Top Reasons for Life Insurance Claim Rejection",
+    date: "20 January 2024",
+    readTime: "2 min read"
+  },
+  {
+    title: "Best PSU Stocks in India",
+    date: "18 December 2023",
+    readTime: "3 min read"
+  },
+  // ... add more or fetch from API
+];

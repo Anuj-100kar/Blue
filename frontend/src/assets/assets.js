@@ -37,6 +37,14 @@ import medi from './medi.png';
 import jyoti from './jyoti.png';
 import innova from './innova.png';
 import azad from './azad.png';
+import s20 from './s20.png';
+import verify from './verify.png';
+import googleplay from './googleplay.png';
+import appstore from './appstore.png';
+import Q from './Q.png';
+import community1 from './community1.png';
+import community2 from './community2.png';
+import community3 from './community3.png';
 
 
 export const assets={
@@ -58,7 +66,7 @@ export const assets={
     bse,
     sebi,
     moneycontrol,bf,chart,buy,chat,document,setting,wallet,profile,infosquare,gripvertical,xe,linkdin,youtube,instagram,telegram,facebook,
-    start,medi,jyoti,innova,azad,
+    start,medi,jyoti,innova,azad,s20,verify,googleplay,appstore,Q,community1,community2,community3,
 }
 
 export const stocks=[
