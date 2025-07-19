@@ -282,5 +282,34 @@ export const mutualfunddata=[
         performance:"The fund's annualised performance has been 15.3% since inception.",
         risk:"The fund has been categorised as Very High by SEBI and has a standard deviation of 9.09% vs its category average of 9.61%.",
         composition:"Large Cap makes up for the majority of the fund at 89.57% along with the largest allocation towards Private Banks at 22.27%.",
+    },
+    {
+        logo:assets.baroda,
+        name:"Baroda BNP Paribas Large Cap Fund",
+        aum:"₹ 1,693.42 Cr.",
+        expenseratio:"0.92%",
+        cagr:"18.19%",
+        performance:"The fund's annualised performance has been 15.3% since inception.",
+        risk:"The fund has been categorised as Very High by SEBI and has a standard deviation of 9.05% vs its category average of 9.61%.",
+        composition:"Large Cap makes up for the majority of the fund at 78.74% along with the largest allocation towards Private Banks at 18.98%.",
+    }
+]
+
+export const stockschooldata=[
+    {
+        icon:assets.finance,
+        title:"Basic Finance",
+        description:"Learn to manage money, choose investments wisely, and achieve financia...",
+        modules:4,
+        views:504653,
+        link:"",
+    },
+    {
+        icon:assets.beginners,
+        title:"Beginners Stock Markets",
+        description:"Learn stock market terminologies, macroeconomic indicators, IPOs and c...",
+        modules:6,
+        views:392296,
+        link:"",
     }
 ]

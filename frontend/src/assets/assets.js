@@ -67,6 +67,17 @@ import invesco from './invesco.png';
 import jm from './jm.png';
 import hdfc from './hdfc.png';
 import sbi from './sbi.png';
+import finance from './finance.png';
+import beginners from './beginners.png';
+import investing from './investing.png';
+import technical from './technical.png';
+import derivatives from './derivatives.png';
+import mutual from './mutual.png';
+import banking from './banking.png';
+import financial from './financial.png';
+import crypto from './crypto.png';
+import summary from './summary.png';
+import notebook from './notebook.png';
 
 
 export const assets={
@@ -90,6 +101,7 @@ export const assets={
     moneycontrol,bf,chart,buy,chat,document,setting,wallet,profile,infosquare,gripvertical,xe,linkdin,youtube,instagram,telegram,facebook,
     start,medi,jyoti,innova,azad,s20,verify,googleplay,appstore,Q,community1,community2,community3,media,passenger,dealers,aqua,
     auto,automobile,amusement,airlines,aluminium,agri,air,abresives,canara,baroda,nippon,icici,edel,kotak,invesco,jm,hdfc,sbi,
+    finance,beginners,investing,technical,derivatives,mutual,banking,financial,crypto,summary,notebook,
     
 }
 
