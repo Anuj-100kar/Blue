@@ -14,7 +14,7 @@ const Header = () => {
                 <li className='hover:text-black cursor-pointer'>COMMUNITY</li>
                 <li className='hover:text-black cursor-pointer'>PRODUCTS</li>
                 <li className='hover:text-black cursor-pointer'>BROKERS</li>
-                <li className='hover:text-black cursor-pointer flex items-center gap-1'>LIVE NEWS <span className=' bg-blue-500 text-white hover:bg-blue-600 text-[10px] px-1 py-[2px] rounded-sm '>NEW</span></li>
+                <li className='hover:text-black cursor-pointer flex items-center gap-1'>LIVE NEWS <span className=' bg-blue-500 text-white hover:bg-blue-600 text-[10px] px-1 py-[1px] rounded-sm '>NEW</span></li>
             </ul>
         
         <div className='flex justify-center items-center text-sm space-x-3'>

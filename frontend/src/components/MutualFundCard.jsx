@@ -12,7 +12,7 @@ const MutualFundCard = ({
 }) => {
     const [isExpanded,setIsExpanded]=useState(false);
   return (
-    <div className="bg-white border rounded-lg shadow p-4 w-full max-w-3xl mx-auto mb-6">
+    <div className="bg-gray-100 border rounded-lg shadow p-4 w-full max-w-3xl mx-auto mb-6">
       {/* Top Summary Row */}
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-4">

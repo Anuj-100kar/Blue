@@ -21,11 +21,12 @@ import BlogPage from './pages/BlogPage'
 import SectorPage from './pages/SectorPage'
 import MutualFundCard from './components/MutualFundCard'
 import MutualFundPage from './pages/MutualFundPage'
+import StockSchoolPage from './pages/StockSchoolPage'
 
 const App = () => {
   return (
     <div >
-      <MutualFundPage/>
+      <StockSchoolPage/>
     </div>
   )
 }
