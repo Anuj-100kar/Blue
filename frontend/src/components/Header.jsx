@@ -3,7 +3,7 @@ import { assets } from '../assets/assets'
 
 const Header = () => {
   return (
-    <div className='w-full flex justify-between items-center px-6 py-3 shadow-sm'>
+    <div className='w-full flex justify-between items-center px-6 lg:px-20 py-2 shadow-sm'>
         <div className='flex items-center space-x-3'>
             <img className='w-12 h-12 object-contain ' src={assets.logo} alt="logo" />
             <h2 className='text-2xl font-bold text-black'>BLUESTOCK</h2>

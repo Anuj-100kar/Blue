@@ -1,11 +1,9 @@
 import React from 'react'
-import Header from '../components/Header'
 import Hero2 from '../components/Hero2'
 
 const Career = () => {
     return (
-        <div className='w-full max-w-6xl mx-auto px-4 py-10'>
-            <Header />
+        <div className='w-full max-w-7xl mx-auto px-4 py-10'>
             <p className="text-sm text-gray-500 mb-2 hover:text-blue-500">Home &gt; Careers</p>
             <section className='mb-10'>
 

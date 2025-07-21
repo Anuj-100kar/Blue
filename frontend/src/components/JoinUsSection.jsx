@@ -2,7 +2,7 @@ import React from 'react'
 
 const JoinUsSection = () => {
   return (
-     <div className="bg-blue-600 text-white rounded-xl p-8 md:p-12 my-16 max-w-5xl mx-auto text-center">
+     <div className="bg-blue-600 text-white rounded-xl p-8 md:p-12 my-16 max-w-7xl mx-auto text-start">
       <h3 className="text-2xl font-bold mb-4">Want to join us?</h3>
       <p className="mb-4">
         We’re taking complicated stuff and making it super simple. Our teams are full of smart and savvy folks working on challenging tasks.

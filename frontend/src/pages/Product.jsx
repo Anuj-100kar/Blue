@@ -6,7 +6,6 @@ import ProductCard from '../components/ProductCard'
 const Product = () => {
     return (
         <div >
-            <Header />
             <div className='px-4 py-10 bg-blue-50 mt-10'>
                 <div className='ml-10' >
                     <h1 className='text-3xl font-bold mb-8'>Best-in-class <br />Technology & <br />Platforms</h1>

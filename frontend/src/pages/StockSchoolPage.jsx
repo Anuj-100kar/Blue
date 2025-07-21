@@ -6,7 +6,6 @@ import { stockschooldata } from '../Data/IpoData'
 const StockSchoolPage = () => {
   return (
     <div>
-      <Header/>
       <div className="px-8 mt-4">
         <p className="text-sm text-gray-500 mb-2 cursor-pointer">
           <span className="hover:text-blue-500">Home</span> &gt;{' '}

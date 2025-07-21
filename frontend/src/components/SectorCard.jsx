@@ -2,10 +2,11 @@ import React from 'react'
 
 const SectorCard = ({icon,title,description,listedCount,companies}) => {
   return (
-     <div className="w-[240px] bg-gradient-to-b from-blue-200 to-white border border-blue-400 rounded-xl p-4 shadow-md flex flex-col items-center text-center space-y-3">
+     <div className="w-[300px] min-h-[400px] bg-gradient-to-b from-blue-200 to-white border border-blue-400 rounded-xl p-4 shadow-md flex flex-col items-center text-center space-y-2">
         {/* Icon */}
-      <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm">
-        <img src={icon} alt={title} className="w-8 h-8" />
+        <div className='mb-14 text-center flex flex-col items-center gap-1'>
+            <div className="w-28 h-28 bg-white rounded-full flex items-center justify-center items-center shadow-sm">
+        <img src={icon} alt={title} className="w-20 h-20" />
       </div>
 
       {/* Title */}
@@ -13,9 +14,11 @@ const SectorCard = ({icon,title,description,listedCount,companies}) => {
 
       {/* Description */}
       <p className="text-sm text-gray-600">{description}</p>
+        </div>
+      
 
       {/* Tag */}
-      <span className="text-green-700 text-xs bg-green-100 px-2 py-1 rounded-full font-medium">
+      <span className="text-green-700 text-xs bg-green-100 px-2 py-1 rounded-full font-medium ">
         {listedCount} Listed Companies
       </span>
 
@@ -30,7 +33,7 @@ const SectorCard = ({icon,title,description,listedCount,companies}) => {
       </div>
 
       {/* Details Button */}
-      <button className="mt-2 bg-blue-500 text-white text-sm px-4 py-1 rounded hover:bg-blue-600">
+      <button className="mt-8 bg-blue-500 text-white text-sm px-4 py-1 rounded hover:bg-blue-600 ">
         Details
       </button>
     </div>

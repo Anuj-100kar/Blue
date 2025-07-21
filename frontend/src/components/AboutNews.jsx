@@ -2,12 +2,13 @@ import React from 'react'
 
 const AboutNews = () => {
   return (
-     <section className="px-8 py-16 bg-white text-center">
+     <div className='max-w-7xl mx-auto'>
+      <section className="px-8 py-16 bg-white text-start">
      
-      <h2 className="text-2xl md:text-3xl font-bold mb-4">
+      <h2 className="text-2xl md:text-3xl font-bold mb-4 mx-auto">
         Bluestock is mobile app for stock market<br/> learning, analytics & club
       </h2>
-      <p className="text-gray-600 max-w-3xl mx-auto mb-10">
+      <p className="text-gray-600  mx-auto mb-10">
         We are passionate about helping you succeed in the stock <br/>market by providing cutting-edge tools and a supportive<br/> community of traders.<br/> Join us on this journey, and let’s make your stock trading<br/> experience better.
       </p>
 
@@ -28,8 +29,8 @@ const AboutNews = () => {
       </div>
 
       {/* News Section */}
-      <h3 className="text-xl font-semibold mb-6">Traders Talk</h3>
-      <h4 className="text-2xl font-bold mb-10">Recent News</h4>
+      <h3 className="text-xl font-semibold mb-6 text-center">Traders Talk</h3>
+      <h4 className="text-2xl font-bold mb-10 text-center">Recent News</h4>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         <div className="text-left">
@@ -52,6 +53,7 @@ const AboutNews = () => {
         </div>
       </div>
     </section>
+     </div>
   )
 }
 

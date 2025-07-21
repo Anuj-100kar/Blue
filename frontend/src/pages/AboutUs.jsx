@@ -7,10 +7,17 @@ import FAQ from '../components/FAQ'
 const AboutUs = () => {
     return (
         <>
-            <Header/>
-            <AboutNews/>
-            <JoinUsSection/>
-            <FAQ/>
+            <div className="px-8 mt-4 ml-4">
+                <p className="text-sm text-gray-500 mb-2 cursor-pointer">
+                    <span className="hover:text-blue-500">Home</span> &gt;{' '}
+                    <span className="hover:text-blue-500">About Us</span>
+                </p>
+            </div>
+            <AboutNews />
+            <JoinUsSection />
+            <FAQ />
+
+
         </>
     )
 }
