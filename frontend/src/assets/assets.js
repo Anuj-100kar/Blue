@@ -78,7 +78,19 @@ import financial from './financial.png';
 import crypto from './crypto.png';
 import summary from './summary.png';
 import notebook from './notebook.png';
-
+import algo from './algo.png';
+import intraday from './intraday.png';
+import psychology from './psychology.png';
+import intermarket from './intermarket.png';
+import wave from './wave.png';
+import point from './point.png';
+import swing from './swing.png';
+import indicators from './indicators.png';
+import average from './average.png';
+import fibonacci from './fibonacci.png';
+import basics from './basics.png';
+import candle from './candle.png';
+import patterns from './patterns.png';
 
 export const assets={
     boat,
@@ -102,6 +114,7 @@ export const assets={
     start,medi,jyoti,innova,azad,s20,verify,googleplay,appstore,Q,community1,community2,community3,media,passenger,dealers,aqua,
     auto,automobile,amusement,airlines,aluminium,agri,air,abresives,canara,baroda,nippon,icici,edel,kotak,invesco,jm,hdfc,sbi,
     finance,beginners,investing,technical,derivatives,mutual,banking,financial,crypto,summary,notebook,
+    algo,intraday,psychology,intermarket,wave,point,swing,indicators,average,fibonacci,basics,candle,patterns,
     
 }
 

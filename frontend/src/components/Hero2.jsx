@@ -3,7 +3,7 @@ import { assets } from '../assets/assets'
 
 const Hero2 = () => {
     return (
-        <div className='w-full px-4  bg-blue-600 rounded-xl text-white max-w-6xl mx-auto'>
+        <div className='w-full px-4 bg-blue-600 rounded-xl text-white max-w-7xl mx-auto'>
             <div className='flex flex-col lg:flex-row items-start lg:items-center gap-8'>
                 <div className='flex flex-col lg:flex-row items-start overflow-hidden gap-4 lg:w-1/2'>
                     <img className='w-[403px] object-contain -mb-72 ' src={assets.s20} alt="" />

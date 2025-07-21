@@ -11,7 +11,6 @@ const SectorPage = () => {
     );
     return (
         <div className='p-6'>
-            <Header />
             <div className="mb-6 mt-4">
                 <p className="text-sm text-gray-500 mb-2">
                     <span className="hover:text-blue-500 cursor-pointer">Home</span> &gt;{" "}
@@ -29,7 +28,7 @@ const SectorPage = () => {
                     onChange={(e) => setSearch(e.target.value)}
                 />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
                 {filteredSectors.map((sector, index) => (
                     <SectorCard key={index} {...sector} />
                 ))}

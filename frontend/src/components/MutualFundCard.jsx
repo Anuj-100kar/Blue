@@ -2,26 +2,32 @@ import React, { useState } from 'react'
 import { FaArrowUp, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 const MutualFundCard = ({
-    logo,
-    name,
-    aum,expenseratio,
-    cagr,
-    performance,
-    risk ,
-    composition,
+  logo,
+  name,
+  aum, expenseratio,
+  cagr,
+  performance,
+  risk,
+  composition,
 }) => {
-    const [isExpanded,setIsExpanded]=useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   return (
-    <div className="bg-gray-100 border rounded-lg shadow p-4 w-full max-w-3xl mx-auto mb-6">
+    <div className="bg-gray-100 border rounded-lg shadow p-4 w-full max-w-[1200px] mx-auto mb-6">
       {/* Top Summary Row */}
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-4">
-          <img src={logo} alt="logo" className="w-12 h-12 object-contain" />
+          <img src={logo} alt="logo" className="w-14 h-14 object-contain" />
           <div>
             <h2 className="font-semibold text-lg">{name}</h2>
-            <div className="text-sm text-gray-600">
-              <span className="mr-4">AUM: ₹{aum}</span>
-              <span>Expense Ratio: {expenseratio}</span>
+            <div className="flex gap-8 text-sm text-gray-600">
+              <div className="flex flex-col items-start">
+                <span className="text-gray-500">AUM</span>
+                <span className="font-semibold text-black">₹{aum}</span>
+              </div>
+              <div className="flex flex-col items-start">
+                <span className="text-gray-500">Expense Ratio</span>
+                <span className="font-semibold text-black">{expenseratio}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -41,8 +47,8 @@ const MutualFundCard = ({
 
       {/* Expanded Details */}
       {isExpanded && (
-        <div className="mt-4 space-y-3 text-sm text-gray-700">
-          <div className="flex items-start gap-2">
+        <div className="mt-4 space-y-3 text-sm text-gray-700 border-t">
+          <div className="flex items-start gap-2 mt-3">
             <span className="text-green-600">📈</span>
             <p><strong>Performance:</strong> {performance}</p>
           </div>

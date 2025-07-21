@@ -313,3 +313,138 @@ export const stockschooldata=[
         link:"",
     }
 ]
+
+export const technicaldata=[
+    {
+        icon:assets.basics,
+        title:"Basics of Technical analysis",
+        description:"Understand basics of chart patterns, candlesticks, indicators, volume,...",
+        views:141300,
+        link:"",
+    },
+    {
+        icon:assets.candle,
+        title:"Candlesticks Charts & Patterns",
+        description:"Learn to read candlestick patterns and identify trends",
+        views:249832,
+        link:"",
+    }
+]
+
+export const technicalmodules = [
+  {
+    id: 'introduction',
+    title: 'Introduction',
+    content: 'Market analysis is broadly categorized into two main methods...'
+  },
+  {
+    id: 'types-of-charts',
+    title: 'Types of Charts',
+    content: 'There are different types of price charts like line chart, bar chart...'
+  },
+  {
+    id: 'trends',
+    title: 'Trends',
+    content: 'Trends are the general direction of the market...'
+  },
+]
+
+export const highlightdata = [
+  {
+    title: 'Lower Cost',
+    points: ['Free analytics', 'No hidden fees', 'Transparent pricing'],
+  },
+  {
+    title: 'Analytics',
+    points: ['Real-time charts', 'Powerful indicators', 'Custom alerts'],
+  },
+  {
+    title: 'Chat',
+    points: ['Community support', 'Live discussions', 'Expert insights'],
+  },
+];
+
+export const brokers = [
+  {
+    name: 'Zerodha',
+    accountOpening: 'Free',
+    amc: '₹300',
+    brokerage: '₹20/trade',
+    rating: '4.8',
+  },
+  {
+    name: 'Upstox',
+    accountOpening: 'Free',
+    amc: '₹249',
+    brokerage: '₹20/trade',
+    rating: '4.6',
+  },
+  {
+    name: 'Groww',
+    accountOpening: 'Free',
+    amc: 'Zero',
+    brokerage: '₹20/trade',
+    rating: '4.5',
+  },
+  {
+    name: 'Angel One',
+    accountOpening: 'Free',
+    amc: '₹240',
+    brokerage: '₹20/trade',
+    rating: '4.4',
+  },
+];
+
+export const brokersdata = [
+  {
+    name: 'Upstox',
+    logo: '/logos/upstox.png',
+    rating: 4,
+    reviews: 100,
+    accounts: '95.3K',
+    openLink: '#',
+    features: ['Equity', 'Commodity', 'Currency', 'Futures', 'Options'],
+    charges: [
+      { title: 'A/C Opening Charge', value: '₹0' },
+      { title: 'AMC', value: '₹0' },
+      { title: 'Equity Delivery', value: '₹0' },
+    ],
+  },
+  {
+    name: 'Groww',
+    logo: '/logos/groww.png',
+    rating: 4,
+    reviews: 180,
+    accounts: '80.2K',
+    openLink: '#',
+    features: ['Equity', 'Commodity', 'Currency', 'Futures', 'Options'],
+    charges: [
+      { title: 'A/C Opening Charge', value: '₹0' },
+      { title: 'AMC', value: '₹0' },
+      { title: 'Equity Delivery', value: '₹20' },
+    ],
+  },
+  // Add more broker objects here...
+];
+
+export const investors = [
+  {
+    name: 'Rakesh Jhunjhunwala',
+    image: '/investors/rakesh.jpg',
+    description: 'He starting investment in the 90\'s',
+    link: '/investors/rakesh',
+  },
+  {
+    name: 'Ashish Kacholia',
+    image: '/investors/ashish.jpg',
+    description: 'He starting investment in the 90\'s',
+    link: '/investors/ashish',
+  },
+  {
+    name: 'Anil Goel',
+    image: '/investors/anil.jpg',
+    description: 'He starting investment in the 90\'s',
+    link: '/investors/anil',
+  },
+  // Add more investors here...
+];

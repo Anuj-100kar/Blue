@@ -4,13 +4,19 @@ import { assets } from '../assets/assets'
 
 const Contact = () => {
     return (
-        <div className="max-w-7xl mx-auto px-4 py-12">
-            <Header />
-            <p className="text-sm text-gray-500 mb-2 cursor-pointer"><span className='hover:text-blue-500'>Home</span> &gt; <span className='hover:text-blue-500'>Contact Us</span></p>
+        <>
+        <div className="px-8 mt-4 ml-2">
+        <p className="text-sm text-gray-500 mb-2 cursor-pointer">
+          <span className="hover:text-blue-500">Home</span> &gt;{' '}
+          <span className="hover:text-blue-500">Contact Us</span>
+        </p>
+         <h1 className="text-3xl font-semibold text-gray-800 mt-4">How Can We Help You ?</h1>
+      </div>
+        
+        <div className="w-full max-w-7xl mx-auto px-4 py-10">
+        
 
-            <h1 className="text-3xl font-semibold text-gray-800 mb-10">How Can We Help You ?</h1>
-
-            <div className="flex flex-wrap sm:flex-col gap-6 mb-16">
+            <div className="flex flex-wrap gap-8 sm:flex-col lg:flex-row  mb-16">
                 {/* Email Box */}
                 <div className="flex-1 min-w-[280px] bg-white border border-gray-400 rounded-xl shadow-sm p-6">
                     <h2 className="text-lg font-semibold mb-2">Email us</h2>
@@ -37,7 +43,9 @@ const Contact = () => {
                     </a>
                 </div>
             </div>
-            <div className="bg-blue-700 text-white rounded-xl py-12 px-6 text-center relative">
+           
+        </div>
+         <div className="bg-blue-700 text-white rounded-xl py-12 px-6 text-center relative">
                 <h2 className="text-3xl font-bold mb-3">Interact With Us in Our Active Community</h2>
                 <p className="text-lg max-w-2xl mx-auto mb-6">
                     Ask questions or discuss anything related to investing or trading<br/>
@@ -56,7 +64,7 @@ const Contact = () => {
                     />
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

@@ -9,8 +9,12 @@ import Header from '../components/Header'
 const MutualFundPage = () => {
   return (
     <>
-    <Header/>
-    <p className="text-sm text-gray-500 my-2 mx-6 hover:text-blue-500">Home &gt; Careers</p>
+    <div className="px-8 mt-4">
+        <p className="text-sm text-gray-500 mb-2 cursor-pointer">
+          <span className="hover:text-blue-500">Home</span> &gt;{' '}
+          <span className="hover:text-blue-500">Mutual Fund</span>
+        </p>
+      </div>
     <LargeCapSection/>
     <div className="space-y-5 gap-6 px-8 py-6 bg-white min-h-screen">
       {/* Sidebar */}
