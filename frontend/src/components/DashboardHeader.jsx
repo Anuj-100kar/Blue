@@ -4,7 +4,7 @@ import { assets } from '../assets/assets'
 
 const DashboardHeader = () => {
   return (
-    <div className='w-full flex items-center justify-between p-2 bg-white shadow-sm rounded mb-4'>
+    <div className='w-full flex items-center justify-between p-2 bg-white shadow-sm rounded mb-0.2'>
      <div className='relative w-[300px]'>
          <input type="text"
       placeholder='search'

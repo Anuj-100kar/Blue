@@ -1,4 +1,6 @@
 import React from 'react';
+import { FaUser, FaCommentDots, FaCheckCircle, FaInfoCircle } from 'react-icons/fa';
+import { MdStar, MdStarHalf, MdStarBorder } from 'react-icons/md';
 
 const BrokerCard = ({
   name,
@@ -8,46 +10,86 @@ const BrokerCard = ({
   accounts,
   features,
   charges,
-  openLink
+  openLink,
 }) => {
-  return (
-    <div className="flex items-center justify-between border rounded-xl p-4 shadow-sm bg-white w-full max-w-5xl mx-auto mb-4">
-      {/* Left section */}
-      <div className="flex flex-col space-y-2">
-        <h2 className="text-lg font-semibold">{name}</h2>
-        <div className="flex items-center space-x-2 text-yellow-500">
-          {'★'.repeat(rating)}{'☆'.repeat(5 - rating)}
-          <span className="text-sm text-gray-500">({reviews} Reviews)</span>
-        </div>
-        <p className="text-sm text-gray-600">{accounts} Accounts</p>
-        <a href={openLink} className="text-blue-600 underline text-sm">Open Demat A/c for FREE</a>
 
-        {/* Features */}
-        <div className="grid grid-cols-3 gap-4 text-sm mt-2">
+  const renderstars = () => {
+    const fullstars = Math.floor(rating);
+    const halfstars = rating % 1 >= 0.5;
+    const emptystars = 5 - fullstars - (halfstars ? 1 : 0);
+
+    return (
+      <>
+        {Array.from({ length: fullstars }, (_, i) => <MdStar key={`full-${i}`} className="text-yellow-500" />)}
+        {halfstars && <MdStarHalf className="text-yellow-500" />}
+        {Array.from({ length: emptystars }, (_, i) => <MdStarBorder key={`empty-${i}`} className="text-yellow-500" />)}
+      </>
+    )
+  }
+  return (
+    <div className="flex justify-between items-start border rounded-2xl p-6 shadow-sm bg-white w-full max-w-5xl mx-auto mb-6">
+
+      {/* Left Section */}
+      <div className="w-1/3 space-y-3">
+        <h2 className="text-xl font-bold">{name}</h2>
+
+        {/* Ratings & Accounts */}
+        <div className="flex items-center space-x-1">
+          {renderstars()}
+        </div>
+
+        <div className="flex items-center space-x-4 text-sm text-gray-600">
+          <span className="flex items-center gap-1"><FaCommentDots /> {reviews} Reviews</span>
+          <span className="flex items-center gap-1"><FaUser /> {accounts} Accounts</span>
+        </div>
+
+        <p className="text-sm text-gray-700 font-semibold">Open Demat A/c for FREE</p>
+
+        <div className="flex gap-2">
+          <a
+            href={openLink}
+            className="bg-black text-white px-4 py-1 text-sm rounded-md"
+          >
+            Open A/C
+          </a>
+          <button className="bg-white border px-4 py-1 text-sm rounded-md shadow-sm">
+            Learn More
+          </button>
+        </div>
+      </div>
+
+      {/* MIDDLE: Features */}
+      <div className='w-2/5 flex justify-between px-4'>
+        <div className="flex flex-col gap-5">
           {features.map((item, idx) => (
-            <div key={idx} className="flex items-center space-x-1">
-              <span className="text-green-600">✔</span>
+            <div key={idx} className="flex items-center gap-2 text-sm text-gray-800">
+              <FaCheckCircle className="text-green-600" />
               <span>{item}</span>
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Charges & Logo */}
-      <div className="flex items-center space-x-6">
-        {/* Charges */}
-        <div className="text-sm space-y-1 text-right">
+
+        <div className="flex flex-col gap-4 text-sm text-gray-800">
           {charges.map(({ title, value }, idx) => (
-            <div key={idx} className="flex justify-between space-x-4">
-              <span className="font-medium">{title}</span>
-              <span className="text-gray-700">{value}</span>
+            <div key={idx}>
+              <span className="font-semibold">{title}</span>
+              <div className="flex items-center gap-1">
+                <span>{value}</span>
+                <FaInfoCircle className="text-gray-400" />
+              </div>
             </div>
           ))}
         </div>
-
-        {/* Logo */}
-        <img src={logo} alt={name} className="w-16 h-16 object-contain rounded-md" />
       </div>
+      <div className="w-1/4 flex items-center justify-center mt-4">
+        <img
+          src={logo}
+          alt={`${name} logo`}
+          className="w-32 h-32 object-contain"
+        />
+      </div>
+
     </div>
   );
 };

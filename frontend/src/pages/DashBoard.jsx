@@ -2,7 +2,7 @@ import React from 'react'
 import { stocks } from '../assets/assets'
 import { FiEye, FiTrash2 } from 'react-icons/fi'
 
-const UpcomingIpo = () => {
+const DashBoard = () => {
   return (
     <div className='p-4 min-h-screen bg-gray-100'>
         <div className='flex justify-between items-center mb-2'>
@@ -72,4 +72,4 @@ const UpcomingIpo = () => {
   )
 }
 
-export default UpcomingIpo
+export default DashBoard;
