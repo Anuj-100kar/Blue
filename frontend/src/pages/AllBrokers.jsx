@@ -7,8 +7,7 @@ import Header from '../components/Header';
 const AllBrokers = () => {
   return (
     <div className="px-4 ">
-        <Header/>
-      <h1 className="text-2xl font-bold text-center mb-6 text-blue-700 mt-4">Made toTrade</h1>
+      <h1 className="text-2xl font-bold text-center mb-6 text-blue-600 mt-4">Made to<span className='text-green-600'>Trade</span></h1>
       {brokersdata.map((broker, index) => (
         <BrokerCard key={index} {...broker} />
       ))}

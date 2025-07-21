@@ -4,7 +4,7 @@ import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import ForgotPassword from './pages/ForgotPassword'
 import AdminDashboard from './pages/AdminDashboard'
-import UpcomingIpo from './pages/UpcomingIpo'
+import DashBoard from './pages/DashBoard'
 import Home from './pages/Home'
 import Career from './pages/Career'
 import Product from './pages/Product'
@@ -32,6 +32,9 @@ import TechnicalIndicator from './pages/TechnicalIndicator'
 import MagicOfMovingAverage from './pages/MagicOfMovingAverage'
 import Analytics from './pages/Analytics'
 import IpoLayout from './layout/IpoLayout'
+import UpcomingIpos from './pages/UpcomingIpos'
+import OngoingIpos from './pages/OngoingIpos'
+import ListedIpos from './pages/ListedIpos'
 
 const App = () => {
   return (
@@ -39,43 +42,53 @@ const App = () => {
     <>
       <Routes>
         <Route path='/bluestock' element={<UserLayout />}>
-          <Route index element={<HomeScreen />} />
-          <Route path='home' element={<Home />} />
-          <Route path='home/career' element={<Career />} />
+          {/* <Route index element={<HomeScreen />} /> */}
+
+
+          <Route index element={<Home />} />
+          <Route path='career' element={<Career />} />
 
           <Route path='community' element={<Community />} />
-          <Route path='home/products' element={<Product />} />
-          <Route path='home/contact-us' element={<Contact />} />
-          <Route path='home/community' element={<Community />} />
-          <Route path='home/about-us' element={<AboutUs />} />
-          <Route path='home/blogs' element={<BlogPage />} />
-          <Route path='home/sector' element={<SectorPage />} />
-          <Route path='home/mutual-fund' element={<MutualFundPage />} />
-          <Route path='home/analytics' element={<Analytics />} />
-          <Route path='home/stock-school' element={<StockSchoolPage />} />
-          <Route path='home/stock-school/technical-analysis' element={<Technical />} />
-          <Route path='home/stock-school/technical-analysis/basics-technical-analysis' element={<BasicsTechnical />} />
-          <Route path='home/stock-school/technical-analysis/candlestick-chart-and-patterns' element={<Candlestick />} />
-          <Route path='home/stock-school/technical-analysis/chart-patterns' element={<ChartPatterns />} />
-          <Route path='home/stock-school/technical-analysis/technical-indicators' element={<TechnicalIndicator />} />
-          <Route path='home/stock-school/technical-analysis/magic-of-moving-average' element={<MagicOfMovingAverage />} />
+          <Route path='products' element={<Product />} />
+          <Route path='contact-us' element={<Contact />} />
+          <Route path='community' element={<Community />} />
+          <Route path='about-us' element={<AboutUs />} />
+          <Route path='blogs' element={<BlogPage />} />
+          <Route path='sector' element={<SectorPage />} />
+          <Route path='mutual-fund' element={<MutualFundPage />} />
+          <Route path='analytics' element={<Analytics />} />
           <Route path='brokers' element={<AllBrokers />} />
           <Route path='live-news' element={<News />} />
-          <Route path='ipo'>
-            <Route path='upcoming-ipo' element={<UpcomingIpo />} />
-            <Route path='register' element={<IpoInformation />} />
-          </Route>
+          <Route path='shark-investor' element={<SharkInvestor/>}/>
+
+          <Route path='stock-school' element={<StockSchoolPage />} />
+          <Route path='stock-school/technical-analysis' element={<Technical />} />
+          <Route path='stock-school/technical-analysis/basics-technical-analysis' element={<BasicsTechnical />} />
+          <Route path='stock-school/technical-analysis/candlestick-chart-and-patterns' element={<Candlestick />} />
+          <Route path='stock-school/technical-analysis/chart-patterns' element={<ChartPatterns />} />
+          <Route path='stock-school/technical-analysis/technical-indicators' element={<TechnicalIndicator />} />
+          <Route path='stock-school/technical-analysis/magic-of-moving-average' element={<MagicOfMovingAverage />} />
+
+          <Route path='ipo/upcoming-ipo' element={<UpcomingIpos />} />
+          <Route path='ipo/ongoing-ipo' element={<OngoingIpos />} />
+          <Route path='ipo/listed-ipo' element={<ListedIpos />} />
+          <Route path='ipo/register' element={<IpoInformation />} />
+
         </Route>
 
 
         <Route path='/admin' element={<AdminLayout />}>
           <Route index element={<AdminDashboard />} />
+          <Route path='dashboard' element={<DashBoard />} />
+
           <Route path='ipo' element={<IpoLayout />}>
+
             <Route path='login' element={<Login />} />
             <Route path='sign-up' element={<SignUp />} />
             <Route path='forgot-password' element={<ForgotPassword />} />
+
           </Route>
-          <Route path='upcoming-ipo' element={<UpcomingIpo />} />
+
           <Route path='register' element={<IpoInformation />} />
 
         </Route>

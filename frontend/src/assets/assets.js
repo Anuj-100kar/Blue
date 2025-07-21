@@ -91,6 +91,34 @@ import fibonacci from './fibonacci.png';
 import basics from './basics.png';
 import candle from './candle.png';
 import patterns from './patterns.png';
+import zerodha from './zerodha.png';
+import paisa from './5paisa.png';
+import smc from './smc.png';
+import sharekhan from './sharekhan.png';
+import paytm from './paytm.png';
+import nuvama from './nuvama.png';
+import motilal from './motilal.jpg';
+import iifl from './iifl.png';
+import geojit from './geojit.png';
+import fyers from './fyers.png';
+import axisdirect from './axisdirect.png';
+import aliceblue from './aliceblue.png';
+import dhan from './dhan.jpg';
+import groww from './groww.png';
+import angelone from './angelone.png';
+import upstox from './upstox.png';
+import jhunjhunwala from './jhunjhunwala.png';
+import goel from './goel.png';
+import khanna from './khanna.png';
+import kacholia from './kacholia.png';
+import kedia from './kedia.png';
+import kothari from './kothari.png';
+import damani from './damani.png';
+import singhania from './singhania.png';
+import shah from './shah.png';
+import veliyath from './veliyath.png';
+import dhawan from './dhawan.png';
+
 
 export const assets={
     boat,
@@ -115,6 +143,8 @@ export const assets={
     auto,automobile,amusement,airlines,aluminium,agri,air,abresives,canara,baroda,nippon,icici,edel,kotak,invesco,jm,hdfc,sbi,
     finance,beginners,investing,technical,derivatives,mutual,banking,financial,crypto,summary,notebook,
     algo,intraday,psychology,intermarket,wave,point,swing,indicators,average,fibonacci,basics,candle,patterns,
+    zerodha,upstox,angelone,groww,dhan,aliceblue,axisdirect,fyers,geojit,iifl,motilal,nuvama,paytm,sharekhan,smc,paisa,
+    jhunjhunwala,goel,dhawan,kacholia,khanna,kothari,shah,veliyath,damani,singhania,kedia,
     
 }
 

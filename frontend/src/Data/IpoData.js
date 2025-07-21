@@ -398,30 +398,32 @@ export const brokers = [
 export const brokersdata = [
   {
     name: 'Upstox',
-    logo: '/logos/upstox.png',
+    logo: assets.upstox,
     rating: 4,
-    reviews: 100,
+    reviews: '100K',
     accounts: '95.3K',
     openLink: '#',
     features: ['Equity', 'Commodity', 'Currency', 'Futures', 'Options'],
     charges: [
-      { title: 'A/C Opening Charge', value: '₹0' },
-      { title: 'AMC', value: '₹0' },
-      { title: 'Equity Delivery', value: '₹0' },
+      { title: 'A/C Opening Charge', value: '₹ Rs. 0' },
+      { title: 'Maintenance Charge', value: '₹300' },
+      { title: 'Delivery Brokerage', value: '₹20' },
+      { title: 'Intraday Brokerage', value: '₹20' },
     ],
   },
   {
     name: 'Groww',
-    logo: '/logos/groww.png',
+    logo: assets.groww,
     rating: 4,
-    reviews: 180,
+    reviews: '180K',
     accounts: '80.2K',
     openLink: '#',
     features: ['Equity', 'Commodity', 'Currency', 'Futures', 'Options'],
     charges: [
-      { title: 'A/C Opening Charge', value: '₹0' },
-      { title: 'AMC', value: '₹0' },
-      { title: 'Equity Delivery', value: '₹20' },
+      { title: 'A/C Opening Charge', value: '₹ Rs. 0' },
+      { title: 'Maintenance Charge', value: '₹300' },
+      { title: 'Delivery Brokerage', value: '₹20' },
+      { title: 'Intraday Brokerage', value: '₹20' },
     ],
   },
   // Add more broker objects here...
@@ -430,21 +432,38 @@ export const brokersdata = [
 export const investors = [
   {
     name: 'Rakesh Jhunjhunwala',
-    image: '/investors/rakesh.jpg',
+    image: assets.jhunjhunwala,
     description: 'He starting investment in the 90\'s',
     link: '/investors/rakesh',
   },
   {
     name: 'Ashish Kacholia',
-    image: '/investors/ashish.jpg',
+    image: assets.kacholia,
     description: 'He starting investment in the 90\'s',
     link: '/investors/ashish',
   },
   {
     name: 'Anil Goel',
-    image: '/investors/anil.jpg',
+    image: assets.goel,
     description: 'He starting investment in the 90\'s',
     link: '/investors/anil',
   },
   // Add more investors here...
+];
+
+export const question = [
+  {
+    question: 'How to Subscribe to an IPO?',
+    answer: [
+      'Step 1: Login to your respective service provider.',
+      'Step 2: Click on the IPO button.',
+      'Step 3: Select the IPO you want to bid and enter the relevant details.',
+      'Step 4: Your subscription will be completed once you make the payment or give permission.'
+    ]
+  },
+  {
+    question: 'Should I buy an IPO first day?',
+    answer: 'It depends on the demand and fundamentals of the company.'
+  },
+  // Add more...
 ];

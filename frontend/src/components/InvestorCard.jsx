@@ -2,11 +2,11 @@ import React from 'react'
 
 const InvestorCard = ({ name, image, description, link }) => {
   return (
-    <div className="bg-white border rounded-xl shadow-sm p-4 w-full max-w-xs text-center space-y-3">
+    <div className="bg-white border rounded-xl shadow-sm p-6 w-full max-w-xs text-center space-y-3">
       <img
         src={image}
         alt={name}
-        className="w-24 h-24 object-cover rounded-full mx-auto border"
+        className="w-36 h-36 rounded-sm mx-auto border"
       />
       <h3 className="font-semibold text-lg">{name}</h3>
       <p className="text-sm text-gray-600">{description}</p>
