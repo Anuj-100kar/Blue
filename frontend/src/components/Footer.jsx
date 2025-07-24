@@ -1,4 +1,5 @@
 import React from 'react'
+import { assets } from '../assets/assets'
 
 const Footer = () => {
   return (
@@ -43,15 +44,15 @@ const Footer = () => {
         {/*left */}
         <div className='flex flex-col space-y-4 w-full lg:w-1/3 pb-10 lg:pb-0'>
           <div className='flex gap-3'>
-            <img className='w-5 h-5 cursor-pointer' src="/images/xe.png" alt="" />
-            <img className='w-5 h-5 cursor-pointer' src="/images/facebook.png" alt="" />
-            <img className='w-5 h-5 cursor-pointer' src="/images/youtube.png" alt="" />
-            <img className='w-5 h-5 cursor-pointer' src="/images/linkdin.png" alt="" />
-            <img className='w-5 h-5 cursor-pointer' src="/images/instagram.png" alt="" />
-            <img className='w-5 h-5 cursor-pointer' src="/images/telegram.png" alt="" />
+            <img className='w-5 h-5 cursor-pointer' src={assets.xe} alt="" />
+            <img className='w-5 h-5 cursor-pointer' src={assets.facebook} alt="" />
+            <img className='w-5 h-5 cursor-pointer' src={assets.youtube} alt="" />
+            <img className='w-5 h-5 cursor-pointer' src={assets.linkdin} alt="" />
+            <img className='w-5 h-5 cursor-pointer' src={assets.instagram} alt="" />
+            <img className='w-5 h-5 cursor-pointer' src={assets.telegram} alt="" />
           </div>
           <div className='flex items-center gap-2'>
-            <img src="/images/logo" alt="" className='h-8' />
+            <img src={assets.logo} alt="" className='h-5 w-8' />
             <h2 className='text-base font-bold'>BLUESTOCK</h2>
           </div>
           <div className='text-gray-700 text-sm'>
@@ -60,7 +61,7 @@ const Footer = () => {
             <p>MSME Registration No: </p>
             <p>UDYAM-MH-01-v0138001 </p>
           </div>
-          <img src="/images/startup.png" alt="" className='h-6 w-36 mt-2' />
+          <img src={assets.startup} alt="" className='h-6 w-36 mt-2' />
         </div>
         {/*right */}
   

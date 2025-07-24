@@ -1,7 +1,6 @@
 import React from 'react'
 import BrokerCard from '../components/BrokerCard';
 import { brokersdata } from '../Data/IpoData';
-import Header from '../components/Header';
 
 
 const AllBrokers = () => {
