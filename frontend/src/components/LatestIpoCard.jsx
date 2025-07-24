@@ -1,6 +1,8 @@
 import React from 'react'
+import axios from 'axios'
 
 const LatestIpoCard = ({
+    id,
     logo,
     name,
     ipoPrice,
@@ -9,12 +11,23 @@ const LatestIpoCard = ({
     listingDate,
     cmp,
     currentReturn,
+    onDelete
 
 }) => {
+    const handleDelete=async(id)=>{
+        try {
+            await axios.delete(`http://localhost:5000/api/ipo/${id}`);
+        onDelete();
+        } catch (error) {
+            console.error(error);
+        }
+        
+        
+    }
     return (
         <div className='bg-white rounded-xl shadow p-6 flex flex-col gap-4 max-w-[542px] max-h-[450px]' >
             <div className='flex items-center gap-2 mb-3'>
-                <img src={logo} alt="" className='w-8 h-8 rounded-full object-cover' />
+                <img src={`http://localhost:5000${logo}`} alt="" className='w-8 h-8 rounded-full object-cover' />
                 <h3 className='text-blue-500 font-semibold text-base leading-tight'>{name}</h3>
             </div>
             <div className=' text-sm text-gray-700 flex flex-col mb-4 gap-2'>
@@ -53,6 +66,7 @@ const LatestIpoCard = ({
             <div className='flex gap-3 justify-start'>
                 <button className='text-gray-800 px-4 py-2 bg-blue-200 text-xs rounded-md'>RHP</button>
                 <button className='text-gray-800 px-4 py-2 bg-blue-200 text-xs rounded-md'>DRHP</button>
+                 <button onClick={()=>handleDelete(id)} className='text-white px-4 py-2 bg-red-400 text-xs rounded-md'>delete</button>
             </div>
         </div>
     )

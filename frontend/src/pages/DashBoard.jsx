@@ -1,5 +1,4 @@
 import React from 'react'
-import { stocks } from '../assets/assets'
 import { FiEye, FiTrash2 } from 'react-icons/fi'
 
 const DashBoard = () => {
