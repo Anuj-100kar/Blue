@@ -1,8 +1,8 @@
-import { assets } from "../assets/assets"
+
 
 export const ongoingipos=[
     {
-        logo:assets.medi,
+        logo:"/images/medi",
         name:"Medi Assist Healthcare Services Ltd. IPO",
         priceBand:"Rs  218 - 230",
         openDate:"2024-01-19",
@@ -15,7 +15,7 @@ export const ongoingipos=[
 
 export const newlistedipos=[
     {
-        logo:assets.jyoti,
+        logo:"/images/jyoti",
         name:"Jyoti CNC Automation Ltd.",
         ipoprice:"Rs 331",
         listingPrice:"Rs 370",
@@ -25,7 +25,7 @@ export const newlistedipos=[
         currentReturn:"37.69%",
     },
     {
-        logo:assets.innova,
+        logo:"/images/innova",
         name:"Innova Captab Ltd.",
         ipoprice:"Rs  448",
         listingPrice:"Rs 452.1",
@@ -35,7 +35,7 @@ export const newlistedipos=[
         currentReturn:"14.96%",
     },
     {
-        logo:assets.azad,
+        logo:"/images/azad",
         name:"Azad Engineering Ltd.",
         ipoprice:"Rs  524",
         listingPrice:"Rs 720",
@@ -48,7 +48,7 @@ export const newlistedipos=[
 
 export const upcomingipos=[
     {
-        logo:assets.nova,
+        logo:"/images/nova.png",
         name:"Nova Agritech Ltd.",
         priceBand:"Rs  39 - 41",
         openDate:"2024-01-22",
@@ -58,7 +58,7 @@ export const upcomingipos=[
         listingDate:"2024-01-30",  
     },
     {
-        logo:assets.epack,
+        logo:"/images/epack.png",
         name:"EPACK Durable Ltd.",
         priceBand:"Rs  218 - 230",
         openDate:"2024-01-19",
@@ -68,7 +68,7 @@ export const upcomingipos=[
         listingDate:"2024-01-29",
     },
     {
-        logo:assets.swamy,
+        logo:"/images/swamy",
         name:"RK Swamy Ltd.",
         priceBand:"Not Issued",
         openDate:"Not Issued",
@@ -226,7 +226,7 @@ export const blogData = [
 
 export const sectordata=[
     {
-        icon:assets.abresives,
+        icon:"/images/abresives",
         title:"Abrasives",
         description:"The one that scraps away all inconsistencies.",
         listedCount:3,
@@ -235,7 +235,7 @@ export const sectordata=[
         },
     },
     {
-         icon:assets.media,
+         icon:"/images/media",
         title:"Advertising & Media",
         description:"The one that creates and distributes media content.",
         listedCount:10,
@@ -244,7 +244,7 @@ export const sectordata=[
         },
     },
     {
-         icon:assets.agri,
+         icon:"images/agri",
         title:"Agriculture",
         description:"The one that gives us vegetables and fruits to eat.",
         listedCount:41,
@@ -253,7 +253,7 @@ export const sectordata=[
         },
     },
     {
-         icon:assets.air,
+         icon:"/images/air",
         title:"Air Conditioners",
         description:"The one that's keeps it cool with no noise.",
         listedCount:5,
@@ -262,7 +262,7 @@ export const sectordata=[
         },
     },
     {
-         icon:assets.airlines,
+         icon:"/images/airlines",
         title:"Airlines",
         description:"The one that takes us around the world in the shortest time.",
         listedCount:6,
@@ -274,7 +274,7 @@ export const sectordata=[
 
 export const mutualfunddata=[
     {
-        logo:assets.canara,
+        logo:"/images/canara",
         name:"Canara Rob Bluechip Equity Fund",
         aum:"₹ 10,816.61 Cr.",
         expenseratio:"0.5%",
@@ -284,7 +284,7 @@ export const mutualfunddata=[
         composition:"Large Cap makes up for the majority of the fund at 89.57% along with the largest allocation towards Private Banks at 22.27%.",
     },
     {
-        logo:assets.baroda,
+        logo:"/images/baroda",
         name:"Baroda BNP Paribas Large Cap Fund",
         aum:"₹ 1,693.42 Cr.",
         expenseratio:"0.92%",
@@ -297,7 +297,7 @@ export const mutualfunddata=[
 
 export const stockschooldata=[
     {
-        icon:assets.finance,
+        icon:"/images/finance",
         title:"Basic Finance",
         description:"Learn to manage money, choose investments wisely, and achieve financia...",
         modules:4,
@@ -305,7 +305,7 @@ export const stockschooldata=[
         link:"",
     },
     {
-        icon:assets.beginners,
+        icon:"/images/begineers",
         title:"Beginners Stock Markets",
         description:"Learn stock market terminologies, macroeconomic indicators, IPOs and c...",
         modules:6,
@@ -316,14 +316,14 @@ export const stockschooldata=[
 
 export const technicaldata=[
     {
-        icon:assets.basics,
+        icon:"/images/basics",
         title:"Basics of Technical analysis",
         description:"Understand basics of chart patterns, candlesticks, indicators, volume,...",
         views:141300,
         link:"",
     },
     {
-        icon:assets.candle,
+        icon:"/images/candle",
         title:"Candlesticks Charts & Patterns",
         description:"Learn to read candlestick patterns and identify trends",
         views:249832,
@@ -398,7 +398,7 @@ export const brokers = [
 export const brokersdata = [
   {
     name: 'Upstox',
-    logo: assets.upstox,
+    logo: "/images/upstox",
     rating: 4,
     reviews: '100K',
     accounts: '95.3K',
@@ -413,7 +413,7 @@ export const brokersdata = [
   },
   {
     name: 'Groww',
-    logo: assets.groww,
+    logo: "/images/groww",
     rating: 4,
     reviews: '180K',
     accounts: '80.2K',
@@ -432,19 +432,19 @@ export const brokersdata = [
 export const investors = [
   {
     name: 'Rakesh Jhunjhunwala',
-    image: assets.jhunjhunwala,
+    image: "/images/jhunjhunwala",
     description: 'He starting investment in the 90\'s',
     link: '/investors/rakesh',
   },
   {
     name: 'Ashish Kacholia',
-    image: assets.kacholia,
+    image: "/images/kacholia",
     description: 'He starting investment in the 90\'s',
     link: '/investors/ashish',
   },
   {
     name: 'Anil Goel',
-    image: assets.goel,
+    image: "/images/goel",
     description: 'He starting investment in the 90\'s',
     link: '/investors/anil',
   },

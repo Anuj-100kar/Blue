@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { assets } from '../assets/assets'
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import {FcGoogle} from 'react-icons/fc'
 

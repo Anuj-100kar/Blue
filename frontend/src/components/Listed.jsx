@@ -1,11 +1,24 @@
-import React from 'react'
-import { newlistedipos } from '../Data/IpoData'
+import React, { useState ,useEffect} from 'react'
 import LatestIpoCard from './LatestIpoCard'
 import { useLocation,Link } from 'react-router-dom'
+import axios from 'axios'
 
 const Listed = () => {
   const location=useLocation();
   const isFullPage=location.pathname==='/bluestock/ipo/listed-ipo';
+
+  const [loading,setLoading]=useState(true);
+  const [ipoData,setIpoData]=useState([]);
+   useEffect(() => {
+        axios.get('http://localhost:5000/api/ipo/listed-ipos')
+            .then((res) => {
+                setIpoData(res.data);
+                setLoading(false);
+            }).catch((err) => {
+                console.error(err);
+                setLoading(false);
+            })
+    }, []);
 
   return (
     <section className='py-10 px-4'>
@@ -24,13 +37,30 @@ const Listed = () => {
             </Link>
           )}
       </div>
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+      {
+        loading?
+        <p>loading...</p>:
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
                           {
-                              newlistedipos.map((ipo,index)=>(
-                                  <LatestIpoCard key={index} {...ipo}/>
+                              ipoData.map((ipo)=>(
+                                  <LatestIpoCard 
+                                  key={ipo.id}
+                                  id={ipo.id}
+                                  logo={ipo.logo}
+                                  name={ipo.company_name}
+                                  ipoPrice={ipo.ipo_price}
+                                  listingPrice={ipo.listing_price}
+                                  listingGain={ipo.listing_gain}
+                                  listingDate={ipo.listing_date}
+                                  cmp={ipo.cmp}
+                                  currentReturn={ipo.current_return}
+                                  onDelete={() => setIpoData(prev => prev.filter(item => item.id !== ipo.id))}/>
+                                  
                               ))
                           }
-                     </div>   
+                     </div> 
+      }
+        
     </div>
     </section>
     

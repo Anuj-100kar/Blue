@@ -1,21 +1,19 @@
-const express = require('express');
-const cors = require('cors');
-require('dotenv').config();
-const ipoRoutes = require('./routes/ipoRoutes');
+const express = require("express");
+const cors = require("cors");
+const pool = require('./config/db');
+const path = require('path');
+
+
 
 const app = express();
-const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
 
-// Connect routes
-app.use('/api/ipo', ipoRoutes);
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-app.get('/', (req, res) => {
-  res.send('IPO API is running');
-});
+const ipoRoutes = require("./routes/ipoRoutes");
+app.use("/api/ipo", ipoRoutes);
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

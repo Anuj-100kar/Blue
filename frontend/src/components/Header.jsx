@@ -1,12 +1,11 @@
 import React from 'react'
-import { assets } from '../assets/assets'
 import {Link} from 'react-router-dom';
 
 const Header = () => {
   return (
     <header className='w-full flex justify-between items-center px-6 lg:px-20 py-2 shadow-sm'>
         <div className='flex items-center space-x-3'>
-            <img className='w-12 h-12 object-contain ' src={assets.logo} alt="logo" />
+            <img className='w-12 h-12 object-contain ' src="/images/logo.jpg" alt="logo" />
             <h2 className='text-2xl font-bold text-black'>BLUESTOCK</h2>
         </div>
         
@@ -21,7 +20,7 @@ const Header = () => {
         <div className='flex justify-center items-center text-sm space-x-3'>
             <button className='text-gray-600 bg-gray-100 px-4 py-1.5 rounded hover:bg-gray-200'>Sign In</button>
             <button className='text-white bg-blue-600 hover:bg-blue-700 px-4 py-1.5 rounded '>Sign Up Now</button>
-            <img className='h-4 w-4 ml-2 cursor-pointer' src={assets.gripvertical} alt="" />
+            <img className='h-4 w-4 ml-2 cursor-pointer' src="/images/grip-vertical.png" alt="" />
         </div>
       
     </header>

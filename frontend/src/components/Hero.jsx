@@ -1,12 +1,11 @@
 import React from 'react'
-import { assets } from '../assets/assets'
 
 const Hero = () => {
     return (
         <section className='  py-10  px-4 '>
            <div className='max-w-3xl mx-auto p-6 rounded-xl shadow-md flex flex-col items-center text-center bg-gradient-to-r from-blue-300 to-purple-300'>
              <div className='flex flex-row items-center gap-2 mb-3'>
-                <img src={assets.logo} alt="" className='w-14' />
+                <img src="/images/logo.jpg" alt="" className='w-14' />
                 <h2 className=' font-bold text-lg text-gray-800'>BLUESTOCK</h2>
             </div>
             <h1 className='font-semibold text-xl md:text-2xl mb-4 text-gray-800'>Applying for this IPO?</h1>
