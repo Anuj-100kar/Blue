@@ -1,4 +1,6 @@
 import React from 'react'
+import { assets } from '../assets/assets'
+import { sectordata } from '../Data/IpoData'
 
 const SectorCard = ({icon,title,description,listedCount,companies}) => {
   return (
