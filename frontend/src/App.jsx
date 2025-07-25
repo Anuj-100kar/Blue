@@ -59,7 +59,7 @@ const App = () => {
           <Route path='analytics' element={<Analytics />} />
           <Route path='brokers' element={<AllBrokers />} />
           <Route path='live-news' element={<News />} />
-          <Route path='shark-investor' element={<SharkInvestor/>}/>
+          <Route path='shark-investor' element={<SharkInvestor />} />
 
           <Route path='stock-school' element={<StockSchoolPage />} />
           <Route path='stock-school/technical-analysis' element={<Technical />} />
@@ -69,28 +69,21 @@ const App = () => {
           <Route path='stock-school/technical-analysis/technical-indicators' element={<TechnicalIndicator />} />
           <Route path='stock-school/technical-analysis/magic-of-moving-average' element={<MagicOfMovingAverage />} />
 
-          <Route path='ipo/upcoming-ipo' element={<UpcomingIpos />} />
-          <Route path='ipo/ongoing-ipo' element={<OngoingIpos />} />
-          <Route path='ipo/listed-ipo' element={<ListedIpos />} />
-          <Route path='ipo/register' element={<IpoInformation />} />
-
         </Route>
-
 
         <Route path='/admin' element={<AdminLayout />}>
           <Route index element={<AdminDashboard />} />
           <Route path='dashboard' element={<DashBoard />} />
+        </Route>
 
-          <Route path='ipo' element={<IpoLayout />}>
-
-            <Route path='login' element={<Login />} />
-            <Route path='sign-up' element={<SignUp />} />
-            <Route path='forgot-password' element={<ForgotPassword />} />
-
-          </Route>
-
+        <Route path='ipo' element={<IpoLayout />}>
+          <Route path='login' element={<Login />} />
+          <Route path='sign-up' element={<SignUp />} />
+          <Route path='forgot-password' element={<ForgotPassword />} />
+          <Route path='upcoming-ipo' element={<UpcomingIpos />} />
+          <Route path='ongoing-ipo' element={<OngoingIpos />} />
+          <Route path='listed-ipo' element={<ListedIpos />} />
           <Route path='register' element={<IpoInformation />} />
-
         </Route>
 
         <Route path='*' element={<Error />} />

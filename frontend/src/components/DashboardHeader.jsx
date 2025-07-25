@@ -1,5 +1,6 @@
 import React from 'react'
 import { FiBell,FiSearch } from 'react-icons/fi'
+import { assets } from '../assets/assets'
 
 const DashboardHeader = () => {
   return (

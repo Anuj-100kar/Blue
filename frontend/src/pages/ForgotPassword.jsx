@@ -1,6 +1,18 @@
 import React from 'react'
+import { assets } from '../assets/assets'
 
 const ForgotPassword = () => {
+    const handleforgot=async(e)=>{
+        e.preventDefault();
+        const res=await fetch('http://localhost:5000/api/admin-auth/forgotpassword',{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({email}),
+        });
+
+        const data=await res.json();
+        alert(data.message);
+    };
     return (
         <div className='min-h-screen flex items-center justify-center bg-gray-100 px-4'>
             <div className='bg-white p-8 rounded shadow-md w-full max-w-md'>

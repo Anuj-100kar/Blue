@@ -1,9 +1,35 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
+import {assets} from '../assets/assets'
+import axios from 'axios'
 
 const Login = () => {
-  const [showpassword, setShowPassword] = useState(false);
+
+  const [email,setEmail]=useState('');
+  const [password,setPassword]=useState('');
+  const [showpassword,setShowPassword]=useState(false);
+
+  const navigate=useNavigate();
+
+  const handlelogin=async(e)=>{
+    e.preventDefault();
+
+    try {
+      const res=await axios.post('http://localhost:5000/api/admin/login',{
+        email,password
+      });
+
+      localStorage.setItem('adminToken',res.data.token)
+
+      navigate('/admin')
+      console.log(res.data);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+  
   return (
     <div className='min-h-screen flex items-center justify-center bg-gray-100 px-4'>
       <div className='bg-white p-8 rounded shadow-lg w-full max-w-md'>
@@ -18,12 +44,16 @@ const Login = () => {
             <div>
               <label className='block text-gray-600 mb-1'>Email Address</label>
               <input className='text-gray-500 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 w-full px-3 py-2'
-                type="email" placeholder="enter the email..." />
+                type="email" placeholder="enter the email..." 
+                onChange={(e)=>setEmail(e.target.value)}
+                value={email}/>
             </div>
             <div className='relative'>
               <label className='block text-gray-600 mb-1'>Password</label>
               <input className='text-gray-500 border rounded pr-10 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full px-3 py-2'
-                type={showpassword ? "text" : "password"} placeholder='enter password' />
+                type={showpassword ? "text" : "password"} placeholder='enter password' 
+                onChange={(e)=>setPassword(e.target.value)}
+                value={password}/>
               <div className='absolute top-9 right-3 cursor-pointer text-gray-400'
                 onClick={() => setShowPassword((prev) => !prev)}>
                 {showpassword ? <FiEye size={16} /> : <FiEyeOff size={16} />}
@@ -45,7 +75,8 @@ const Login = () => {
               <input type="checkbox" />
               <span>keep me signed in</span>
             </label>
-            <button className='w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-800 transition-all'>
+            <button type='submit' className='w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-800 transition-all'
+            onClick={handlelogin}>
               Login
             </button>
 

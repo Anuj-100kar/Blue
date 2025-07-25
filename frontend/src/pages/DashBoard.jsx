@@ -1,7 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FiEye, FiTrash2 } from 'react-icons/fi'
+import axios from 'axios';
 
 const DashBoard = () => {
+    const [ipos,setIpos]=useState([]);
+
+    useEffect(()=>{
+        const fetchIpoData=async()=>{
+            try {
+                const res=await axios.get('http://localhost:5000/api/ipo');
+                setIpos(res.data);
+            } catch (error) {
+                console.error(error.message);
+            }
+        }
+        fetchIpoData();
+    },[]);
   return (
     <div className='p-4 min-h-screen bg-gray-100'>
         <div className='flex justify-between items-center mb-2'>
@@ -29,18 +43,18 @@ const DashBoard = () => {
             </thead>
             <tbody>
                 {
-                    stocks.map((ipo,index)=>(
-                        <tr key={ipo._id} className='border-t hover:bg-gray-50'>
-                            <td className='px-4 py-3 text-sm font-semibold text-gray-800'>{ipo.name}</td>
-                            <td className='px-4 py-3 text-sm text-center'>{ipo.priceBand}</td>
-                            <td className='px-4 py-3 text-sm text-center'>{ipo.openDate}</td>
-                            <td className='px-4 py-3 text-sm text-center'>{ipo.closeDate}</td>
-                            <td className='px-4 py-3 text-sm text-center'>{ipo.issueSize}</td>
-                            <td className='px-4 py-3 text-sm text-center'>{ipo.issueType}</td>
-                            <td className='px-4 py-3 text-sm text-center'>{ipo.listingDate}</td>
+                    ipos.map((ipo)=>(
+                        <tr key={ipo.id} className='border-t hover:bg-gray-50'>
+                            <td className='px-4 py-3 text-sm font-semibold text-gray-800'>{ipo.company_name}</td>
+                            <td className='px-4 py-3 text-sm text-center'>{ipo.price_band}</td>
+                            <td className='px-4 py-3 text-sm text-center'>{ipo.open_date}</td>
+                            <td className='px-4 py-3 text-sm text-center'>{ipo.close_date}</td>
+                            <td className='px-4 py-3 text-sm text-center'>{ipo.issue_size}</td>
+                            <td className='px-4 py-3 text-sm text-center'>{ipo.issue_type}</td>
+                            <td className='px-4 py-3 text-sm text-center'>{ipo.listing_date}</td>
                             <td className='px-4 py-3 text-sm text-center'>
                                 <span className='bg-orange-100 text-orange-600 text-xs rounded-full px-3 py-1 '>
-                                    ongoing
+                                    {ipo.status || 'ongoing'}
                                 </span>
                             </td>
                             <td className='px-4 py-3 text-sm text-center'>
