@@ -1,5 +1,6 @@
 import React from 'react'
 import { assets } from '../assets/assets'
+import { Link } from 'react-router-dom';
 
 const ForgotPassword = () => {
     const handleforgot=async(e)=>{
@@ -33,7 +34,7 @@ const ForgotPassword = () => {
                     </div>
                     
                     <button className='w-full bg-blue-700 text-white px-4 py-2 rounded  hover:bg-blue-800 cursor-pointer transition-all'>Password Reset</button>
-                    <button className='w-full bg-gray-100 text-gray-400 py-2 rounded'>Back to login</button>
+                    <button className='w-full bg-gray-100 text-gray-400 py-2 rounded' ><Link to={`/login`}>Back to login</Link></button>
                 </div>
             </div>
 

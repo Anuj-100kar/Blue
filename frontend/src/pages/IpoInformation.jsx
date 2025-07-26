@@ -10,11 +10,8 @@ const IpoInformation = () => {
    <>
    
     <div className="flex h-screen bg-gray-100">
-      <Sidebar/>
-      
-
+     
       <div className="flex flex-col flex-1 ">
-        <DashboardHeader title="Upcoming IPO Information" />
         <h1 className='text-gray-900 font-bold p-3 text-lg'>Upcoming IPO Information</h1>
         <p className='font-semibold text-gray-800 text-sm  p-3'>Manage your IPO Details</p>
         <div className='flex flex-1 p-4 space-x-4'>
