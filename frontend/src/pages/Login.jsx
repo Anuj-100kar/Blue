@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import {assets} from '../assets/assets'
@@ -23,7 +23,7 @@ const Login = () => {
 
       localStorage.setItem('adminToken',res.data.token)
 
-      navigate('/admin')
+      navigate('/admin/dashboard')
       console.log(res.data);
     } catch (error) {
       console.error(error.message);
@@ -58,9 +58,9 @@ const Login = () => {
                 onClick={() => setShowPassword((prev) => !prev)}>
                 {showpassword ? <FiEye size={16} /> : <FiEyeOff size={16} />}
               </div>
-              <div className='text-sm text-blue-600 text-right mt-1 cursor-pointer'>
+              <Link to={`/forgot-password`} className='text-sm text-blue-600 text-right mt-1 cursor-pointer'>
                 Forgot Password?
-              </div>
+              </Link>
             </div>
           </div>
           <div className='mt-6 space-y-4'>
@@ -94,9 +94,9 @@ const Login = () => {
           <div className='mt-4 text-center'>
               <p className='text-sm text-gray-600'>
                 Don't have an account? {''}
-                <span className='text-blue-600 font-medium cursor-pointer'>
+                <a className='text-blue-600 font-medium cursor-pointer' href='/sign-up'>
                   create an account
-                </span>
+                </a>
               </p>
           </div>
         </div>

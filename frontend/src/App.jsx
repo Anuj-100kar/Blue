@@ -42,16 +42,15 @@ const App = () => {
     <>
       <Routes>
         <Route path='/bluestock' element={<UserLayout />}>
-          {/* <Route index element={<HomeScreen />} /> */}
+          <Route index element={<HomeScreen />} />
 
 
-          <Route index element={<Home />} />
+          <Route path='ipo' element={<Home />} />
           <Route path='career' element={<Career />} />
 
           <Route path='community' element={<Community />} />
           <Route path='products' element={<Product />} />
           <Route path='contact-us' element={<Contact />} />
-          <Route path='community' element={<Community />} />
           <Route path='about-us' element={<AboutUs />} />
           <Route path='blogs' element={<BlogPage />} />
           <Route path='sector' element={<SectorPage />} />
@@ -69,23 +68,25 @@ const App = () => {
           <Route path='stock-school/technical-analysis/technical-indicators' element={<TechnicalIndicator />} />
           <Route path='stock-school/technical-analysis/magic-of-moving-average' element={<MagicOfMovingAverage />} />
 
+          <Route path='ipo' element={<IpoLayout />}>
+
+            <Route path='upcoming-ipo' element={<UpcomingIpos />} />
+            <Route path='ongoing-ipo' element={<OngoingIpos />} />
+            <Route path='listed-ipo' element={<ListedIpos />} />
+
+          </Route>
+
         </Route>
 
+        <Route path='login' element={<Login />} />
+        <Route path='sign-up' element={<SignUp />} />
+        <Route path='forgot-password' element={<ForgotPassword />} />
+        
         <Route path='/admin' element={<AdminLayout />}>
           <Route index element={<AdminDashboard />} />
           <Route path='dashboard' element={<DashBoard />} />
-        </Route>
-
-        <Route path='ipo' element={<IpoLayout />}>
-          <Route path='login' element={<Login />} />
-          <Route path='sign-up' element={<SignUp />} />
-          <Route path='forgot-password' element={<ForgotPassword />} />
-          <Route path='upcoming-ipo' element={<UpcomingIpos />} />
-          <Route path='ongoing-ipo' element={<OngoingIpos />} />
-          <Route path='listed-ipo' element={<ListedIpos />} />
           <Route path='register' element={<IpoInformation />} />
         </Route>
-
         <Route path='*' element={<Error />} />
       </Routes>
     </>
