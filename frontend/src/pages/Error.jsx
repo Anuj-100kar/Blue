@@ -1,6 +1,7 @@
 import React from 'react'
 import Lottie from 'lottie-react'
 import { useNavigate } from 'react-router-dom'
+import box from '../assets/No Internet.json'
 
 
 const Error = () => {
@@ -25,6 +26,7 @@ const Error = () => {
 
             <div className='w-72 h-72 mb-6 '>
                 {/* <Lottie animationData={} loop={true}/> */}
+                <Lottie animationData={box} loop={true}/>
             </div>
             <div className='text-center'>
                 <h3 className='text-xl font-semibold mb-1'>Something went wrong.</h3>
