@@ -35,18 +35,35 @@ import IpoLayout from './layout/IpoLayout'
 import UpcomingIpos from './pages/UpcomingIpos'
 import OngoingIpos from './pages/OngoingIpos'
 import ListedIpos from './pages/ListedIpos'
+import BrokersCompare from './pages/BrokersCompare'
+import UserSignUp from './pages/UserSignUp'
+import UserDashboard from './pages/UserDashboard'
+import MarketOverview from './pages/MarketOverview'
+import AccountSettings from './pages/AccountSettings'
+import DashboardLayout from './layout/DashboardLayout'
 
 const App = () => {
   return (
 
     <>
       <Routes>
+        <Route path='/user' element={<DashboardLayout/>}>
+
+        
+        <Route path='sign-up' element={<UserSignUp />} />
+        <Route path='dashboard' element={<UserDashboard />} />
+        <Route path='market-overview' element={<MarketOverview />} />
+        <Route path='account-setting' element={<AccountSettings />} />
+        </Route>
+
         <Route path='/bluestock' element={<UserLayout />}>
           <Route index element={<HomeScreen />} />
 
 
           <Route path='ipo' element={<Home />} />
           <Route path='career' element={<Career />} />
+
+
 
           <Route path='community' element={<Community />} />
           <Route path='products' element={<Product />} />
@@ -56,6 +73,7 @@ const App = () => {
           <Route path='sector' element={<SectorPage />} />
           <Route path='mutual-fund' element={<MutualFundPage />} />
           <Route path='analytics' element={<Analytics />} />
+          <Route path='compare-brokers' element={<BrokersCompare />} />
           <Route path='brokers' element={<AllBrokers />} />
           <Route path='live-news' element={<News />} />
           <Route path='shark-investor' element={<SharkInvestor />} />
@@ -81,12 +99,13 @@ const App = () => {
         <Route path='login' element={<Login />} />
         <Route path='sign-up' element={<SignUp />} />
         <Route path='forgot-password' element={<ForgotPassword />} />
-        
+
         <Route path='/admin' element={<AdminLayout />}>
           <Route index element={<AdminDashboard />} />
           <Route path='dashboard' element={<DashBoard />} />
           <Route path='register' element={<IpoInformation />} />
         </Route>
+
         <Route path='*' element={<Error />} />
       </Routes>
     </>

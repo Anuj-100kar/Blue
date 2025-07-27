@@ -1,36 +1,40 @@
 import React from 'react'
 import { FaGooglePlay, FaAppStoreIos } from 'react-icons/fa';
+import { assets } from '../assets/assets';
 
 const AppDownload = () => {
   return (
       <section className="px-4 py-20 bg-white">
       <div className="max-w-6xl mx-auto">
-        {/* Main Content */}
+
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-          {/* Left: QR + Text */}
+
           <div className="flex-1 space-y-6 text-center md:text-left">
             <h2 className="text-3xl font-bold">On The Go</h2>
-            <p className="text-gray-600">
+            <p className="text-gray-600 text-sm">
               We believe that everyone should be able to wield technology while
               learning trading. Use Bluestock on the go, on your mobile device.
               Experience the ultimate mobile trading experience on Android or iOS.
             </p>
-            <div className="flex justify-center md:justify-start">
+            <div className="flex md:flex-row justify-center md:justify-start gap-4">
               <img
-                src="/images/qrcode.png" // Replace with your actual QR image
-                alt="QR Code"
-                className="w-28 h-28"
+                src={assets.verify} alt=''
+                className="w-28 h-28 object-contain"
               />
+               <div className='flex flex-col justify-center'>
+                <p className="text-blue-800 font-semibold">Scan and download</p>
+                <p className='text-gray-500 text-xs'>Use your android device <br/>to download the app</p>
+               </div>
             </div>
-            <p className="text-blue-600 font-semibold">Scan and download</p>
+           
           </div>
 
           {/* Right: App Screenshot */}
           <div className="flex-1 flex justify-center">
             <img
-              src="/images/app-preview.png" // Replace with actual image path
+              src={assets.mobo} 
               alt="App Screenshot"
-              className="w-72 md:w-96 rounded-lg shadow-lg"
+              className="w-36 h-[700px] md:w-96 rounded-lg shadow-lg"
             />
           </div>
         </div>

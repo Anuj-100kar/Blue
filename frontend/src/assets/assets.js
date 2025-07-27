@@ -60,11 +60,16 @@ import baroda from './baroda.png';
 import upstox from './upstox.png';
 import groww from './groww.png';
 import finance from './finance.png';
+import analytics from './analytics.png';
+import blogs from './blogs.png';
+import videos from './videos.png';
+import mobo from './mobo.jpg'
+import prof from './prof.png';
 
 
 export const assets={
     basics,candle,beginners,damani,derivatives,dhawan,goel,instagram,jhunjhunwala,kacholia,kedia,khanna,kothari,mutual,notebook,
     nse,patterns,profile,psychology,s20,smc,startup,summary,telegram,verify,wallet,xe,youtube,logo,community1,community2,community3,
     bf,chart,chat,buy,document,emoticon,facebook,grip,infosquare,notification,setting,linkdin,Q,abresives,agri,air,airlines,aluminium,
-    amusement,aqua,auto,automobile,dealers,passenger,media,canara,baroda,upstox,groww,finance
+    amusement,aqua,auto,automobile,dealers,passenger,media,canara,baroda,upstox,groww,finance,analytics,blogs,videos,mobo,prof
 }

@@ -352,16 +352,16 @@ export const technicalmodules = [
 
 export const highlightdata = [
   {
-    title: 'Lower Cost',
-    points: ['Free analytics', 'No hidden fees', 'Transparent pricing'],
+    title: 'Learn Chat',
+    points: ['Technical, Fundamental', 'Finology, Facts, Equity', 'Trading Psychology','Risk Assessment','Option Trading'],
   },
   {
     title: 'Analytics',
-    points: ['Real-time charts', 'Powerful indicators', 'Custom alerts'],
+    points: ['Live Sector Trend', 'IPO DRHP', 'Sectoral Distribution','Stock Overview','TradingView Chart','Technical, Fundamental'],
   },
   {
-    title: 'Chat',
-    points: ['Community support', 'Live discussions', 'Expert insights'],
+    title: 'Club',
+    points: ['Educational Resources', 'Real-time Chat', 'Forums'],
   },
 ];
 
