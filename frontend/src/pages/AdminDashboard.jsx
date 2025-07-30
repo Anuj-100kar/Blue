@@ -19,7 +19,7 @@ const AdminDashboard = () => {
 
       <div className="flex-1 bg-gray-50">
         {/* header.... */}
-        <div className='flex flex-col lg:flex-row gap-4 w-full space-x-9'>
+        <div className='flex flex-col lg:flex-row gap-4 w-full '>
             <IpoDashboard/>
             <QuickLinks/>
             <MainboardIpo/>

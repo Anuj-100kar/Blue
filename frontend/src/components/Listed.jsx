@@ -26,7 +26,7 @@ const Listed = () => {
       <div className='flex justify-between items-center mb-6'>
         <div>
           <h3 className='text-gray-800 text-xl font-semibold '>New Listed</h3>
-          <p className='text-gray-600 mt-1 text-sm max-w-2xl'>Companies that have been listed recently through an IPO. Find their listing gains and returns here.</p>
+          <p className='hidden sm:block md:text-gray-600 mt-1 text-sm max-w-2xl'>Companies that have been listed recently through an IPO. Find their listing gains and returns here.</p>
         </div>
          {!isFullPage && (
             <Link

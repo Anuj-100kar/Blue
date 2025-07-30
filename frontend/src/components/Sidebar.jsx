@@ -34,7 +34,7 @@ const Sidebar = () => {
             <Link to={item.path} key={index}>
             <li  className='space-x-3 flex items-center px-5 py-2 rounded font-medium text-gray-600 cursor-pointer hover:text-blue-500 hover:bg-blue-200'>
               <img src={item.icon} alt="" className='w-5 h-5' />
-              <span>{item.label}</span>
+              <span className='hidden sm:block'>{item.label}</span>
             </li>
             </Link>
           ))
@@ -48,7 +48,7 @@ const Sidebar = () => {
             <Link to={item.path} key={index}>
             <li  className='space-x-3 flex items-center px-5 py-2 rounded font-medium text-gray-600 cursor-pointer hover:text-blue-500 hover:bg-blue-200'>
               <img src={item.icon} alt="" className='w-5 h-5' />
-              <span>{item.label}</span>
+              <span className='hidden sm:block'>{item.label}</span>
             </li>
             </Link>
           ))

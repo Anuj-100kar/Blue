@@ -65,11 +65,13 @@ import blogs from './blogs.png';
 import videos from './videos.png';
 import mobo from './mobo.jpg'
 import prof from './prof.png';
-
+import angleone from './angelone.png';
+import zerodha from './zerodha.png';
 
 export const assets={
     basics,candle,beginners,damani,derivatives,dhawan,goel,instagram,jhunjhunwala,kacholia,kedia,khanna,kothari,mutual,notebook,
     nse,patterns,profile,psychology,s20,smc,startup,summary,telegram,verify,wallet,xe,youtube,logo,community1,community2,community3,
     bf,chart,chat,buy,document,emoticon,facebook,grip,infosquare,notification,setting,linkdin,Q,abresives,agri,air,airlines,aluminium,
-    amusement,aqua,auto,automobile,dealers,passenger,media,canara,baroda,upstox,groww,finance,analytics,blogs,videos,mobo,prof
+    amusement,aqua,auto,automobile,dealers,passenger,media,canara,baroda,upstox,groww,finance,analytics,blogs,videos,mobo,prof,
+    angleone,zerodha
 }

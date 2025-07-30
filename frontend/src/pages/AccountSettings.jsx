@@ -5,17 +5,17 @@ import { assets } from '../assets/assets'
 
 const AccountSettings = () => {
   return (
-    <div className="flex bg-[#0F172A] min-h-screen">
+    <div className="flex flex-col md:flex-row bg-[#0F172A] min-h-screen">
       
       <div className="flex-1 flex flex-col">
         <AccountHeader />
 
-        <div className="p-6 space-y-6">
+        <div className="p-4 sm:p-6 space-y-6">
           {/* Profile Info */}
-          <div className="flex items-center gap-4 text-white">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 text-white">
             <img
               src={assets.prof}
-              className="w-16 h-16 rounded-full object-cover"
+              className="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover"
               alt="Profile"
             />
             <div>

@@ -60,7 +60,7 @@ const Contact = () => {
                     <img
                         src={assets.Q}
                         alt="QR Code"
-                        className="w-40"
+                        className="w-40 "
                     />
                 </div>
             </div>

@@ -30,7 +30,7 @@ const AppDownload = () => {
           </div>
 
           {/* Right: App Screenshot */}
-          <div className="flex-1 flex justify-center">
+          <div className="hidden md:flex-1 flex justify-center">
             <img
               src={assets.mobo} 
               alt="App Screenshot"

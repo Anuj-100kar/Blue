@@ -29,16 +29,16 @@ const DashBoard = () => {
             <table className='min-w-full table-auto'>
             <thead className='bg-gray-100 text-gray-600 text-sm'>
                 <tr>
-                    <th className='p-3 text-left'>Company</th>
-                    <th className='p-3'>Price Band</th>
-                    <th className='p-3'>Open</th>
-                    <th className='p-3'>Close</th>
-                    <th className='p-3'>ISSUE SIZE</th>
-                    <th className='p-3'>ISSUE Type</th>
-                    <th className='p-3'>Listing Date</th>
-                    <th className='p-3'>Status</th>
-                    <th className='p-3'>Action</th>
-                    <th className='p-3'>Delete/View</th>
+                    <th className='p-3 text-left whitespace-nowrap'>Company</th>
+                    <th className='p-3 whitespace-nowrap'>Price Band</th>
+                    <th className='p-3 whitespace-nowrap'>Open</th>
+                    <th className='p-3 whitespace-nowrap'>Close</th>
+                    <th className='p-3 whitespace-nowrap'>ISSUE SIZE</th>
+                    <th className='p-3 whitespace-nowrap'>ISSUE Type</th>
+                    <th className='p-3 whitespace-nowrap'>Listing Date</th>
+                    <th className='p-3 whitespace-nowrap'>Status</th>
+                    <th className='p-3 whitespace-nowrap'>Action</th>
+                    <th className='p-3 whitespace-nowrap'>Delete/View</th>
                 </tr>
             </thead>
             <tbody>
@@ -59,17 +59,17 @@ const DashBoard = () => {
                             </td>
                             <td className='px-4 py-3 text-sm text-center'>
                                 
-                                    <button className='text-sm text-white bg-blue-600 hover:bg-blue-800 px-3 py-1 rounded '>
+                                    <button className='min-w-[80px] text-sm text-white bg-blue-600 hover:bg-blue-800 px-3 py-1 rounded '>
                                         update
                                     </button>
                                 
                             </td>
                             <td className='px-4 py-3 text-sm text-center'>
                                 <div className='flex justify-center gap-3'>
-                                    <button className='text-green-600 hover:text-green-800'>
+                                    <button className='min-w-[80px] text-green-600 hover:text-green-800'>
                                         <FiTrash2 size={18}/>
                                     </button>
-                                    <button className='text-red-500 hover:text-red-700'>
+                                    <button className='min-w-[80px] text-red-500 hover:text-red-700'>
                                         <FiEye size={18}/>
                                     </button>
                                 </div>

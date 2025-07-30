@@ -27,7 +27,7 @@ const OnGoing = () => {
                 <div className='flex justify-between items-center mb-6'>
                     <div>
                         <h3 className='text-xl font-semibold text-gray-800'>Ongoing</h3>
-                        <p className='text-sm text-gray-600 mt-1 max-w-2xl'>Companies where the IPO investment process is started and will be listed soon in the stock market for regular trading.</p>
+                        <p className='hidden sm:block md:text-sm text-gray-600 mt-1 max-w-2xl'>Companies where the IPO investment process is started and will be listed soon in the stock market for regular trading.</p>
                     </div>
                     {!isFullPage && (
                         <Link

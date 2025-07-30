@@ -12,7 +12,7 @@ const UpComing = () => {
   useEffect(()=>{
     axios.get('http://localhost:5000/api/ipo')
     .then((res)=>{
-      const upcomingIpos=res.data.filter(ipo=>ipo.status==='Upcoming');
+      const upcomingIpos=res.data.filter(ipo=>ipo.status==='upcoming');
       setIpoData(upcomingIpos);
       setLoading(false);
     })
@@ -31,14 +31,14 @@ const UpComing = () => {
         <div className='flex justify-between items-center mb-6'>
           <div>
             <h3 className='text-xl font-semibold text-gray-800'>Upcoming Ipo's</h3>
-            <p className='text-sm text-gray-600 mt-1 max-w-2xl'>
+            <p className='hidden sm:block md:text-sm text-gray-600 mt-1 max-w-2xl'>
               Companies that have filed for an IPO with SEBI. Few details might be disclosed by the companies later on.
             </p>
           </div>
           {!isFullPage && (
             <Link
               to='/bluestock/ipo/upcoming-ipo'
-              className='text-blue-600 text-sm font-semibold hover:underline'
+              className=' text-blue-600 text-sm font-semibold hover:underline'
             >
               View All
             </Link>

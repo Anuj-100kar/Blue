@@ -10,7 +10,7 @@ const InfoSection = ({ title, fields }) => {
           <FaEdit /> Edit
         </button>
       </div>
-      <div className="grid grid-cols-2 gap-4 text-sm">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
         {fields.map(({ label, value }, idx) => (
           <div key={idx}>
             <p className="text-gray-400">{label}</p>
