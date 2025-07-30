@@ -14,7 +14,7 @@ const DashboardHeader = () => {
      </div>
      <div className='flex items-center space-x-5'>
         <img src={assets.profile}  alt="" className='w-6 h-6 rounded-full object-cover cursor-pointer'/>
-        <span className='text-gray-600 text-sm font-semibold'>Hi , Admin</span>
+        <span className='hidden sm:block md:text-gray-600 text-sm font-semibold'>Hi , Admin</span>
         <FiBell size={18} className='text-gray-600 hover:text-blue-600 cursor-pointer'/>
      </div>
     </div>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const MainboardIpo = () => {
     return (
-        <div className='max-w-[362px] bg-white rounded p-8 shadow-sm'>
+        <div className=' w-full max-w-[362px] bg-white rounded p-8 shadow-sm'>
             <div className='flex justify-between items-center mb-4 '>
                 <div >
                     <h3 className='text-md font-bold text-gray-600'>Main Board IPO</h3>

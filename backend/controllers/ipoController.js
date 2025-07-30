@@ -4,7 +4,7 @@ const path=require('path');
 
 // Get all IPOs
 const getAllIPOs = async (req, res) => {
-   console.log('GET /api/ipos called')
+
   try {
     const result = await pool.query('SELECT * FROM ipo');
     res.json(result.rows);
@@ -162,7 +162,7 @@ const addListedIPO = async (req, res) => {
     listing_price,
     listing_gain,
     listing_date,
-    cmp_value,
+    cmp,
     current_return,
     status
   } = req.body;
@@ -181,7 +181,7 @@ const addListedIPO = async (req, res) => {
       `
       INSERT INTO ipo (
         company_name, logo, ipo_price, listing_price, listing_gain,
-        listing_date, cmp_value, current_return, status
+        listing_date, cmp, current_return, status
       )
       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
       RETURNING *
@@ -193,9 +193,10 @@ const addListedIPO = async (req, res) => {
         listing_price,
         listing_gain,
         listingDateValue,
-        cmp_value,
+        cmp,
         current_return,
-        status
+        status,
+        
       ]
     );
 

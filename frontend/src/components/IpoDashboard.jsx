@@ -5,10 +5,10 @@ const IpoDashboard = () => {
     const loss=9;
     const total=30;
   return (
-    <div className='relative flex flex-col items-center justify-center bg-white p-8 rounded max-w-[313px]'>
+    <div className='relative flex flex-col items-center justify-center bg-white p-8 rounded w-full max-w-[313px]'>
         <h3 className='text-md font-bold text-gray-500 mb-3'>IPO Dashboard India</h3>
 
-        <div className='relative   h-[321px] w-[313px]'>
+        <div className='relative w-full h-[321px] '>
             <div className='absolute top-0 left-0 w-[100px] h-[100px] bg-blue-500 text-white rounded-full flex flex-col items-center justify-center'>
                 <span className='text-xl font-bold'>{gain}</span>
                 <span className='text-xs text-center px-1'>IPO in gain</span>

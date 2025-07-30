@@ -15,8 +15,8 @@ const UserSignUp = () => {
   },[darkMode]);
 
   return (
-    <div className="min-h-screen flex font-sans bg-white text-black dark:bg-black dark:text-white transition-colors duration-300">
-      <div className="absolute top-36 right-28">
+    <div className="min-h-screen flex flex-col md:flex-row bg-white text-black dark:bg-black dark:text-white transition-colors duration-300">
+      <div className="absolute top-4 right-4 md:top-36 md:right-28 z-10">
         <button
           onClick={() => setDarkMode(!darkMode)}
           className="px-4 py-2 bg-gray-200 dark:bg-gray-800 text-sm rounded border border-gray-400 dark:border-gray-600 hover:opacity-80"
@@ -25,7 +25,7 @@ const UserSignUp = () => {
         </button>
       </div>
       {/* Left Section */}
-      <div className="w-1/2 flex flex-col justify-center px-16">
+      <div className="w-full md:w-1/2 flex flex-col justify-center px-16 md:px-10 py-8">
         <h1 className="text-4xl font-bold mb-6 leading-tight">
           Navigate the <br /> Markets with <br /> Confidence
         </h1>
@@ -65,7 +65,7 @@ const UserSignUp = () => {
       </div>
 
       {/* Right Section */}
-      <div className="w-1/2 flex flex-col justify-center items-center px-10">
+      <div className="w-full md:w-1/2 flex flex-col justify-center items-center px-6 md:px-10 py-8">
         <div className="w-full max-w-md">
           <div className="flex gap-2 mb-4">
             <button className="flex-1 bg-black text-white dark:bg-white dark:text-black  px-4 py-2 rounded font-medium">
@@ -77,16 +77,16 @@ const UserSignUp = () => {
           </div>
 
           <div className="space-y-4">
-            <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row gap-2">
               <input
                 type="text"
                 placeholder="First Name"
-                className="w-1/2 p-2 rounded bg-gray-800 text-white border border-gray-700"
+                className="w-full sm:w-1/2 p-2 rounded bg-gray-800 text-white border border-gray-700"
               />
               <input
                 type="text"
                 placeholder="Last Name"
-                className="w-1/2 p-2 rounded bg-gray-800 text-white border border-gray-700"
+                className="w-full sm:w-1/2 p-2 rounded bg-gray-800 text-white border border-gray-700"
               />
             </div>
 

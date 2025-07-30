@@ -3,10 +3,13 @@ import { createChart } from 'lightweight-charts';
 
 const TradingChart = () => {
   const chartContainerRef = useRef(null);
+  const chartRef=useRef(null);
 
   useEffect(() => {
-    const chart = createChart(chartContainerRef.current, {
-      width: chartContainerRef.current.clientWidth,
+    const container=chartContainerRef.current;
+
+    const chart = createChart(container, {
+      width: container.clientWidth,
       height: 400,
       layout: {
         background: { color: '#0f172a' },
@@ -28,6 +31,8 @@ const TradingChart = () => {
       },
     });
 
+    chartRef.current=chart;
+
     const candleSeries = chart.addCandlestickSeries({
       upColor: '#4ade80',
       downColor: '#ef4444',
@@ -44,7 +49,17 @@ const TradingChart = () => {
       { time: '2023-07-05', open: 416, high: 422, low: 410, close: 419 },
     ]);
 
-    return () => chart.remove();
+    const handleresize=()=>{
+      chart.applyOptions({
+        width:container.clientWidth,
+      })
+    };
+
+    window.addEventListener('resize',handleresize);
+    return () => {
+      window.removeEventListener('resize',handleresize);
+      chart.remove();
+    }
   }, []);
 
   return (

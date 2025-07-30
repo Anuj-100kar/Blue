@@ -7,7 +7,7 @@ const Hero2 = () => {
             <div className='flex flex-col lg:flex-row items-start lg:items-center gap-8'>
                 <div className='flex flex-col lg:flex-row items-start overflow-hidden gap-4 lg:w-1/2'>
                     <img className='w-[403px] object-contain -mb-72 ' src={assets.s20} alt="" />
-                    <p className='text-xl font-semibold mt-9 text-yellow-400 text-center lg:text-left'>4.4 K+ <br />DOWNLOADS</p>
+                    <p className='hidden sm:block md:text-xl font-semibold mt-9 text-yellow-400 text-center lg:text-left'>4.4 K+ <br />DOWNLOADS</p>
                 </div>
                 <div className='flex-1 rounded-xl p-6 space-y-3'>
                     <h3 className='text-2xl lg:text-3xl font-semibold leading-tight'>Enjoy Free Learning, Analytics

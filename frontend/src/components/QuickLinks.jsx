@@ -9,7 +9,7 @@ const QuickLinks = () => {
         {icon:assets.moneycontrol,label:"Money Control",link:"#"},
     ]
   return (
-    <div className='max-w-[312px] bg-white rounded p-8'>
+    <div className='w-full max-w-[312px] bg-white rounded p-8'>
         <h3 className='text-md font-bold text-gray-500 mb-4'>Quick Links</h3>
         <p className='text-gray-400 text-xs mb-5'>Adipiscing elit, sed do eiusmod tempor</p>
 

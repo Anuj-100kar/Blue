@@ -18,10 +18,10 @@ const Header = () => {
                 <li className='hover:text-black cursor-pointer flex items-center gap-1'><Link to="/bluestock/live-news">LIVE NEWS</Link><span className=' bg-blue-500 text-white hover:bg-blue-600 text-[10px] px-1 py-[1px] rounded-sm '>NEW</span></li>
             </ul>
         
-        <div className='flex justify-center items-center text-sm space-x-3'>
-            <button className='text-gray-600 bg-gray-100 px-4 py-1.5 rounded hover:bg-gray-200'>Sign In</button>
-            <button className='text-white bg-blue-600 hover:bg-blue-700 px-4 py-1.5 rounded '>Sign Up Now</button>
-            <img className='h-4 w-4 ml-2 cursor-pointer' src={assets.grip} alt="" />
+        <div className='hidden md:flex justify-center items-center text-sm space-x-3'>
+            <button className=' text-gray-600 bg-gray-100 px-4 py-1.5 rounded hover:bg-gray-200'>Sign In</button>
+            <button className=' text-white bg-blue-600 hover:bg-blue-700 px-4 py-1.5 rounded '>Sign Up Now</button>
+            <img className='h-4 w-4 ml-2 cursor-pointer required' src={assets.grip} alt="" />
         </div>
       
     </header>
