@@ -13,8 +13,6 @@ const BrokersCompare = () => {
       <ChargesTable />
       <ComplaintsShareHolding />
       <FinancialCharts  />
-      
-      
     </div>
   )
 }

@@ -41,11 +41,13 @@ import UserDashboard from './pages/UserDashboard'
 import MarketOverview from './pages/MarketOverview'
 import AccountSettings from './pages/AccountSettings'
 import DashboardLayout from './layout/DashboardLayout'
+import ScrollTop from './components/ScrollTop'
 
 const App = () => {
   return (
 
     <>
+      <ScrollTop/>
       <Routes>
         <Route path='/user' element={<DashboardLayout/>}>
 
@@ -62,8 +64,6 @@ const App = () => {
 
           <Route path='ipo' element={<Home />} />
           <Route path='career' element={<Career />} />
-
-
 
           <Route path='community' element={<Community />} />
           <Route path='products' element={<Product />} />

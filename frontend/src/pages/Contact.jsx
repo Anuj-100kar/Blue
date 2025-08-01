@@ -45,7 +45,7 @@ const Contact = () => {
             </div>
            
         </div>
-         <div className="bg-blue-700 text-white rounded-xl py-12 px-6 text-center relative">
+         <div className="bg-blue-700 text-white max-w-7xl mx-auto rounded-xl py-12 px-6 text-center relative">
                 <h2 className="text-3xl font-bold mb-3">Interact With Us in Our Active Community</h2>
                 <p className="text-lg max-w-2xl mx-auto mb-6">
                     Ask questions or discuss anything related to investing or trading<br/>

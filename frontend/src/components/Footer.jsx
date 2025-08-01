@@ -1,5 +1,6 @@
 import React from 'react'
 import { assets } from '../assets/assets'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -10,29 +11,34 @@ const Footer = () => {
             {
               title:'Resources',
               items:['Trading View','NSE Holidays','e-Voting CDSL','e-Voting NSDL','Market Timings'],
+              links:['/market-overview','#','#','#','#'],
             },
             {
               title:'Company',
               items:['Careers','Contact Us','About US','Community','Blogs'],
+              links:['/bluestock/career','/bluestock/contact-us','/bluestock/about-us','/bluestock/community','/bluestock/blogs'],
             },
             {
               title:'Offerings',
               items:['Compare Broker','Fin Calculators','IPO','All Brokers','Products'],
+              links:['/bluestock/compare-brokers','#','/bluestock/ipo','/bluestock/brokers','/bluestock/products'],
             },
             {
               title:'Links',
               items:['Shark Investor','Mutual Funds','Sitemap','Indian Indices','Bug Bounty Program'],
+              links:['/bluestock/shark-investor','/bluestock/mutual-fund','#','#','#'],
             },
             {
               title:'Policy',
               items:['Terms & Conditions','Privacy Policy','Refund Policy','Disclaimer','Trust & Security'],
+              links:['#','#','#','#','#'],
             }
           ].map((section,index)=>(
             <ul key={index} className='min-w-[160px]'>
               <li className='font-semibold mb-3'>{section.title}</li>
               {section.items.map((item,idx)=>(
                 <li key={idx} className='mb-2 text-gray-600 cursor-pointer'>
-                  {item}
+                 <Link to={section.links[idx]}>{item}</Link> 
                 </li>
               ))}
 

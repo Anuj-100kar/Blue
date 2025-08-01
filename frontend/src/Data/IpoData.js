@@ -434,19 +434,19 @@ export const investors = [
   {
     name: 'Rakesh Jhunjhunwala',
     image: assets.jhunjhunwala,
-    description: 'He starting investment in the 90\'s',
+    description: 'He starting inversment in the 90’s His inversement st....',
     link: '/investors/rakesh',
   },
   {
     name: 'Ashish Kacholia',
     image: assets.kacholia,
-    description: 'He starting investment in the 90\'s',
+    description: 'He starting inversment in the 90’s His inversement st....',
     link: '/investors/ashish',
   },
   {
     name: 'Anil Goel',
     image: assets.goel,
-    description: 'He starting investment in the 90\'s',
+    description: 'He starting inversment in the 90’s His inversement st....',
     link: '/investors/anil',
   },
   // Add more investors here...

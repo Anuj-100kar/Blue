@@ -31,9 +31,9 @@ const IpoCard = ({
                 <img src={`http://localhost:5000${logo}`} alt="" className='w-8 h-8 rounded-full object-cover' />
                 <h3 className='text-blue-500 font-semibold text-base leading-tight'>{name}</h3>
             </div>
-            <div className=' text-sm text-gray-700 flex flex-col mb-4 gap-2'>
+            
 
-                <div className='grid grid-cols-3 gap-x-4 gap-y-2'>
+                <div className='grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2'>
                     <div className='flex flex-col'>
                         <span className='text-xs font-semibold text-gray-500'>PRICE BAND</span>
                         <span className='text-gray-700'>{priceBand}</span>
@@ -46,9 +46,9 @@ const IpoCard = ({
                         <span className='text-xs font-semibold text-gray-500'>CLOSE</span>
                         <span className='text-gray-700'>{closeDate}</span>
                     </div>
-                </div>
+                
 
-                <div className='grid grid-cols-3 gap-6'>
+               
                     <div className='flex flex-col items-start'>
                         <span className='text-xs font-semibold text-gray-500'>ISSUE SIZE</span>
                         <span className='text-gray-700'>{issueSize}</span>
@@ -63,8 +63,8 @@ const IpoCard = ({
                     </div>
                 </div>
 
-            </div>
-            <div className='flex gap-3 justify-start'>
+            
+            <div className='flex gap-3 justify-start flex-wrap'>
                 <button className='text-gray-800 px-4 py-2 bg-blue-200 text-xs rounded-md'>RHP</button>
                 <button className='text-gray-800 px-4 py-2 bg-blue-200 text-xs rounded-md'>DRHP</button>
                 <button onClick={()=>handleDelete(id)} className='text-white px-4 py-2 bg-red-400 text-xs rounded-md'>delete</button>

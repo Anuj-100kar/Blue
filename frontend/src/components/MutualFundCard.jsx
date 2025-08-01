@@ -31,7 +31,7 @@ const MutualFundCard = ({
             </div>
           </div>
         </div>
-        <div className="text-right">
+        <div className="hidden sm:block md:text-right">
           <div className="text-sm text-gray-500">5Y CAGR</div>
           <div className="text-green-600 font-bold flex items-center justify-end">
             <FaArrowUp className="mr-1" /> {cagr}

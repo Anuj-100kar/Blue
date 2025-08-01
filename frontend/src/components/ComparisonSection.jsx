@@ -53,8 +53,8 @@ const ComparisonSection = () => {
                                 length:Math.max(brokerData.pros.length,brokerData.cons.length),
                             }).map((_,i)=>(
                                 <tr key={i}>
-                                    <td className='border px-4 py-2'>{brokerData.pros[i] || ''}</td>
-                                    <td className='border px-4 py-2'>{brokerData.cons[i] || ''}</td>
+                                    <td className='border px-4 py-2 break-words'>{brokerData.pros[i] || ''}</td>
+                                    <td className='border px-4 py-2 break-words'>{brokerData.cons[i] || ''}</td>
                                 </tr>
                             ))
                         }
