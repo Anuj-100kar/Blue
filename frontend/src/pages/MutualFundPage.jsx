@@ -25,7 +25,7 @@ const MutualFundPage = () => {
         <p className='text-2xl text-base font-medium text-gray-800'>Overview of Large Cap Mutual Funds</p>
       </div>
       <div className="w-full flex flex-col lg:flex-row gap-8">
-        <div className='w-full lg:w-1/4'>
+        <div >
           <FilterSidebar />
         </div>
 

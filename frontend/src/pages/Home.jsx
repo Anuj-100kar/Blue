@@ -21,10 +21,13 @@ const Home = () => {
 
   return (
     <div>
-      <div ref={iporef} className='mt-3 px-6 ml-24'>
-        <h3 className=' font-bold text-gray-900 max-w-7xl'>IPO</h3>
-        <p className='hidden sm:block md:text-sm text-gray-600 mt-1 max-w-7xl'>Following is the list of companies for IPO as of today.
+      <div ref={iporef} className='mt-3 px-4 sm:px-6 lg:px-8'>
+        <div className='max-w-7xl mx-auto'>
+            <h3 className='font-bold text-gray-900 '>IPO</h3>
+        <p className='text-sm text-gray-600 mt-1'>Following is the list of companies for IPO as of today.
         </p>
+        </div>
+        
       </div>
       <UpComing />
       <Hero />

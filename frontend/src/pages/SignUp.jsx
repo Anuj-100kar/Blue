@@ -16,7 +16,7 @@ const SignUp = () => {
     e.preventDefault();
     const res = await axios.post('http://localhost:5000/api/admin/signup', { name, email, password })
     alert('signup successful');
-    navigate('/bluestock/login');
+    navigate('/login');
 
     console.log(res.data);
   }
@@ -90,7 +90,7 @@ const SignUp = () => {
         <div className='mt-4 text-center'>
           <p className='text-sm text-gray-600'>
             Already have an account? {''}
-            <a className='text-blue-600 font-medium cursor-pointer' href='/login'>
+            <a className='text-blue-600 font-medium cursor-pointer' href='login'>
               Sign in here
             </a>
           </p>

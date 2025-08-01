@@ -1,12 +1,14 @@
 import React from 'react'
-import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 
 const FinancialCharts = ({data}) => {
   return (
-  <div className="my-6">
+  <div className="w-full my-6">
     <h2 className="text-lg font-bold mb-2">Financials</h2>
-    <BarChart width={600} height={300} data={data}>
+    <div className='w-full h-[300px]'>
+      <ResponsiveContainer width="100%" height="100%">
+      <BarChart data={data}>
       <XAxis dataKey="name" />
       <YAxis />
       <Tooltip />
@@ -14,6 +16,9 @@ const FinancialCharts = ({data}) => {
       <Bar dataKey="angel" fill="#34d399" />
       <Bar dataKey="zerodha" fill="#60a5fa" />
     </BarChart>
+    </ResponsiveContainer>
+    </div>
+    
   </div>
   )
 }

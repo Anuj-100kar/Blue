@@ -27,9 +27,12 @@ const BrokerCard = ({
     )
   }
   return (
-    <div className="flex flex-col md:flex-row justify-between items-start border rounded-2xl p-6 shadow-sm bg-white w-full max-w-5xl mx-auto mb-6">
+    <div className="flex flex-col md:flex-row justify-between items-start border rounded-2xl p-6 shadow-sm bg-white w-full max-w-4xl mx-auto mb-6">
 
       {/* Left Section */}
+       <div className="md:hidden w-full flex justify-start">
+        <img src={logo} alt={`${name} logo`} className="w-12 h-12 object-contain" />
+      </div>
       <div className="w-full md:w-1/3 space-y-3">
         <h2 className="text-xl font-bold">{name}</h2>
 
@@ -59,7 +62,7 @@ const BrokerCard = ({
       </div>
 
       {/* MIDDLE: Features */}
-      <div className='w-full md:w-2/5 flex justify-between mx-auto px-4 py-2'>
+      <div className='w-full md:w-2/5 flex flex-row gap-5 justify-between mx-auto px-4 py-2'>
         <div className="flex flex-col gap-5">
           {features.map((item, idx) => (
             <div key={idx} className="flex items-center gap-2 text-sm text-gray-800">
@@ -81,15 +84,12 @@ const BrokerCard = ({
             </div>
           ))}
         </div>
-      </div>
-      <div className="w-full md:w-1/4 flex items-center justify-center md:justify-end mt-4">
-        <img
-          src={logo}
-          alt={`${name} logo`}
-          className="w-24 h-24 md:w-32 md:h-32 object-contain"
-        />
-      </div>
-
+        
+          </div>
+           <div className="hidden md:flex md:w-1/4 justify-end items-center pl-5">
+          <img src={logo} alt={`${name} logo`} className="w-40 h-36 object-contain" />
+        </div>
+   
     </div>
   );
 };
