@@ -25,7 +25,7 @@ const Header = () => {
             </ul>
 
             <div className='flex justify-center items-center text-sm space-x-3'>
-               <div className='hidden md:flex space-x-3'>
+               <div className='hidden lg:flex space-x-3'>
                  <button onClick={() => navigate('/login')} className=' text-gray-600 bg-gray-100 px-4 py-1.5 rounded hover:bg-gray-200'>Sign In</button>
                 <button onClick={() => navigate('/sign-up')} className=' text-white bg-blue-600 hover:bg-blue-700 px-4 py-1.5 rounded '>Sign Up Now</button>
                </div>
