@@ -23,7 +23,7 @@ import HomeScreen from './pages/HomeScreen';
 import AllBrokers from './pages/AllBrokers'
 import SharkInvestor from './pages/SharkInvestor'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import UserLayout from './layout/Userlayout'
+import UserLayout from './layout/UserLayout'
 import AdminLayout from './layout/AdminLayout'
 import IpoInformation from './pages/IpoInformation'
 import Candlestick from './pages/Candlestick'
@@ -62,7 +62,7 @@ const App = () => {
           <Route index element={<HomeScreen />} />
 
 
-          <Route path='ipo' element={<Home />} />
+          <Route path='home' element={<Home />} />
           <Route path='career' element={<Career />} />
 
           <Route path='community' element={<Community />} />
