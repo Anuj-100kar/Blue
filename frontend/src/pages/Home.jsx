@@ -31,8 +31,8 @@ const Home = () => {
       </div>
       <UpComing />
       <Hero />
-      <OnGoing />
-      <Listed />
+      {/* <OnGoing />
+      <Listed /> */}
       <NewsSection/>
       <FAQ/>
       </div>
