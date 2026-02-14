@@ -1,10 +1,10 @@
 const express = require("express");
 const cors = require("cors");
-const pool = require('./config/db');
+
 const path = require('path');
 
-
-
+console.log("DATABASE_URL VALUE:", process.env.DATABASE_URL);
+const pool = require('./config/db');
 const app = express();
 
 app.use(cors());
