@@ -43,6 +43,7 @@ import AccountSettings from './pages/AccountSettings'
 import DashboardLayout from './layout/DashboardLayout'
 import ScrollTop from './components/ScrollTop'
 
+
 const App = () => {
   return (
 
@@ -87,8 +88,8 @@ const App = () => {
           <Route path='stock-school/technical-analysis/magic-of-moving-average' element={<MagicOfMovingAverage />} />
 
           <Route path='ipo' element={<IpoLayout />}>
-
-            <Route path='upcoming-ipo' element={<UpcomingIpos />} />
+            
+            <Route path='upcoming-ipo' element={<UpcomingIpos/>} />
             <Route path='ongoing-ipo' element={<OngoingIpos />} />
             <Route path='listed-ipo' element={<ListedIpos />} />
 
