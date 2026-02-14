@@ -17,11 +17,11 @@ const Header = () => {
             </div>
 
             <ul className='hidden md:flex items-center space-x-5 text-xs font-medium text-gray-700'>
-                <li className='hover:text-black cursor-pointer'><Link to="/bluestock/ipo" className='hover:text-black'>IPO</Link></li>
-                <li className='hover:text-black cursor-pointer'><Link to="/bluestock/community" className='hover:text-black'>COMMUNITY</Link></li>
-                <li className='hover:text-black cursor-pointer'><Link to="/bluestock/products" className='hover:text-black'>PRODUCTS</Link></li>
-                <li className='hover:text-black cursor-pointer'><Link to="/bluestock/brokers" className='hover:text-black'>BROKERS</Link></li>
-                <li className='hover:text-black cursor-pointer flex items-center gap-1'><Link to="/bluestock/live-news">LIVE NEWS</Link><span className=' bg-blue-500 text-white hover:bg-blue-600 text-[10px] px-1 py-[1px] rounded-sm '>NEW</span></li>
+                <li className='hover:text-black cursor-pointer'><Link to="/ipo" className='hover:text-black'>IPO</Link></li>
+                <li className='hover:text-black cursor-pointer'><Link to="/community" className='hover:text-black'>COMMUNITY</Link></li>
+                <li className='hover:text-black cursor-pointer'><Link to="/products" className='hover:text-black'>PRODUCTS</Link></li>
+                <li className='hover:text-black cursor-pointer'><Link to="/brokers" className='hover:text-black'>BROKERS</Link></li>
+                <li className='hover:text-black cursor-pointer flex items-center gap-1'><Link to="/live-news">LIVE NEWS</Link><span className=' bg-blue-500 text-white hover:bg-blue-600 text-[10px] px-1 py-[1px] rounded-sm '>NEW</span></li>
             </ul>
 
             <div className='flex justify-center items-center text-sm space-x-3'>

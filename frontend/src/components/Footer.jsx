@@ -16,17 +16,17 @@ const Footer = () => {
             {
               title:'Company',
               items:['Careers','Contact Us','About US','Community','Blogs'],
-              links:['/bluestock/career','/bluestock/contact-us','/bluestock/about-us','/bluestock/community','/bluestock/blogs'],
+              links:['/career','/contact-us','/about-us','/community','/blogs'],
             },
             {
               title:'Offerings',
               items:['Compare Broker','Fin Calculators','IPO','All Brokers','Products'],
-              links:['/bluestock/compare-brokers','#','/bluestock/ipo','/bluestock/brokers','/bluestock/products'],
+              links:['/compare-brokers','#','/ipo','/brokers','/products'],
             },
             {
               title:'Links',
               items:['Shark Investor','Mutual Funds','Sitemap','Indian Indices','Bug Bounty Program'],
-              links:['/bluestock/shark-investor','/bluestock/mutual-fund','#','#','#'],
+              links:['/shark-investor','/mutual-fund','#','#','#'],
             },
             {
               title:'Policy',
