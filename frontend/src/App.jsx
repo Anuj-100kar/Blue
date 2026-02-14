@@ -59,7 +59,7 @@ const App = () => {
         <Route path='account-setting' element={<AccountSettings />} />
         </Route>
 
-        <Route path='/bluestock' element={<UserLayout />}>
+        <Route path='/' element={<UserLayout />}>
           <Route index element={<HomeScreen />} />
 
 
