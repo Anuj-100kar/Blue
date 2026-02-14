@@ -6,7 +6,7 @@ import { API_BASE_URL } from '../config';
 
 const Listed = () => {
   const location = useLocation();
-  const isFullPage = location.pathname === '/bluestock/ipo/listed-ipo';
+  const isFullPage = location.pathname === '/ipo/listed-ipo';
 
   const [loading, setLoading] = useState(true);
   const [ipoData, setIpoData] = useState([]);
@@ -35,7 +35,7 @@ const Listed = () => {
           </div>
           {!isFullPage && (
             <Link
-              to='/bluestock/ipo/listed-ipo'
+              to='/ipo/listed-ipo'
               className='text-blue-600 text-sm font-semibold hover:underline'
             >
               View All

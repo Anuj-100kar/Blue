@@ -8,7 +8,7 @@ const OnGoing = () => {
   const [loading, setLoading] = useState(true);
   const [ipoData, setIpoData] = useState([]);
   const location = useLocation();
-  const isFullPage = location.pathname === '/bluestock/ipo/ongoing-ipo';
+  const isFullPage = location.pathname === '/ipo/ongoing-ipo';
 
   useEffect(() => {
     axios.get(`${API_BASE_URL}/api/ipo/ongoing-ipos`) // live backend URL
@@ -34,7 +34,7 @@ const OnGoing = () => {
           </div>
           {!isFullPage && (
             <Link
-              to='/bluestock/ipo/ongoing-ipo'
+              to='/ipo/ongoing-ipo'
               className='text-blue-600 text-sm font-semibold hover:underline'
             >
               View All
