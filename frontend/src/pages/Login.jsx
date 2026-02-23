@@ -4,6 +4,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { assets } from '../assets/assets'
 import axios from 'axios'
+import { API_BASE_URL } from '../config';
 
 const Login = () => {
 
@@ -17,7 +18,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post('http://localhost:5000/api/admin/login', {
+      const res = await axios.post(`${API_BASE_URL}/api/admin/login`, {
         email, password
       });
 
@@ -96,7 +97,7 @@ const Login = () => {
         {/*create account */}
         <div className='mt-4 text-center'>
           <p className='text-sm text-gray-600'>
-            Don't have an account? {''}e
+            Don't have an account? {''}
             <a className='text-blue-600 font-medium cursor-pointer' href='/sign-up'>
               create an account
             </a>
