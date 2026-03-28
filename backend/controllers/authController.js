@@ -1,49 +1,109 @@
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const pool = require('../config/db');
 
-const bcrypt =require('bcryptjs');
-const jwt=require('jsonwebtoken');
-const pool=require('../config/db');
+// ================= REGISTER =================
+const register = async (req, res) => {
+  const { name, email, password } = req.body;
 
-const register=async(req,res)=>{
-    const {name,email,password}=req.body;
+  // ✅ Validation
+  if (!name || !email || !password) {
+    return res.status(400).json({ message: "All fields are required" });
+  }
 
-    try {
-        const hashpassword=await bcrypt.hash(password,10);
-        const result=await pool.query('INSERT INTO admins (name,email,password) VALUES ($1,$2,$3) RETURNING *',
-            [name,email,hashpassword]
-        );
-        res.status(201).json({message:'Admin registered',admin:result.rows[0]});
-    } catch (error) {
-        res.status(500).json({message:'registration failed'});
+  try {
+    // ✅ Check if email already exists
+    const existing = await pool.query(
+      "SELECT * FROM admins WHERE email = $1",
+      [email]
+    );
+
+    if (existing.rows.length > 0) {
+      return res.status(400).json({ message: "Email already exists" });
     }
+
+    // ✅ Hash password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // ✅ Insert into DB
+    const result = await pool.query(
+      "INSERT INTO admins (name, email, password) VALUES ($1, $2, $3) RETURNING id, name, email",
+      [name, email, hashedPassword]
+    );
+
+    res.status(201).json({
+      message: "Admin registered successfully",
+      admin: result.rows[0],
+    });
+
+  } catch (error) {
+    console.error("Register Error:", error.message);
+    res.status(500).json({ message: error.message });
+  }
 };
 
-const login=async(req,res)=>{
-    const {email,password}=req.body;
+// ================= LOGIN =================
+const login = async (req, res) => {
+  const { email, password } = req.body;
 
-    try {
-        const result=await pool.query('SELECT * FROM admins WHERE email=$1',[email]);
-        const admin=result.rows[0];
-        if(!admin)
-            return res.status(404).json({error:'admin not found'});
+  // ✅ Validation
+  if (!email || !password) {
+    return res.status(400).json({ message: "Email and password are required" });
+  }
 
-        const valid=await bcrypt.compare(password,admin.password);
-        if(!valid) 
-            return res.status(401).json({error:'invalid password'});
+  try {
+    // ✅ Check if user exists
+    const result = await pool.query(
+      "SELECT * FROM admins WHERE email = $1",
+      [email]
+    );
 
-        const token=jwt.sign({id:admin.id},'SECRET_KEY',{expiresIn:'1d'});
-
-        res.json({message:'login successful',token})
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({error:'login failed'});
+    if (result.rows.length === 0) {
+      return res.status(404).json({ message: "Admin not found" });
     }
-}
 
-const forgotpassword=async(req,res)=>{
-    const {email}=req.body;
+    const admin = result.rows[0];
 
-    res.json({message:`password reset link sent to ${email}`});
-}
+    // ✅ Compare password
+    const isMatch = await bcrypt.compare(password, admin.password);
 
+    if (!isMatch) {
+      return res.status(401).json({ message: "Invalid password" });
+    }
 
-module.exports={login,register,forgotpassword};
+    // ✅ Generate JWT
+    const token = jwt.sign(
+      { id: admin.id, email: admin.email },
+      process.env.JWT_SECRET,
+      { expiresIn: "1d" }
+    );
+
+    res.status(200).json({
+      message: "Login successful",
+      token,
+      admin: {
+        id: admin.id,
+        name: admin.name,
+        email: admin.email,
+      },
+    });
+
+  } catch (error) {
+    console.error("Login Error:", error.message);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// ================= FORGOT PASSWORD =================
+const forgotpassword = async (req, res) => {
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ message: "Email is required" });
+  }
+
+  // (Dummy for now)
+  res.json({ message: `Password reset link sent to ${email}` });
+};
+
+module.exports = { register, login, forgotpassword };
