@@ -98,9 +98,9 @@ const Login = () => {
         <div className='mt-4 text-center'>
           <p className='text-sm text-gray-600'>
             Don't have an account? {''}
-            <a className='text-blue-600 font-medium cursor-pointer' href='/sign-up'>
+            <Link className='text-blue-600 font-medium cursor-pointer' href='/sign-up'>
               create an account
-            </a>
+            </Link>
           </p>
         </div>
       </div>
