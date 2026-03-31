@@ -1,7 +1,7 @@
 const pool = require('../config/db');
 const fs=require('fs');
 const path=require('path');
-const { fetchLiveIPOs } = require("../services/ipoService");
+const { fetchLiveIPOs } = require("../services/IpoService");
 
 // Get all IPOs
 
