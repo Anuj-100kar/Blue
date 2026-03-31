@@ -1,8 +1,18 @@
 const pool = require('../config/db');
 const fs=require('fs');
 const path=require('path');
+const { fetchLiveIPOs } = require("../services/ipoService");
 
 // Get all IPOs
+
+const getLiveIPOs = async (req, res) => {
+  try {
+    const data = await fetchLiveIPOs();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching live IPOs" });
+  }
+};
 const getAllIPOs = async (req, res) => {
 
   try {
@@ -212,5 +222,6 @@ module.exports = {
   deleteIpo,
   getOngoingIpos,
   getListedIpos,
-  addListedIPO
+  addListedIPO,
+  getLiveIPOs
 };

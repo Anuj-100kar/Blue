@@ -4,7 +4,8 @@ const upload = require('../middleware/upload');
 const {
   getAllIPOs,
   addIPO,
-  deleteIpo,getOngoingIpos,getListedIpos,addListedIPO
+  deleteIpo,getOngoingIpos,getListedIpos,addListedIPO,
+  getLiveIPOs
 } = require("../controllers/ipoController");
 
 router.get("/", getAllIPOs);
@@ -16,5 +17,7 @@ router.delete("/:id",deleteIpo);
 router.get("/ongoing-ipos",getOngoingIpos);
 router.get("/listed-ipos",getListedIpos);
 router.post('/listed-ipo', upload.single('logo'), addListedIPO);
+
+router.get("/live",getLiveIPOs);
 
 module.exports = router;

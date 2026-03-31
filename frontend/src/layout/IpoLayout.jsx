@@ -14,6 +14,7 @@ const IpoLayout = () => {
               <li><Link to="upcoming-ipo">Upcoming Ipos</Link></li>
               <li><Link to="ongoing-ipo">Ongoing Ipos</Link></li>
               <li><Link to="listed-ipo">Listed Ipos</Link></li>
+              <li><Link to="closed-ipo">Closed Ipos(live)</Link></li>
             </ul>
           </div>
         )

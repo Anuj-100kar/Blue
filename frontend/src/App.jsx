@@ -42,6 +42,7 @@ import MarketOverview from './pages/MarketOverview'
 import AccountSettings from './pages/AccountSettings'
 import DashboardLayout from './layout/DashboardLayout'
 import ScrollTop from './components/ScrollTop'
+import ClosedIpos from './pages/ClosedIpos.jsx'
 
 
 const App = () => {
@@ -92,9 +93,9 @@ const App = () => {
             <Route path='upcoming-ipo' element={<UpcomingIpos/>} />
             <Route path='ongoing-ipo' element={<OngoingIpos />} />
             <Route path='listed-ipo' element={<ListedIpos />} />
-
+            <Route path='closed-ipo' element={<ClosedIpos/>} />
+          
           </Route>
-
         </Route>
 
         <Route path='login' element={<Login />} />
