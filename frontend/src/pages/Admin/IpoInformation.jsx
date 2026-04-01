@@ -1,9 +1,9 @@
 import React from 'react'
-import { assets } from '../assets/assets'
-import DashboardHeader from '../components/DashboardHeader'
-import RegisterSidebar from '../components/RegisterSidebar'
-import Sidebar from '../components/Sidebar'
-import RegisterForm from '../components/RegisterForm'
+import { assets } from '../../assets/assets'
+import DashboardHeader from '../../components/DashboardHeader'
+import RegisterSidebar from '../../components/RegisterSidebar'
+import Sidebar from '../../components/Sidebar'
+import RegisterForm from '../../components/RegisterForm'
 
 const IpoInformation = () => {
   return (
