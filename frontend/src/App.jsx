@@ -1,10 +1,7 @@
 import React from 'react'
 
-import Login from './pages/Login'
-import SignUp from './pages/SignUp'
-import ForgotPassword from './pages/ForgotPassword'
-import AdminDashboard from './pages/AdminDashboard'
-import DashBoard from './pages/DashBoard'
+import AdminDashboard from './pages/Admin/AdminDashboard.jsx'
+import DashBoard from './pages/Admin/DashBoard.jsx'
 import Home from './pages/Home'
 import Career from './pages/Career'
 import Product from './pages/Product'
@@ -25,7 +22,7 @@ import SharkInvestor from './pages/SharkInvestor'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import UserLayout from './layout/UserLayout'
 import AdminLayout from './layout/AdminLayout'
-import IpoInformation from './pages/IpoInformation'
+import IpoInformation from './pages/Admin/IpoInformation'
 import Candlestick from './pages/Candlestick'
 import ChartPatterns from './pages/ChartPatterns'
 import TechnicalIndicator from './pages/TechnicalIndicator'
@@ -36,13 +33,18 @@ import UpcomingIpos from './pages/UpcomingIpos'
 import OngoingIpos from './pages/OngoingIpos'
 import ListedIpos from './pages/ListedIpos'
 import BrokersCompare from './pages/BrokersCompare'
-import UserSignUp from './pages/UserSignUp'
-import UserDashboard from './pages/UserDashboard'
+import UserSignUp from './pages/user/UserSignUp.jsx'
+import UserDashboard from './pages/user/UserDashboard.jsx'
 import MarketOverview from './pages/MarketOverview'
 import AccountSettings from './pages/AccountSettings'
 import DashboardLayout from './layout/DashboardLayout'
 import ScrollTop from './components/ScrollTop'
 import ClosedIpos from './pages/ClosedIpos.jsx'
+import AdminLogin from './pages/Admin/AdminLogin.jsx'
+import AdminSignUp from './pages/Admin/AdminSignUp.jsx'
+import AdminForgotPassword from './pages/Admin/AdminForgotPassword.jsx'
+import UserLogin from './pages/user/UserLogin.jsx'
+import UserForgotPassword from './pages/user/UserForgotPassword.jsx'
 
 
 const App = () => {
@@ -51,19 +53,18 @@ const App = () => {
     <>
       <ScrollTop/>
       <Routes>
+        <Route path='user/login' element={<UserLogin/>} />
+        <Route path='user/sign-up' element={<UserSignUp/>} />
+        <Route path='user/forgot-password' element={<UserForgotPassword/>} />
         <Route path='/user' element={<DashboardLayout/>}>
 
-        
-        <Route path='sign-up' element={<UserSignUp />} />
-        <Route path='dashboard' element={<UserDashboard />} />
+        <Route index element={<UserDashboard />} />
         <Route path='market-overview' element={<MarketOverview />} />
         <Route path='account-setting' element={<AccountSettings />} />
         </Route>
 
         <Route path='/' element={<UserLayout />}>
           <Route index element={<HomeScreen />} />
-
-
           <Route path='home' element={<Home />} />
           <Route path='career' element={<Career />} />
 
@@ -98,12 +99,12 @@ const App = () => {
           </Route>
         </Route>
 
-        <Route path='login' element={<Login />} />
-        <Route path='sign-up' element={<SignUp />} />
-        <Route path='forgot-password' element={<ForgotPassword />} />
+        <Route path='admin/login' element={<AdminLogin />} />
+        <Route path='admin/sign-up' element={<AdminSignUp/>} />
+        <Route path='admin/forgot-password' element={<AdminForgotPassword/>} />
 
         <Route path='/admin' element={<AdminLayout />}>
-          <Route index element={<AdminDashboard />} />
+          <Route index element={<AdminDashboard/>} />
           <Route path='dashboard' element={<DashBoard />} />
           <Route path='register' element={<IpoInformation />} />
         </Route>

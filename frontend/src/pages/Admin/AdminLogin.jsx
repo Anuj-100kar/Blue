@@ -1,13 +1,15 @@
+// pages/admin/AdminLogin.jsx
+
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
-import { assets } from '../assets/assets'
+import { assets } from '../../assets/assets'
 import axios from 'axios'
-import { API_BASE_URL } from '../config';
+import { API_BASE_URL } from '../../config';
 
-const Login = () => {
 
+const AdminLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showpassword, setShowPassword] = useState(false);
@@ -60,7 +62,7 @@ const Login = () => {
               {showpassword ? <FiEye size={16} /> : <FiEyeOff size={16} />}
             </div>
             <div>
-              <Link to={`/forgot-password`} className='text-sm text-blue-600  cursor-pointer'>
+              <Link to={`/admin/forgot-password`} className='text-sm text-blue-600  cursor-pointer'>
                 Forgot Password?
               </Link>
             </div>
@@ -98,7 +100,7 @@ const Login = () => {
         <div className='mt-4 text-center'>
           <p className='text-sm text-gray-600'>
             Don't have an account? {''}
-            <Link className='text-blue-600 font-medium cursor-pointer' href='/sign-up'>
+            <Link to="/admin/sign-up" className='text-blue-600 font-medium cursor-pointer' href='/admin/sign-up'>
               create an account
             </Link>
           </p>
@@ -107,6 +109,6 @@ const Login = () => {
     </div>
 
   )
-}
+};
 
-export default Login
+export default AdminLogin;

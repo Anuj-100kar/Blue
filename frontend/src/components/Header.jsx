@@ -26,16 +26,16 @@ const Header = () => {
 
             <div className='flex justify-center items-center text-sm space-x-3'>
                <div className='hidden lg:flex space-x-3'>
-                 <button onClick={() => navigate('/login')} className=' text-gray-600 bg-gray-100 px-4 py-1.5 rounded hover:bg-gray-200'>Sign In</button>
-                <button onClick={() => navigate('/sign-up')} className=' text-white bg-blue-600 hover:bg-blue-700 px-4 py-1.5 rounded '>Sign Up Now</button>
+                 <button onClick={() => navigate('/user/login')} className=' text-gray-600 bg-gray-100 px-4 py-1.5 rounded hover:bg-gray-200'>Sign In</button>
+                <button onClick={() => navigate('/user/sign-up')} className=' text-white bg-blue-600 hover:bg-blue-700 px-4 py-1.5 rounded '>Sign Up Now</button>
                </div>
                 <div className='relative'>
                     <img className='h-4 w-4 ml-2 cursor-pointer' onClick={handlegripclick} src={assets.grip} alt="" />
                     {
                         showDropdown && (
                             <div className='absolute right-0 mt-2 w-40 bg-white rounded shadow-md'>
-                                <Link to="/user/sign-up" className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'>User Login</Link>
-                                <Link to="/login" className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'>Admin Login</Link>
+                                <Link to="/user/login" className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'>User Login</Link>
+                                <Link to="/admin/login" className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'>Admin Login</Link>
                             </div>
                         )
                     }

@@ -1,9 +1,9 @@
 import React from 'react'
-import { assets } from '../assets/assets'
+import { assets } from '../../assets/assets'
 import { Link } from 'react-router-dom';
 
-const ForgotPassword = () => {
-    const handleforgot=async(e)=>{
+const AdminForgotPassword = () => {
+ const handleforgot=async(e)=>{
         e.preventDefault();
         const res=await fetch('http://localhost:5000/api/admin-auth/forgotpassword',{
             method:'POST',
@@ -42,4 +42,4 @@ const ForgotPassword = () => {
     )
 }
 
-export default ForgotPassword
+export default AdminForgotPassword

@@ -1,5 +1,5 @@
 import React from 'react'
-import TradingChart from '../components/TradingChart'
+import TradingChart from '../../components/TradingChart'
 
 const UserDashboard = () => {
   return (

@@ -1,18 +1,19 @@
 import React from 'react'
-import { useState,useEffect } from 'react'
-import { assets } from '../assets/assets';
+import { useState, useEffect } from 'react'
+import { assets } from '../../assets/assets';
+import { Link, useNavigate } from 'react-router-dom';
 
 const UserSignUp = () => {
-  const [darkMode , setDarkMode]=useState(true);
+  const [darkMode, setDarkMode] = useState(true);
 
-  useEffect(()=>{
-    const html=document.documentElement;
-    if(darkMode){
+  useEffect(() => {
+    const html = document.documentElement;
+    if (darkMode) {
       html.classList.add("dark");
-    }else{
+    } else {
       html.classList.remove("dark");
     }
-  },[darkMode]);
+  }, [darkMode]);
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row bg-white text-black dark:bg-black dark:text-white transition-colors duration-300">
@@ -103,6 +104,13 @@ const UserSignUp = () => {
             <p className="text-xs text-gray-500">
               At least 8 characters, with numbers and symbols.
             </p>
+            <div className="flex justify-between items-center text-sm">
+
+
+              <Link to="/user/forgot-password" className="text-cyan-400 hover:underline">
+                Forgot Password?
+              </Link>
+            </div>
 
             <div className="flex items-center gap-2 text-sm">
               <input type="checkbox" className="accent-cyan-500" />
@@ -112,6 +120,12 @@ const UserSignUp = () => {
             <button className="w-full bg-cyan-500 text-black font-semibold py-2 rounded hover:bg-cyan-400 transition">
               Create Account
             </button>
+            <p className="text-sm text-gray-400 text-center mt-4">
+              Already have an account?{" "}
+              <Link to="/user/login" className="text-cyan-400 hover:underline">
+                Login
+              </Link>
+            </p>
 
             <p className="text-xs text-gray-500 mt-2">
               By signing up, you agree to our{" "}
