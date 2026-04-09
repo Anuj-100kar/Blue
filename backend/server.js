@@ -12,9 +12,11 @@ app.use(express.json());
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-const ipoRoutes = require("./routes/ipoRoutes");
-app.use("/api/ipo", ipoRoutes);
+
+app.use("/api/ipo", require('./routes/ipoRoutes'));
 app.use('/api/admin',require('./routes/authRoutes'));
+app.use('/api/user',require('./routes/userRoutes'));
+app.use('/api/early-access',require('./routes/earlyAccess'));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

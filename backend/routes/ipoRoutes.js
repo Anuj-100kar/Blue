@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const upload = require('../middleware/upload');
+const auth=require('../middleware/auth');
+const adminOnly=require('../middleware/adminOnly');
 const {
   getAllIPOs,
   addIPO,
@@ -9,15 +11,14 @@ const {
 } = require("../controllers/ipoController");
 
 router.get("/", getAllIPOs);
+// router.get("/ongoing-ipos",getOngoingIpos);
+// router.get("/listed-ipos",getListedIpos);
+// router.get("/live",getLiveIPOs);
 
-// 👇 Add multer middleware here
-router.post("/", upload.single('logo'), addIPO);
 
-router.delete("/:id",deleteIpo);
-router.get("/ongoing-ipos",getOngoingIpos);
-router.get("/listed-ipos",getListedIpos);
-router.post('/listed-ipo', upload.single('logo'), addListedIPO);
+router.post("/",auth, upload.single('logo'), addIPO);
 
-router.get("/live",getLiveIPOs);
+router.post('/listed-ipo',auth,adminOnly, upload.single('logo'), addListedIPO);
+router.delete("/:id",auth,adminOnly,deleteIpo);
 
 module.exports = router;

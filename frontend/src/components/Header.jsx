@@ -21,14 +21,16 @@ const Header = () => {
                 <li className='hover:text-black cursor-pointer'><Link to="/community" className='hover:text-black'>COMMUNITY</Link></li>
                 <li className='hover:text-black cursor-pointer'><Link to="/products" className='hover:text-black'>PRODUCTS</Link></li>
                 <li className='hover:text-black cursor-pointer'><Link to="/brokers" className='hover:text-black'>BROKERS</Link></li>
-                <li className='hover:text-black cursor-pointer flex items-center gap-1'><Link to="/live-news">LIVE NEWS</Link><span className=' bg-blue-500 text-white hover:bg-blue-600 text-[10px] px-1 py-[1px] rounded-sm '>NEW</span></li>
+                <li className='hover:text-black cursor-pointer flex items-center gap-1'><a href="https://www.moneycontrol.com/news/" target="_blank">
+                    Live News
+                </a><span className=' bg-blue-500 text-white hover:bg-blue-600 text-[10px] px-1 py-[1px] rounded-sm '>NEW</span></li>
             </ul>
 
             <div className='flex justify-center items-center text-sm space-x-3'>
-               <div className='hidden lg:flex space-x-3'>
-                 <button onClick={() => navigate('/user/login')} className=' text-gray-600 bg-gray-100 px-4 py-1.5 rounded hover:bg-gray-200'>Sign In</button>
-                <button onClick={() => navigate('/user/sign-up')} className=' text-white bg-blue-600 hover:bg-blue-700 px-4 py-1.5 rounded '>Sign Up Now</button>
-               </div>
+                <div className='hidden lg:flex space-x-3'>
+                    <button onClick={() => navigate('/user/login')} className=' text-gray-600 bg-gray-100 px-4 py-1.5 rounded hover:bg-gray-200'>Sign In</button>
+                    <button onClick={() => navigate('/user/sign-up')} className=' text-white bg-blue-600 hover:bg-blue-700 px-4 py-1.5 rounded '>Sign Up Now</button>
+                </div>
                 <div className='relative'>
                     <img className='h-4 w-4 ml-2 cursor-pointer' onClick={handlegripclick} src={assets.grip} alt="" />
                     {

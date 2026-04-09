@@ -14,13 +14,32 @@ const AdminSignUp = () => {
   const navigate = useNavigate();
 
   const handlesignup = async (e) => {
-    e.preventDefault();
-    const res = await axios.post(`${API_BASE_URL}/api/admin/signup`, { name, email, password })
-    alert('signup successful');
-    navigate('/login');
+  e.preventDefault();
+
+  if (!name || !email || !password) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  try {
+    const res = await axios.post(`${API_BASE_URL}/api/admin/sign-up`, {
+      name,
+      email,
+      password
+    });
+
+    alert('Signup successful ✅');
+
+    navigate('/admin/login');
 
     console.log(res.data);
+
+  } catch (error) {
+    console.error(error.response?.data);
+
+    alert(error.response?.data?.message || "Signup failed ❌");
   }
+};
   const [showpassword, setShowPassword] = useState(false);
   return (
     <div className='min-h-screen flex items-center justify-center bg-gray-100 px-4'>
@@ -91,9 +110,9 @@ const AdminSignUp = () => {
         <div className='mt-4 text-center'>
           <p className='text-sm text-gray-600'>
             Already have an account? {''}
-            <a className='text-blue-600 font-medium cursor-pointer' href='login'>
+            <Link to="/admin/login" className='text-blue-600 font-medium cursor-pointer' >
               Sign in here
-            </a>
+            </Link>
           </p>
         </div>
       </div>

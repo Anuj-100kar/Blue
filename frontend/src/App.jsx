@@ -5,7 +5,6 @@ import DashBoard from './pages/Admin/DashBoard.jsx'
 import Home from './pages/Home'
 import Career from './pages/Career'
 import Product from './pages/Product'
-import News from './pages/News';
 import Contact from './pages/Contact'
 import Community from './pages/Community'
 import AboutUs from './pages/AboutUs'
@@ -45,22 +44,35 @@ import AdminSignUp from './pages/Admin/AdminSignUp.jsx'
 import AdminForgotPassword from './pages/Admin/AdminForgotPassword.jsx'
 import UserLogin from './pages/user/UserLogin.jsx'
 import UserForgotPassword from './pages/user/UserForgotPassword.jsx'
+import ProtectedRoute from './components/ProtectedRoute.jsx'
+import ListedForm from './components/ListedForm.jsx'
+import RegisterForm from './components/RegisterForm.jsx'
+import IpoSubscription from './pages/Admin/IpoSubscription.jsx'
+import Accounts from './pages/Admin/Accounts.jsx'
+import Help from './pages/Admin/Help.jsx'
+import ApiManager from './pages/Admin/ApiManager.jsx'
+import Settings from './pages/Admin/Settings.jsx'
+import IpoAllotment from './pages/Admin/IpoAllotment.jsx'
 
 
 const App = () => {
   return (
 
     <>
-      <ScrollTop/>
+      <ScrollTop />
       <Routes>
-        <Route path='user/login' element={<UserLogin/>} />
-        <Route path='user/sign-up' element={<UserSignUp/>} />
-        <Route path='user/forgot-password' element={<UserForgotPassword/>} />
-        <Route path='/user' element={<DashboardLayout/>}>
+        <Route path='user/login' element={<UserLogin />} />
 
-        <Route index element={<UserDashboard />} />
-        <Route path='market-overview' element={<MarketOverview />} />
-        <Route path='account-setting' element={<AccountSettings />} />
+        <Route path='user/sign-up' element={<UserSignUp />} />
+        <Route path='user/forgot-password' element={<UserForgotPassword />} />
+        <Route path='/user' element={
+          <ProtectedRoute>
+            <DashboardLayout />
+          </ProtectedRoute>
+        }>
+          <Route index element={<UserDashboard />} />
+          <Route path='market-overview' element={<MarketOverview />} />
+          <Route path='account-setting' element={<AccountSettings />} />
         </Route>
 
         <Route path='/' element={<UserLayout />}>
@@ -78,7 +90,6 @@ const App = () => {
           <Route path='analytics' element={<Analytics />} />
           <Route path='compare-brokers' element={<BrokersCompare />} />
           <Route path='brokers' element={<AllBrokers />} />
-          <Route path='live-news' element={<News />} />
           <Route path='shark-investor' element={<SharkInvestor />} />
 
           <Route path='stock-school' element={<StockSchoolPage />} />
@@ -90,23 +101,31 @@ const App = () => {
           <Route path='stock-school/technical-analysis/magic-of-moving-average' element={<MagicOfMovingAverage />} />
 
           <Route path='ipo' element={<IpoLayout />}>
-            
-            <Route path='upcoming-ipo' element={<UpcomingIpos/>} />
+
+            <Route path='upcoming-ipo' element={<UpcomingIpos />} />
             <Route path='ongoing-ipo' element={<OngoingIpos />} />
             <Route path='listed-ipo' element={<ListedIpos />} />
-            <Route path='closed-ipo' element={<ClosedIpos/>} />
-          
+            <Route path='closed-ipo' element={<ClosedIpos />} />
+
           </Route>
         </Route>
 
         <Route path='admin/login' element={<AdminLogin />} />
-        <Route path='admin/sign-up' element={<AdminSignUp/>} />
-        <Route path='admin/forgot-password' element={<AdminForgotPassword/>} />
+        <Route path='admin/sign-up' element={<AdminSignUp />} />
+        <Route path='admin/forgot-password' element={<AdminForgotPassword />} />
 
         <Route path='/admin' element={<AdminLayout />}>
-          <Route index element={<AdminDashboard/>} />
+          <Route index element={<AdminDashboard />} />
           <Route path='dashboard' element={<DashBoard />} />
           <Route path='register' element={<IpoInformation />} />
+          <Route path='add-ipo' element={<RegisterForm />} />
+          <Route path='add-listed' element={<ListedForm/>} />
+          <Route path='ipo-subscription' element={<IpoSubscription/>}/>
+          <Route path='ipo-allotment' element={<IpoAllotment/>}/>
+          <Route path='settings' element={<Settings/>}/>
+          <Route path='api-manager' element={<ApiManager/>}/>
+          <Route path='accounts' element={<Accounts/>}/>
+          <Route path='help' element={<Help/>}/>
         </Route>
 
         <Route path='*' element={<Error />} />

@@ -6,16 +6,16 @@ const Sidebar = () => {
   const menuitems = [
     { label: "Dashboard", icon: assets.chart,path:'/admin/dashboard' },
     { label: "Manage IPO", icon: assets.buy ,path:'/admin/register'},
-    { label: "IPO Subscription", icon: assets.document ,path:'/ipo-subscription'},
-    { label: "IPO Allotment", icon: assets.chat,path:'/ipo-allotment' },
+    { label: "IPO Subscription", icon: assets.document ,path:'/admin/ipo-subscription'},
+    { label: "IPO Allotment", icon: assets.chat,path:'/admin/ipo-allotment' },
 
   ]
 
   const otheritems = [
-    { label: "Settings", icon: assets.setting ,path:'/settings'},
-    { label: "Api Manager", icon: assets.wallet,path:'/api-manager' },
-    { label: "Accounts", icon: assets.profile,path:'/accounts' },
-    { label: "Help", icon: assets.infosquare,path:'/help' },
+    { label: "Settings", icon: assets.setting ,path:'/admin/settings'},
+    { label: "Api Manager", icon: assets.wallet,path:'/admin/api-manager' },
+    { label: "Accounts", icon: assets.profile,path:'/admin/accounts' },
+    { label: "Help", icon: assets.infosquare,path:'/admin/help' },
   ]
   return (
     <div className='min-h-screen w-[240px] shadow-md p-4 bg-white'>

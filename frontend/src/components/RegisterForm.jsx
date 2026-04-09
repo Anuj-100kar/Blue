@@ -5,21 +5,16 @@ import axios from 'axios'
 const RegisterForm = () => {
 
   const [formData, setFormData] = useState({
-    companyName: '',
-    priceBand: '',
-    openDate: '',
-    closeDate: '',
-    issueSize: '',
-    issueType: '',
-    listingDate: '',
-    status: 'Upcoming',
+    company_name: '',
+    price_band: '',
+    open_date: '',
+    close_date: '',
+    issue_size: '',
+    issue_type: '',
+    listing_date: '',
+    status: 'upcoming',
 
-    ipoPrice: '',
-    listingPrice: '',
-    cmp: '',
-    currentReturn: '',
-    gmp: '',
-    gmpLink: ''
+    
   });
 
   // handle input change
@@ -31,21 +26,36 @@ const RegisterForm = () => {
   };
 
   // submit form
-  const handleSubmit = async () => {
-    try {
-      const res = await axios.post(
-        "http://localhost:5000/api/ipo",
-        formData
-      );
+const handleSubmit = async () => {
+  try {
+    const token = localStorage.getItem('token');
 
-      alert("IPO Added Successfully ✅");
-      console.log(res.data);
+    const data = new FormData();
 
-    } catch (error) {
-      console.error(error);
-      alert("Error adding IPO ❌");
+    // append all fields
+    for (let key in formData) {
+      data.append(key, formData[key]);
     }
-  };
+
+    const res = await axios.post(
+      "http://localhost:5000/api/ipo",
+      data,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data"
+        }
+      }
+    );
+
+    alert("IPO Added Successfully ✅");
+    console.log(res.data);
+
+  } catch (error) {
+    console.error(error);
+    alert("Error adding IPO ❌");
+  }
+};
 
   return (
     <div className="flex-1 bg-white rounded-xl shadow-md p-6 ">
@@ -56,31 +66,40 @@ const RegisterForm = () => {
 
       {/* Section 1 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input
+          type="file"
+          name="logo"
+          onChange={(e) => {
+            setFormData({
+              ...formData,
+              logo: e.target.files[0]
+            });
+          }}
+        />
+        <InputField label="Company Name" name="company_name" value={formData.company_name} onChange={handleChange} />
 
-        <InputField label="Company Name" name="companyName" value={formData.companyName} onChange={handleChange} />
+        <InputField label="Price Band" name="price_band" value={formData.price_band} onChange={handleChange} />
 
-        <InputField label="Price Band" name="priceBand" value={formData.priceBand} onChange={handleChange} />
+        <InputField label="Open" name="open_date" value={formData.open_date} onChange={handleChange} />
 
-        <InputField label="Open" name="openDate" value={formData.openDate} onChange={handleChange} />
+        <InputField label="Close" name="close_date" value={formData.close_date} onChange={handleChange} />
 
-        <InputField label="Close" name="closeDate" value={formData.closeDate} onChange={handleChange} />
-
-        <InputField label="Issue Size" name="issueSize" value={formData.issueSize} onChange={handleChange} />
+        <InputField label="Issue Size" name="issue_size" value={formData.issue_size} onChange={handleChange} />
 
         <InputField
           label="Issue Type"
-          name="issueType"
+          name="issue_type"
           type="select"
           options={['Book Built', 'Fixed Price']}
-          value={formData.issueType}
+          value={formData.issue_type}
           onChange={handleChange}
         />
 
         <InputField
           label="Listing Date"
-          name="listingDate"
+          name="listing_date"
           type="date"
-          value={formData.listingDate}
+          value={formData.listing_date}
           onChange={handleChange}
         />
 
@@ -88,32 +107,16 @@ const RegisterForm = () => {
           label="Status"
           name="status"
           type="select"
-          options={['Upcoming', 'Ongoing', 'Listed']}
+          options={['upcoming', 'ongoing', 'listed']}
           value={formData.status}
           onChange={handleChange}
         />
       </div>
 
-      <hr className="my-6" />
-
       {/* Section 2 */}
-      <h2 className="text-xl font-semibold mb-4">New Listed IPO Details</h2>
+     
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-        <InputField label="IPO Price" name="ipoPrice" value={formData.ipoPrice} onChange={handleChange} />
-
-        <InputField label="Listing Price" name="listingPrice" value={formData.listingPrice} onChange={handleChange} />
-
-        <InputField label="CMP" name="cmp" value={formData.cmp} onChange={handleChange} />
-
-        <InputField label="Current Return (%)" name="currentReturn" value={formData.currentReturn} onChange={handleChange} />
-
-        <InputField label="GMP" name="gmp" value={formData.gmp} onChange={handleChange} />
-
-        <InputField label="GMP PDF Link" name="gmpLink" value={formData.gmpLink} onChange={handleChange} />
-
-      </div>
+      
 
       {/* Buttons */}
       <div className="mt-6 flex justify-end space-x-4">

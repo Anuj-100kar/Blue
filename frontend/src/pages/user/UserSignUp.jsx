@@ -2,9 +2,51 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { assets } from '../../assets/assets';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { API_BASE_URL } from '../../config';
 
 const UserSignUp = () => {
   const [darkMode, setDarkMode] = useState(true);
+  const [firstName,setFirstName]=useState('');
+  const [lastName,setLastName]=useState('');
+  const [email,setEmail]=useState('');
+  const [password,setPassword]=useState('');
+
+  const navigate=useNavigate();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (!firstName || !lastName || !email || !password) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  if(password.length<8){
+    alert("password must be minimum of 8 characters");
+    return;
+  }
+
+  try {
+    const res = await axios.post(`${API_BASE_URL}/api/user/sign-up`, {
+      firstName,
+      lastName,
+      email,
+      password
+    });
+
+    alert('Signup successful ✅');
+
+    navigate('/user/login');
+
+    console.log(res.data);
+
+  } catch (error) {
+    console.error(error.response?.data);
+
+    alert(error.response?.data?.message || "Signup failed ❌");
+  }
+};
+
 
   useEffect(() => {
     const html = document.documentElement;
@@ -15,6 +57,7 @@ const UserSignUp = () => {
     }
   }, [darkMode]);
 
+  const [showpassword,setShowPassword]=useState(false);
   return (
     <div className="min-h-screen flex flex-col md:flex-row bg-white text-black dark:bg-black dark:text-white transition-colors duration-300">
       <div className="absolute top-4 right-4 md:top-36 md:right-28 z-10">
@@ -69,7 +112,7 @@ const UserSignUp = () => {
       <div className="w-full md:w-1/2 flex flex-col justify-center items-center px-6 md:px-10 py-8">
         <div className="w-full max-w-md">
           <div className="flex gap-2 mb-4">
-            <button className="flex-1 bg-black text-white dark:bg-white dark:text-black  px-4 py-2 rounded font-medium">
+            <button  className="flex-1 bg-black text-white dark:bg-white dark:text-black  px-4 py-2 rounded font-medium">
               Sign up with Google
             </button>
             <button className="flex-1 bg-blue-600 text-white px-4 py-2 rounded font-medium">
@@ -81,24 +124,32 @@ const UserSignUp = () => {
             <div className="flex flex-col sm:flex-row gap-2">
               <input
                 type="text"
-                placeholder="First Name"
+                placeholder="firstName"
+                onChange={(e)=>setFirstName(e.target.value) }
+                value={firstName}
                 className="w-full sm:w-1/2 p-2 rounded bg-gray-800 text-white border border-gray-700"
               />
               <input
                 type="text"
-                placeholder="Last Name"
+                placeholder="lastName"
+                onChange={(e)=>setLastName(e.target.value)}
+                value={lastName}
                 className="w-full sm:w-1/2 p-2 rounded bg-gray-800 text-white border border-gray-700"
               />
             </div>
 
             <input
               type="email"
-              placeholder="Email Address"
+              placeholder="email"
+              onChange={(e)=>setEmail(e.target.value)}
+              value={email}
               className="w-full p-2 rounded bg-gray-800 text-white border border-gray-700"
             />
             <input
               type="password"
-              placeholder="Password"
+              placeholder="password"
+              onChange={(e)=>setPassword(e.target.value)}
+              value={password}
               className="w-full p-2 rounded bg-gray-800 text-white border border-gray-700"
             />
             <p className="text-xs text-gray-500">
@@ -117,7 +168,7 @@ const UserSignUp = () => {
               <label>Remember this device</label>
             </div>
 
-            <button className="w-full bg-cyan-500 text-black font-semibold py-2 rounded hover:bg-cyan-400 transition">
+            <button onClick={handleSubmit}  className="w-full bg-cyan-500 text-black font-semibold py-2 rounded hover:bg-cyan-400 transition">
               Create Account
             </button>
             <p className="text-sm text-gray-400 text-center mt-4">

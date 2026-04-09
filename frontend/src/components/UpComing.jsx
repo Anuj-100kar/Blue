@@ -11,11 +11,9 @@ const UpComing = () => {
   const isFullPage = location.pathname === '/ipo/upcoming-ipo';
 
   useEffect(() => {
-    axios.get(`${API_BASE_URL}/api/ipo`) // use live backend URL
-      .then((res) => {
-        console.log("API Data:", res.data);
-        const upcomingIpos = res.data.filter(ipo => ipo.status === 'upcoming');
-        setIpoData(upcomingIpos);
+    axios.get(`${API_BASE_URL}/api/ipo?status=upcoming`) // use live backend URL
+      .then((res) => {  
+        setIpoData(res.data);
         setLoading(false);
       })
       .catch((error) => {

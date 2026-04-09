@@ -1,6 +1,8 @@
 import React from 'react'
 import { FaChartPie, FaUsers, FaChartLine } from 'react-icons/fa';
 import { assets } from '../assets/assets';
+import {Link} from 'react-router-dom';
+
 
 
 const WhyLove = () => {
@@ -18,18 +20,18 @@ const WhyLove = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           {/* Left Side: Features */}
           <div className="flex flex-row space-x-6">
-            <div className='flex flex-col items-center'>
+            <Link to='/analytics' className='flex flex-col items-center'>
               <img src={assets.analytics} className='w-32 h-32 object-contain' alt="" />
               <p>Analytics</p>
-            </div>
-             <div className='flex flex-col items-center'>
+            </Link>
+             <Link to='/blogs' className='flex flex-col items-center'>
               <img src={assets.blogs} className='w-32 h-32 object-contain' alt="" />
               <p>Blogs</p>
-            </div>
-             <div className='flex flex-col items-center'>
+            </Link>
+             <Link to='/videos' className='flex flex-col items-center'>
               <img src={assets.videos} className='w-32 h-32 object-contain' alt="" />
               <p>Videos</p>
-            </div>
+            </Link>
           </div>
 
           {/* Right Side: Graphic */}

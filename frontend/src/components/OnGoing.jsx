@@ -11,7 +11,7 @@ const OnGoing = () => {
   const isFullPage = location.pathname === '/ipo/ongoing-ipo';
 
   useEffect(() => {
-    axios.get(`${API_BASE_URL}/api/ipo/ongoing-ipos`) // live backend URL
+    axios.get(`${API_BASE_URL}/api/ipo?status=ongoing`) // live backend URL
       .then((res) => {
         setIpoData(res.data);
         setLoading(false);

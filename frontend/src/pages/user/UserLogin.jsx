@@ -2,9 +2,47 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { assets } from '../../assets/assets';
 import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios';
+import { API_BASE_URL } from '../../config';
+import ProtectedRoute from '../../components/ProtectedRoute';
+
+
 
 const UserLogin = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [darkMode, setDarkMode] = useState(true);
+
+
+    const navigate = useNavigate();
+    const handlelogin = async (e) => {
+        e.preventDefault();
+        if (!email || !password) {
+            alert("Please fill all fields");
+            return;
+        }
+        try {
+
+            const res = await axios.post(`${API_BASE_URL}/api/user/login`, {
+                email, password
+            });
+
+            localStorage.setItem('token', res.data.token);
+            localStorage.setItem('user', JSON.stringify(res.data.user));
+
+            navigate('/user')
+            console.log(res.data);
+        } catch (error) {
+            console.error(error);
+            if (error.response?.status === 404) {
+                alert("User not found");
+            } else if (error.response?.status === 401) {
+                alert("Invalid password");
+            } else {
+                alert("Login failed ❌");
+            }
+        }
+    };
 
     useEffect(() => {
         const html = document.documentElement;
@@ -83,13 +121,18 @@ const UserLogin = () => {
                         <input
                             type="email"
                             placeholder="Email Address"
+                            onChange={(e) => setEmail(e.target.value)}
+                            value={email}
                             className="w-full p-2 rounded bg-gray-800 text-white border border-gray-700"
                         />
                         <input
                             type="password"
                             placeholder="Password"
+                            onChange={(e)=>setPassword(e.target.value)}
+                            value={password}
                             className="w-full p-2 rounded bg-gray-800 text-white border border-gray-700"
                         />
+                        
                         <p className="text-xs text-gray-500">
                             At least 8 characters, with numbers and symbols.
                         </p>
@@ -104,7 +147,8 @@ const UserLogin = () => {
                             </Link>
                         </div>
 
-                        <button className="w-full bg-cyan-500 text-black font-semibold py-2 rounded hover:bg-cyan-400 transition">
+                        <button type='submit' className="w-full bg-cyan-500 text-black font-semibold py-2 rounded hover:bg-cyan-400 transition"
+                        onClick={handlelogin}>
                             Login
                         </button>
                         <p className="text-sm text-gray-400 text-center mt-4">

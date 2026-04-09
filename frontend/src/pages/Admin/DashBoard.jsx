@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { FiEye, FiTrash2 } from 'react-icons/fi'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const DashBoard = () => {
+    const navigate=useNavigate();
     const [ipos,setIpos]=useState([]);
 
     useEffect(()=>{
@@ -20,7 +22,7 @@ const DashBoard = () => {
     <div className='p-4 min-h-screen bg-gray-100'>
         <div className='flex justify-between items-center mb-2'>
             <h2 className='font-semibold text-gray-700 text-xl '>Upcomming IPO | Dashboard</h2>
-            <button className='bg-blue-600 text-white px-5 py-2 rounded font-medium hover:bg-blue-700'>
+            <button onClick={()=>navigate('/admin/register')} className='bg-blue-600 text-white px-5 py-2 rounded font-medium hover:bg-blue-700'>
                 Register IPO
             </button>
         </div>
@@ -47,11 +49,11 @@ const DashBoard = () => {
                         <tr key={ipo.id} className='border-t hover:bg-gray-50'>
                             <td className='px-4 py-3 text-sm font-semibold text-gray-800'>{ipo.company_name}</td>
                             <td className='px-4 py-3 text-sm text-center'>{ipo.price_band}</td>
-                            <td className='px-4 py-3 text-sm text-center'>{ipo.open_date}</td>
-                            <td className='px-4 py-3 text-sm text-center'>{ipo.close_date}</td>
+                            <td className='px-4 py-3 text-sm text-center'>{ipo.open_date ? new Date(ipo.open_date).toLocaleDateString() : "-"}</td>
+                            <td className='px-4 py-3 text-sm text-center'>{ipo.close_date ? new Date(ipo.close_date).toLocaleDateString() : "-"}</td>
                             <td className='px-4 py-3 text-sm text-center'>{ipo.issue_size}</td>
                             <td className='px-4 py-3 text-sm text-center'>{ipo.issue_type}</td>
-                            <td className='px-4 py-3 text-sm text-center'>{ipo.listing_date}</td>
+                            <td className='px-4 py-3 text-sm text-center'>{ipo.listing_date ? new Date(ipo.listing_date).toLocaleDateString() : "-"}</td>
                             <td className='px-4 py-3 text-sm text-center'>
                                 <span className='bg-orange-100 text-orange-600 text-xs rounded-full px-3 py-1 '>
                                     {ipo.status || 'ongoing'}

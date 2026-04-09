@@ -12,7 +12,7 @@ const Listed = () => {
   const [ipoData, setIpoData] = useState([]);
 
   useEffect(() => {
-    axios.get(`${API_BASE_URL}/api/ipo/listed-ipos`) 
+    axios.get(`${API_BASE_URL}/api/ipo?status=listed`) 
       .then((res) => {
         setIpoData(res.data);
         setLoading(false);

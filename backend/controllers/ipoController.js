@@ -1,55 +1,92 @@
 const pool = require('../config/db');
-const fs=require('fs');
-const path=require('path');
+const fs = require('fs');
+const path = require('path');
 const { fetchLiveIPOs } = require("../services/IpoService");
 
 // Get all IPOs
 
-const getLiveIPOs = async (req, res) => {
-  try {
-    const data = await fetchLiveIPOs();
-    res.json(data);
-  } catch (error) {
-    res.status(500).json({ message: "Error fetching live IPOs" });
-  }
-};
 const getAllIPOs = async (req, res) => {
-
   try {
-    const result = await pool.query('SELECT * FROM ipo');
-    res.json(result.rows);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Server error' });
+    const { status } = req.query;
+
+    // 1. Get DB data
+    const dbdata = await pool.query('SELECT * FROM ipo');
+
+    // 2. Get live data (safe)
+    let livedata = [];
+    try {
+      livedata = await fetchLiveIPOs();
+    } catch (err) {
+      console.error("Live API failed:", err.message);
+      livedata = [];
+    }
+
+    // 3. FIX: Assign status to live IPOs (VERY IMPORTANT 🔥)
+    livedata = (livedata || []).map(ipo => ({
+      ...ipo,
+      status: "listed" // since your API gives closed IPOs
+    }));
+
+    // 4. Merge both
+    let combined = [...dbdata.rows, ...livedata];
+
+    // 5. Normalize status
+    combined = combined.map(ipo => ({
+      ...ipo,
+      status: ipo.status ? ipo.status.toLowerCase() : ""
+    }));
+
+    // 6. Filter if query exists
+    if (status) {
+      const filterStatus = status.toLowerCase();
+      combined = combined.filter(ipo => ipo.status === filterStatus);
+    }
+
+    // 7. Send response
+    res.json(combined);
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "server error" });
   }
 };
+// const getAllIPOs = async (req, res) => {
+
+//   try {
+//     const result = await pool.query('SELECT * FROM ipo');
+//     res.json(result.rows);
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).json({ error: 'Server error' });
+//   }
+// };
 
 //ongoing 
-const getOngoingIpos=async(req,res)=>{
-  try {
-    const result=await pool.query("SELECT * FROM ipo WHERE status='ongoing'");
-    console.log("IPO Data:", result.rows);
-    res.status(200).json(result.rows);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({error:'server error'});
-  }
-}
+// const getOngoingIpos=async(req,res)=>{
+//   try {
+//     const result=await pool.query("SELECT * FROM ipo WHERE status='ongoing'");
+//     console.log("IPO Data:", result.rows);
+//     res.status(200).json(result.rows);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({error:'server error'});
+//   }
+// }
 
-const getListedIpos = async (req, res) => {
-  try {
-    const result = await pool.query("SELECT * FROM ipo WHERE status='listed'");
-    console.log("IPO Data:", result.rows);
-    res.status(200).json(result.rows);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-};
+// const getListedIpos = async (req, res) => {
+//   try {
+//     const result = await pool.query("SELECT * FROM ipo WHERE status='listed'");
+//     console.log("IPO Data:", result.rows);
+//     res.status(200).json(result.rows);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: "Internal Server Error" });
+//   }
+// };
 
 // Add new IPO
 const addIPO = async (req, res) => {
-    const {
+  const {
     company_name,
     price_band,
     open_date,
@@ -84,8 +121,8 @@ const addIPO = async (req, res) => {
 
   const listingDateValue =
     listing_date &&
-    listing_date !== 'Not issued' &&
-    listing_date.trim() !== ''
+      listing_date !== 'Not issued' &&
+      listing_date.trim() !== ''
       ? listing_date
       : null;
 
@@ -106,7 +143,7 @@ const addIPO = async (req, res) => {
       : null;
 
 
-  
+
   try {
     const result = await pool.query(
       `
@@ -137,32 +174,32 @@ const addIPO = async (req, res) => {
   }
 };
 
-const deleteIpo=async(req,res)=>{
-  const id=req.params.id;
+const deleteIpo = async (req, res) => {
+  const id = req.params.id;
 
   try {
-    const result=await pool.query(`SELECT logo FROM ipo WHERE id=$1`,[id]);
+    const result = await pool.query(`SELECT logo FROM ipo WHERE id=$1`, [id]);
 
-    if(result.rows.length===0){
-      return res.status(404).json({error:'ipo not found'});
+    if (result.rows.length === 0) {
+      return res.status(404).json({ error: 'ipo not found' });
     }
 
-    const logoPath=result.rows[0].logo;
+    const logoPath = result.rows[0].logo;
 
-    await pool.query('DELETE FROM ipo WHERE id=$1',[id]);
+    await pool.query('DELETE FROM ipo WHERE id=$1', [id]);
 
-    if(logoPath){
-      const filePath=path.join(__dirname,'..',logoPath);
-      fs.unlink(filePath,(err)=>{
-        if(err){
+    if (logoPath) {
+      const filePath = path.join(__dirname, '..', logoPath);
+      fs.unlink(filePath, (err) => {
+        if (err) {
           console.error(err.message);
         }
       })
     }
-    res.status(200).json({message:'ipo deleted successfully'});
+    res.status(200).json({ message: 'ipo deleted successfully' });
   } catch (err) {
     console.error(err.message);
-    res.status(500).json({error:'server error'});
+    res.status(500).json({ error: 'server error' });
   }
 }
 const addListedIPO = async (req, res) => {
@@ -181,8 +218,8 @@ const addListedIPO = async (req, res) => {
 
   const listingDateValue =
     listing_date &&
-    listing_date !== 'Not issued' &&
-    listing_date.trim() !== ''
+      listing_date !== 'Not issued' &&
+      listing_date.trim() !== ''
       ? new Date(listing_date)
       : null;
 
@@ -206,7 +243,7 @@ const addListedIPO = async (req, res) => {
         cmp,
         current_return,
         status,
-        
+
       ]
     );
 
@@ -220,8 +257,7 @@ module.exports = {
   getAllIPOs,
   addIPO,
   deleteIpo,
-  getOngoingIpos,
-  getListedIpos,
+  // getOngoingIpos,
+  // getListedIpos,
   addListedIPO,
-  getLiveIPOs
 };

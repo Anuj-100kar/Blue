@@ -18,18 +18,30 @@ const AdminLogin = () => {
 
   const handlelogin = async (e) => {
     e.preventDefault();
-
+    if (!email || !password) {
+        alert("Please fill all fields");
+        return;
+      }
     try {
+      
       const res = await axios.post(`${API_BASE_URL}/api/admin/login`, {
         email, password
       });
 
-      localStorage.setItem('adminToken', res.data.token)
+      localStorage.setItem('token', res.data.token);
+      localStorage.setItem('adminData', JSON.stringify(res.data.admin));
 
       navigate('/admin/dashboard')
       console.log(res.data);
     } catch (error) {
-      console.error(error.message);
+      console.error(error);
+      if (error.response?.status === 404) {
+        alert("Admin not found");
+      } else if (error.response?.status === 401) {
+        alert("Invalid password");
+      } else {
+        alert("Login failed ❌");
+      }
     }
   };
 
@@ -100,7 +112,7 @@ const AdminLogin = () => {
         <div className='mt-4 text-center'>
           <p className='text-sm text-gray-600'>
             Don't have an account? {''}
-            <Link to="/admin/sign-up" className='text-blue-600 font-medium cursor-pointer' href='/admin/sign-up'>
+            <Link to="/admin/sign-up" className='text-blue-600 font-medium cursor-pointer' >
               create an account
             </Link>
           </p>

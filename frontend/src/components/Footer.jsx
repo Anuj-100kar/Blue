@@ -9,38 +9,49 @@ const Footer = () => {
         {
           [
             {
-              title:'Resources',
-              items:['Trading View','NSE Holidays','e-Voting CDSL','e-Voting NSDL','Market Timings'],
-              links:['/market-overview','#','#','#','#'],
+              title: 'Resources',
+              items: ['Trading View', 'NSE Holidays', 'e-Voting CDSL', 'e-Voting NSDL', 'Market Timings'],
+              links: ['https://www.tradingview.com/', 'https://www.nseindia.com/holidays-for-the-calendar-year',
+                'https://www.cdslindia.com/Investors/E-voting.html', 'https://www.evoting.nsdl.com/', 'https://www.nseindia.com/market-data/market-timings'],
             },
             {
-              title:'Company',
-              items:['Careers','Contact Us','About US','Community','Blogs'],
-              links:['/career','/contact-us','/about-us','/community','/blogs'],
+              title: 'Company',
+              items: ['Careers', 'Contact Us', 'About US', 'Community', 'Blogs'],
+              links: ['/career', '/contact-us', '/about-us', '/community', '/blogs'],
             },
             {
-              title:'Offerings',
-              items:['Compare Broker','Fin Calculators','IPO','All Brokers','Products'],
-              links:['/compare-brokers','#','/ipo','/brokers','/products'],
+              title: 'Offerings',
+              items: ['Compare Broker', 'Fin Calculators', 'IPO', 'All Brokers', 'Products'],
+              links: ['/compare-brokers', '#', '/ipo', '/brokers', '/products'],
             },
             {
-              title:'Links',
-              items:['Shark Investor','Mutual Funds','Sitemap','Indian Indices','Bug Bounty Program'],
-              links:['/shark-investor','/mutual-fund','#','#','#'],
+              title: 'Links',
+              items: ['Shark Investor', 'Mutual Funds', 'Sitemap', 'Indian Indices', 'Bug Bounty Program'],
+              links: ['/shark-investor', '/mutual-fund', '#', '#', '#'],
             },
             {
-              title:'Policy',
-              items:['Terms & Conditions','Privacy Policy','Refund Policy','Disclaimer','Trust & Security'],
-              links:['#','#','#','#','#'],
+              title: 'Policy',
+              items: ['Terms & Conditions', 'Privacy Policy', 'Refund Policy', 'Disclaimer', 'Trust & Security'],
+              links: ['#', '#', '#', '#', '#'],
             }
-          ].map((section,index)=>(
+          ].map((section, index) => (
             <ul key={index} className='min-w-[160px]'>
               <li className='font-semibold mb-3'>{section.title}</li>
-              {section.items.map((item,idx)=>(
-                <li key={idx} className='mb-2 text-gray-600 cursor-pointer'>
-                 <Link to={section.links[idx]}>{item}</Link> 
-                </li>
-              ))}
+              {section.items.map((item, idx) => {
+                const link = section.links[idx];
+
+                return (
+                  <li key={idx} className='mb-2 text-gray-600 cursor-pointer'>
+                    {link.startsWith("http") ? (
+                      <a href={link} target="_blank" rel="noopener noreferrer">
+                        {item}
+                      </a>
+                    ) : (
+                      <Link to={link}>{item}</Link>
+                    )}
+                  </li>
+                );
+              })}
 
             </ul>
           ))
@@ -50,12 +61,31 @@ const Footer = () => {
         {/*left */}
         <div className='flex flex-col space-y-4 w-full lg:w-1/3 pb-10 lg:pb-0'>
           <div className='flex gap-3'>
-            <img className='w-5 h-5 cursor-pointer' src={assets.xe} alt="" />
-            <img className='w-5 h-5 cursor-pointer' src={assets.facebook} alt="" />
-            <img className='w-5 h-5 cursor-pointer' src={assets.youtube} alt="" />
-            <img className='w-5 h-5 cursor-pointer' src={assets.linkdin} alt="" />
-            <img className='w-5 h-5 cursor-pointer' src={assets.instagram} alt="" />
-            <img className='w-5 h-5 cursor-pointer' src={assets.telegram} alt="" />
+
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer">
+              <img className='w-5 h-5 cursor-pointer' src={assets.xe} alt="" />
+            </a>
+
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+              <img className='w-5 h-5 cursor-pointer' src={assets.facebook} alt="" />
+            </a>
+
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+              <img className='w-5 h-5 cursor-pointer' src={assets.youtube} alt="" />
+            </a>
+
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <img className='w-5 h-5 cursor-pointer' src={assets.linkdin} alt="" />
+            </a>
+
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+              <img className='w-5 h-5 cursor-pointer' src={assets.instagram} alt="" />
+            </a>
+
+            <a href="https://telegram.org" target="_blank" rel="noopener noreferrer">
+              <img className='w-5 h-5 cursor-pointer' src={assets.telegram} alt="" />
+            </a>
+
           </div>
           <div className='flex items-center gap-2'>
             <img src={assets.logo} alt="" className='h-5 w-8' />
@@ -70,17 +100,17 @@ const Footer = () => {
           <img src={assets.startup} alt="" className='h-6 w-36 mt-2' />
         </div>
         {/*right */}
-  
+
         <div className='flex-[2] leading-relaxed space-y-4 text-sm'>
-            <p>Investment in securities markets are subject to market risks, read all the related documents carefully before investing as 
-              <br/>prescribed by SEBI. Issued in the interest of the investors.</p>
-            <p>The users can write to <span className='text-blue-600'>hello@bluestock.in</span> for any app, website related queries. Also you can send IT / Tech related feedback to
-            <br/><span className='text-blue-600'>cto@bluestock.in</span> </p>
-            <p><strong>Disclaimer:</strong> We are not a SEBI registered research analyst company. We do not provide any kind of stock recommendations, buy/ 
-            <br/>sell stock tips, or investment and trading advice. All the stock scripts shown in the Bluestock app, website, all social media handles
-            <br/> are for educational purposes only.</p>
-            <p>Before making any investment in the financial market, it is advisable to consult with your financial advisor. Remember that stock 
-              <br/>markets are subject to market risks.</p>
+          <p>Investment in securities markets are subject to market risks, read all the related documents carefully before investing as
+            <br />prescribed by SEBI. Issued in the interest of the investors.</p>
+          <p>The users can write to <span className='text-blue-600'>hello@bluestock.in</span> for any app, website related queries. Also you can send IT / Tech related feedback to
+            <br /><span className='text-blue-600'>cto@bluestock.in</span> </p>
+          <p><strong>Disclaimer:</strong> We are not a SEBI registered research analyst company. We do not provide any kind of stock recommendations, buy/
+            <br />sell stock tips, or investment and trading advice. All the stock scripts shown in the Bluestock app, website, all social media handles
+            <br /> are for educational purposes only.</p>
+          <p>Before making any investment in the financial market, it is advisable to consult with your financial advisor. Remember that stock
+            <br />markets are subject to market risks.</p>
         </div>
       </div>
       <div className='flex mt-8 pt-4 border-t md:flex-row text-xs justify-between items-center text-gray-500'>

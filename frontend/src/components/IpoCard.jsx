@@ -15,11 +15,17 @@ const IpoCard = ({
 
 }) => {
 
-    const handleDelete = async (id) => {
+const handleDelete = async (id) => {
   try {
-    await axios.delete(`http://localhost:5000/api/ipo/${id}`);
-    console.log('IPO deleted');
-    onDelete(); // refresh list
+    const token = localStorage.getItem("token");
+
+    await axios.delete(`http://localhost:5000/api/ipo/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+
+    onDelete();
   } catch (err) {
     console.error(err);
   }
@@ -28,7 +34,7 @@ const IpoCard = ({
         
         <div className='bg-white rounded-xl shadow p-6 flex flex-col gap-4 max-w-[542px] max-h-[450px]' >
             <div className='flex items-center gap-2 mb-3'>
-                <img src={`http://localhost:5000${logo}`} alt="" className='w-8 h-8 rounded-full object-cover' />
+                <img src={logo ? `http://localhost:5000${logo}` : "/default-logo.png"}  alt="" className='w-8 h-8 rounded-full object-cover' />
                 <h3 className='text-blue-500 font-semibold text-base leading-tight'>{name}</h3>
             </div>
             
@@ -40,11 +46,11 @@ const IpoCard = ({
                     </div>
                     <div className='flex flex-col items-start'>
                         <span className='text-xs font-semibold text-gray-500'>OPEN</span>
-                        <span className='text-gray-700'>{openDate}</span>
+                        <span className='text-gray-700'>{openDate ? new Date(openDate).toLocaleDateString() : "Not issued"}</span>
                     </div>
                     <div className='flex flex-col items-start'>
                         <span className='text-xs font-semibold text-gray-500'>CLOSE</span>
-                        <span className='text-gray-700'>{closeDate}</span>
+                        <span className='text-gray-700'>{closeDate ? new Date(closeDate).toLocaleDateString() : "Not issued"}</span>
                     </div>
                 
 
@@ -59,7 +65,7 @@ const IpoCard = ({
                     </div>
                     <div className='flex flex-col items-start'>
                         <span className='text-xs font-semibold text-gray-500'>LISTING DATE</span>
-                        <span className='text-gray-700'>{listingDate}</span>
+                        <span className='text-gray-700'>{listingDate ? new Date(listingDate).toLocaleDateString() : "Not issued"}</span>
                     </div>
                 </div>
 

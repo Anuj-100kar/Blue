@@ -46,11 +46,11 @@ const AppDownload = () => {
           </h3>
           <p className="mb-4 text-gray-600">Download our app:</p>
           <div className="flex justify-center gap-6">
-            <a href="#" className="flex items-center gap-2 border px-4 py-2 rounded-lg shadow hover:shadow-md">
+            <a href="https://www.apple.com/app-store/" className="flex items-center gap-2 border px-4 py-2 rounded-lg shadow hover:shadow-md">
               <FaGooglePlay className="text-green-600" />
               <span>Google Play</span>
             </a>
-            <a href="#" className="flex items-center gap-2 border px-4 py-2 rounded-lg shadow hover:shadow-md">
+            <a href="https://play.google.com/store" className="flex items-center gap-2 border px-4 py-2 rounded-lg shadow hover:shadow-md">
               <FaAppStoreIos className="text-black" />
               <span>App Store</span>
             </a>
