@@ -17,6 +17,7 @@ app.use("/api/ipo", require('./routes/ipoRoutes'));
 app.use('/api/admin',require('./routes/authRoutes'));
 app.use('/api/user',require('./routes/userRoutes'));
 app.use('/api/early-access',require('./routes/earlyAccess'));
+app.use('/api',require('./routes/applicationRoutes'));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

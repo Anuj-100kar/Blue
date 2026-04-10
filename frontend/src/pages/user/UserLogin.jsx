@@ -30,7 +30,7 @@ const UserLogin = () => {
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('user', JSON.stringify(res.data.user));
 
-            navigate('/user')
+            navigate('/ipo/upcoming-ipo')
             console.log(res.data);
         } catch (error) {
             console.error(error);

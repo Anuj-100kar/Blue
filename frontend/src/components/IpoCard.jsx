@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const IpoCard = ({
     id,
@@ -30,6 +31,7 @@ const handleDelete = async (id) => {
     console.error(err);
   }
 };
+const navigate=useNavigate();
     return (
         
         <div className='bg-white rounded-xl shadow p-6 flex flex-col gap-4 max-w-[542px] max-h-[450px]' >
@@ -73,7 +75,7 @@ const handleDelete = async (id) => {
             <div className='flex gap-3 justify-start flex-wrap'>
                 <button className='text-gray-800 px-4 py-2 bg-blue-200 text-xs rounded-md'>RHP</button>
                 <button className='text-gray-800 px-4 py-2 bg-blue-200 text-xs rounded-md'>DRHP</button>
-                <button onClick={()=>handleDelete(id)} className='text-white px-4 py-2 bg-red-400 text-xs rounded-md'>delete</button>
+                <button onClick={()=>navigate(`/ipo/apply/${id}`)} className='text-white px-4 py-2 bg-red-400 text-xs rounded-md'>Apply</button>
                 
             </div>
         </div>

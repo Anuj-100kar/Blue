@@ -175,33 +175,42 @@ const addIPO = async (req, res) => {
 };
 
 const deleteIpo = async (req, res) => {
-  const id = req.params.id;
+  const { id } = req.params;
 
   try {
-    const result = await pool.query(`SELECT logo FROM ipo WHERE id=$1`, [id]);
+    // 1. Check if IPO exists
+    const result = await pool.query(
+      "SELECT logo FROM ipo WHERE id=$1",
+      [id]
+    );
 
     if (result.rows.length === 0) {
-      return res.status(404).json({ error: 'ipo not found' });
+      return res.status(404).json({ error: "IPO not found" });
     }
 
     const logoPath = result.rows[0].logo;
 
-    await pool.query('DELETE FROM ipo WHERE id=$1', [id]);
+    // 2. Delete IPO from DB
+    await pool.query("DELETE FROM ipo WHERE id=$1", [id]);
 
+    // 3. Delete file if exists
     if (logoPath) {
-      const filePath = path.join(__dirname, '..', logoPath);
+      const filePath = path.join(__dirname, "..", logoPath);
+
       fs.unlink(filePath, (err) => {
-        if (err) {
-          console.error(err.message);
+        if (err && err.code !== "ENOENT") {
+          console.error("File delete error:", err.message);
         }
-      })
+      });
     }
-    res.status(200).json({ message: 'ipo deleted successfully' });
+
+    res.status(200).json({ message: "IPO deleted successfully" });
+
   } catch (err) {
     console.error(err.message);
-    res.status(500).json({ error: 'server error' });
+    res.status(500).json({ error: "Server error" });
   }
-}
+};
 const addListedIPO = async (req, res) => {
   const {
     company_name,

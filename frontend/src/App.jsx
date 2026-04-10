@@ -53,6 +53,8 @@ import Help from './pages/Admin/Help.jsx'
 import ApiManager from './pages/Admin/ApiManager.jsx'
 import Settings from './pages/Admin/Settings.jsx'
 import IpoAllotment from './pages/Admin/IpoAllotment.jsx'
+import ApplyIPO from './pages/ApplyIPO.jsx'
+import Applications from './pages/Applications.jsx'
 
 
 const App = () => {
@@ -73,6 +75,7 @@ const App = () => {
           <Route index element={<UserDashboard />} />
           <Route path='market-overview' element={<MarketOverview />} />
           <Route path='account-setting' element={<AccountSettings />} />
+          <Route path='applications' element={<Applications/>}/>
         </Route>
 
         <Route path='/' element={<UserLayout />}>
@@ -106,6 +109,8 @@ const App = () => {
             <Route path='ongoing-ipo' element={<OngoingIpos />} />
             <Route path='listed-ipo' element={<ListedIpos />} />
             <Route path='closed-ipo' element={<ClosedIpos />} />
+            <Route path='apply/:id' element={<ApplyIPO/>}/>
+            
 
           </Route>
         </Route>
