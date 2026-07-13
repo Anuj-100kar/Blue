@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { assets } from '../../assets/assets';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 import { API_BASE_URL } from '../../config';
 
 const UserSignUp = () => {
@@ -11,21 +12,23 @@ const UserSignUp = () => {
   const [lastName,setLastName]=useState('');
   const [email,setEmail]=useState('');
   const [password,setPassword]=useState('');
+  const [loading, setLoading] = useState(false);
 
   const navigate=useNavigate();
   const handleSubmit = async (e) => {
   e.preventDefault();
 
   if (!firstName || !lastName || !email || !password) {
-    alert("Please fill all fields");
+    toast.error("Please fill all fields");
     return;
   }
 
   if(password.length<8){
-    alert("password must be minimum of 8 characters");
+    toast.error("Password must be minimum of 8 characters");
     return;
   }
 
+  setLoading(true);
   try {
     const res = await axios.post(`${API_BASE_URL}/api/user/sign-up`, {
       firstName,
@@ -34,7 +37,7 @@ const UserSignUp = () => {
       password
     });
 
-    alert('Signup successful ✅');
+    toast.success('Signup successful ✅');
 
     navigate('/user/login');
 
@@ -43,7 +46,9 @@ const UserSignUp = () => {
   } catch (error) {
     console.error(error.response?.data);
 
-    alert(error.response?.data?.message || "Signup failed ❌");
+    toast.error(error.response?.data?.message || "Signup failed ❌");
+  } finally {
+    setLoading(false);
   }
 };
 
@@ -168,8 +173,13 @@ const UserSignUp = () => {
               <label>Remember this device</label>
             </div>
 
-            <button onClick={handleSubmit}  className="w-full bg-cyan-500 text-black font-semibold py-2 rounded hover:bg-cyan-400 transition">
-              Create Account
+            <button onClick={handleSubmit} disabled={loading} className="w-full bg-cyan-500 text-black font-semibold py-2 rounded hover:bg-cyan-400 transition flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
+              {loading ? (
+                <>
+                  <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+                  Creating...
+                </>
+              ) : "Create Account"}
             </button>
             <p className="text-sm text-gray-400 text-center mt-4">
               Already have an account?{" "}

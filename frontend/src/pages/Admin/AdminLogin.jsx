@@ -6,6 +6,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { assets } from '../../assets/assets'
 import axios from 'axios'
+import toast from 'react-hot-toast';
 import { API_BASE_URL } from '../../config';
 
 
@@ -13,15 +14,17 @@ const AdminLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showpassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const handlelogin = async (e) => {
     e.preventDefault();
     if (!email || !password) {
-        alert("Please fill all fields");
+        toast.error("Please fill all fields");
         return;
       }
+    setLoading(true);
     try {
       
       const res = await axios.post(`${API_BASE_URL}/api/admin/login`, {
@@ -31,17 +34,20 @@ const AdminLogin = () => {
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('adminData', JSON.stringify(res.data.admin));
 
+      toast.success("Welcome back Admin!");
       navigate('/admin/dashboard')
       console.log(res.data);
     } catch (error) {
       console.error(error);
       if (error.response?.status === 404) {
-        alert("Admin not found");
+        toast.error("Admin not found");
       } else if (error.response?.status === 401) {
-        alert("Invalid password");
+        toast.error("Invalid password");
       } else {
-        alert("Login failed ❌");
+        toast.error("Login failed ❌");
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -93,9 +99,14 @@ const AdminLogin = () => {
             <input type="checkbox" />
             <span>keep me signed in</span>
           </label>
-          <button type='submit' className='w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-800 transition-all'
+          <button type='submit' disabled={loading} className='w-full flex justify-center items-center gap-2 bg-blue-700 text-white py-2 rounded hover:bg-blue-800 transition-all disabled:opacity-70 disabled:cursor-not-allowed'
             onClick={handlelogin}>
-            Login
+            {loading ? (
+                <>
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    Logging in...
+                </>
+            ) : "Login"}
           </button>
 
         </div>

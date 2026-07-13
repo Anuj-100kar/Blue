@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { assets } from '../../assets/assets';
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
+import toast from 'react-hot-toast';
 import { API_BASE_URL } from '../../config';
 import ProtectedRoute from '../../components/ProtectedRoute';
 
@@ -12,15 +13,17 @@ const UserLogin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [darkMode, setDarkMode] = useState(true);
+    const [loading, setLoading] = useState(false);
 
 
     const navigate = useNavigate();
     const handlelogin = async (e) => {
         e.preventDefault();
         if (!email || !password) {
-            alert("Please fill all fields");
+            toast.error("Please fill all fields");
             return;
         }
+        setLoading(true);
         try {
 
             const res = await axios.post(`${API_BASE_URL}/api/user/login`, {
@@ -29,18 +32,21 @@ const UserLogin = () => {
 
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('user', JSON.stringify(res.data.user));
-
+            
+            toast.success("Login successful!");
             navigate('/ipo/upcoming-ipo')
             console.log(res.data);
         } catch (error) {
             console.error(error);
             if (error.response?.status === 404) {
-                alert("User not found");
+                toast.error("User not found");
             } else if (error.response?.status === 401) {
-                alert("Invalid password");
+                toast.error("Invalid password");
             } else {
-                alert("Login failed ❌");
+                toast.error("Login failed ❌");
             }
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -147,9 +153,14 @@ const UserLogin = () => {
                             </Link>
                         </div>
 
-                        <button type='submit' className="w-full bg-cyan-500 text-black font-semibold py-2 rounded hover:bg-cyan-400 transition"
+                        <button type='submit' disabled={loading} className="w-full bg-cyan-500 text-black font-semibold py-2 rounded hover:bg-cyan-400 transition flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                         onClick={handlelogin}>
-                            Login
+                            {loading ? (
+                                <>
+                                    <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+                                    Logging in...
+                                </>
+                            ) : "Login"}
                         </button>
                         <p className="text-sm text-gray-400 text-center mt-4">
                             Don’t have an account?{" "}

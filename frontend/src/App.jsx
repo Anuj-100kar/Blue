@@ -1,4 +1,5 @@
 import React from 'react'
+import { Toaster } from 'react-hot-toast';
 
 import AdminDashboard from './pages/Admin/AdminDashboard.jsx'
 import DashBoard from './pages/Admin/DashBoard.jsx'
@@ -61,6 +62,7 @@ const App = () => {
   return (
 
     <>
+      <Toaster position="top-right" />
       <ScrollTop />
       <Routes>
         <Route path='user/login' element={<UserLogin />} />

@@ -4,12 +4,14 @@ import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { FcGoogle } from 'react-icons/fc'
 import { assets } from '../../assets/assets';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 import { API_BASE_URL } from '../../config';
 
 const AdminSignUp = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -17,9 +19,10 @@ const AdminSignUp = () => {
   e.preventDefault();
 
   if (!name || !email || !password) {
-    alert("Please fill all fields");
+    toast.error("Please fill all fields");
     return;
   }
+  setLoading(true);
 
   try {
     const res = await axios.post(`${API_BASE_URL}/api/admin/sign-up`, {
@@ -28,7 +31,7 @@ const AdminSignUp = () => {
       password
     });
 
-    alert('Signup successful ✅');
+    toast.success('Signup successful ✅');
 
     navigate('/admin/login');
 
@@ -37,7 +40,9 @@ const AdminSignUp = () => {
   } catch (error) {
     console.error(error.response?.data);
 
-    alert(error.response?.data?.message || "Signup failed ❌");
+    toast.error(error.response?.data?.message || "Signup failed ❌");
+  } finally {
+    setLoading(false);
   }
 };
   const [showpassword, setShowPassword] = useState(false);
@@ -91,9 +96,14 @@ const AdminSignUp = () => {
           </div>
 
 
-          <button className='w-full bg-blue-700 text-white py-2 font-semibold rounded hover:bg-blue-800 transition-all'
+          <button disabled={loading} className='w-full flex justify-center items-center gap-2 bg-blue-700 text-white py-2 font-semibold rounded hover:bg-blue-800 transition-all disabled:opacity-70 disabled:cursor-not-allowed'
             onClick={handlesignup}>
-            Sign Up
+            {loading ? (
+                <>
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    Signing Up...
+                </>
+            ) : "Sign Up"}
           </button>
 
         </div>
